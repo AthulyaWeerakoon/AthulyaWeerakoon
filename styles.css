@@ -509,6 +509,12 @@ a {
   justify-content: center;
 }
 
+.adventurer-crop a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .adventurer-crop img {
   max-height: 315px;
   transform: translateY(0);
