@@ -8,7 +8,7 @@ These days, I am especially drawn toward security engineering, platform work, ba
 
 You can find my portfolio, projects, writing, and CV here:
 
-- Portfolio: [athulyaweerakoon.github.io](https://athulyaweerakoon.github.io)
+- Portfolio: [athulyaweerakoon.xyz](https://athulyaweerakoon.xyz)
 - GitHub: [@AthulyaWeerakoon](https://github.com/AthulyaWeerakoon)
 - Medium: [@athulyaweerakoon](https://medium.com/@athulyaweerakoon)
 
