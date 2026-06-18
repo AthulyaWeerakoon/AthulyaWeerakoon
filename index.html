@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Athulya Weerakoon | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+</head>
+<body>
+  <div class="image-container">
+    <img src="assets/images/web-background-01.png" alt="" class="back-images" id="backimg1">
+    <div class="overlay fog" id="overlay1"></div>
+    <img src="assets/images/web-background-02.png" alt="" class="back-images" id="backimg2">
+    <div class="overlay fog" id="overlay2"></div>
+    <img src="assets/images/web-background-03.png" alt="" class="back-images" id="backimg3">
+    <div class="overlay fog" id="overlay3"></div>
+    <img src="assets/images/web-background-04.png" alt="" class="back-images" id="backimg4">
+    <div class="overlay fog" id="overlay4"></div>
+    <img src="assets/images/web-background-05.png" alt="" class="back-images" id="backimg5">
+    <div class="overlay fog" id="overlay5"></div>
+  </div>
+
+  <div id="particle-layer"></div>
+
+  <main class="portfolio">
+    <header class="topbar glass" data-aos="fade-down" data-aos-duration="600">
+      <a href="#about" class="brand">Athulya Weerakoon</a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#articles">Articles</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+      </nav>
+      <div class="topbar-actions">
+        <a href="https://github.com/AthulyaWeerakoon" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/athulya-weerakoon" target="_blank" rel="noopener noreferrer" class="icon-btn" aria-label="LinkedIn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </a>
+        <a href="mailto:athulyaweerakoon@gmail.com" class="icon-btn" aria-label="Email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="assets/Athulya_Weerakoon_CV.pdf" download class="btn btn-ghost">CV</a>
+        <button id="mode-toggle" class="icon-btn mode-toggle" aria-label="Toggle light and dark mode">
+          <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </div>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <section id="about" class="section hero">
+      <div class="container">
+        <div class="hero-content glass" data-aos="fade-up" data-aos-duration="800">
+          <p class="eyebrow">Hi, welcome to my portfolio.</p>
+          <h1 class="hero-title">Athulya <em>Weerakoon</em></h1>
+          <p class="hero-lead">Fresh graduate with First Class Honours, building across software, infrastructure, and cybersecurity while steadily growing toward <strong>security engineering</strong>.</p>
+          <div class="intro-copy" id="intro-copy">
+            <p class="hero-body intro-summary">A jack of all traits trying to master one ~</p>
+            <div class="intro-expanded" id="intro-expanded" hidden>
+              <p>I like building things that are useful, understandable, and sturdy enough to survive real users. My work has moved through Open Banking platforms at WSO2, cloud and DevOps systems, FPGA games, Rust tooling, and LLM-powered applications.</p>
+              <p>I care about doing things the right way, not just the quick way. Before reaching for a shiny new solution, I like understanding how the current wheel works, where it wobbles, and what would actually make it roll better. I have come a long way, but the road ahead is longer yet, and that is the part I enjoy.</p>
+              <p>Security engineering feels like a natural home for that mindset. I enjoy adversarial thinking: asking what can break, what can be misused, and what happens on the worst day instead of the demo day. My goal is not only to build systems that work, but systems that stay calm when the world gets inconvenient.</p>
+              <p>If something here feels aligned with what you are building, I would be happy to hear from you. I am open to thoughtful opportunities, good technical conversations, and work that leaves me a little sharper than it found me.</p>
+              <p>Have a good day, stranger.</p>
+            </div>
+            <button class="intro-toggle" type="button" aria-expanded="false" aria-controls="intro-expanded">
+              <span>More intro</span>
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+          </div>
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-primary">View projects</a>
+            <a href="https://medium.com/@athulyaweerakoon" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Medium</a>
+          </div>
+        </div>
+        <div class="weather-card glass" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+          <div class="weather-adventurer">
+	    <div class="adventurer-crop">
+	      <img src="assets/images/adventurer_fire_idle.gif"/>
+	    </div>
+	  </div>
+          <span class="weather-label">Change the weather and feel at home</span>
+          <div class="weather-options" aria-label="Weather effect">
+            <button class="weather-btn" type="button" data-weather="normal" aria-pressed="false">Clear</button>
+            <button class="weather-btn" type="button" data-weather="rain" aria-pressed="false">Rain</button>
+            <button class="weather-btn" type="button" data-weather="snow" aria-pressed="false">Snow</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="articles" class="section">
+      <div class="container">
+        <header class="section-header" data-aos="fade-up">
+          <span class="section-tag">Writing</span>
+          <h2>Medium articles</h2>
+        </header>
+        <div class="article-grid" id="article-grid">
+          <article class="article-card glass" data-article>
+            <div class="article-meta">
+              <time datetime="2026-02-09">Feb 9, 2026</time>
+              <span>Computer vision</span>
+            </div>
+            <h3><a href="https://medium.com/@athulyaweerakoon/i-tried-efficientnets-scaling-trick-on-shufflenet-3cf0d14e1107" target="_blank" rel="noopener noreferrer">I Tried EfficientNet’s Scaling Trick on ShuffleNet</a></h3>
+            <p>A curious, hands-on experiment with compound scaling: taking the EfficientNet idea of balancing depth, width, and resolution, then trying it on the lightweight ShuffleNetV2b architecture. An article reading like lab notebook, moving from the theory behind CNN scaling into implementation, tuning, and what the results suggest.</p>
+            <div class="tags"><span>CNN</span><span>EfficientNet</span><span>ShuffleNet</span><span>Scaling</span></div>
+          </article>
+          <article class="article-card glass" data-article>
+            <div class="article-meta">
+              <time datetime="2025-09-22">Sep 22, 2025</time>
+              <span>Deployment</span>
+            </div>
+            <h3><a href="https://medium.com/@athulyaweerakoon/github-for-https-web-hosting-ci-cd-ec3fcb49eec5" target="_blank" rel="noopener noreferrer">GitHub for HTTPS web hosting CI/CD</a></h3>
+            <p>A practical walkthrough for turning GitHub Actions into a secure deployment pipeline for web hosting. The article connects Docker, AWS EC2, Cloudflare origin certificates, and repository secrets into a repeatable flow, with the kind of careful notes that come from actually building and debugging the setup.</p>
+            <div class="tags"><span>GitHub Actions</span><span>Docker</span><span>HTTPS</span><span>AWS EC2</span></div>
+          </article>
+          <article class="article-card glass" data-article>
+            <div class="article-meta">
+              <time datetime="2025-09-22">Sep 22, 2025</time>
+              <span>Infrastructure</span>
+            </div>
+            <h3><a href="https://medium.com/@athulyaweerakoon/cheap-and-reliable-web-hosting-with-aws-cloudflare-namecheap-5727c22ec30c" target="_blank" rel="noopener noreferrer">Cheap and reliable web hosting with AWS + Cloudflare + Namecheap</a></h3>
+            <p>A grounded guide to hosting personal web apps when static hosting is not quite enough. It covers buying a domain, connecting Namecheap and Cloudflare, setting up an AWS instance, keeping HTTPS in the loop, and using Cloudflare Workers for routing, all with a friendly reminder to keep an eye on cost and security.</p>
+            <div class="tags"><span>AWS EC2</span><span>Cloudflare</span><span>Namecheap</span><span>Web hosting</span></div>
+          </article>
+        </div>
+        <div class="article-separator" id="articles-separator">
+          <span></span>
+          <button class="btn btn-ghost see-more" id="articles-see-more" type="button">See more</button>
+          <span></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <header class="section-header" data-aos="fade-up">
+          <span class="section-tag">Work</span>
+          <h2>Project highlights</h2>
+        </header>
+        <div class="project-grid">
+          <a href="https://github.com/AthulyaWeerakoon/reference-implementation-nextgenpsd2" target="_blank" rel="noopener noreferrer" class="project-card glass" data-aos="fade-up" data-aos-delay="0">
+            <h3>OBL UK &amp; NextGenPSD2 Open Banking Toolkits</h3>
+            <p>Battle-tested Open Banking reference implementations on WSO2 Financial Services Accelerator extensions.</p>
+            <div class="tags"><span>Java</span><span>Maven</span><span>OSGi</span><span>WSO2 API Manager</span><span>WSO2 IS</span></div>
+          </a>
+          <a href="https://github.com/wso2/financial-services-accelerator/pull/716" target="_blank" rel="noopener noreferrer" class="project-card glass" data-aos="fade-up" data-aos-delay="200">
+            <h3>Consent Authorization Page</h3>
+            <p>Redesigned consent authorization for greater customization across NextGenPSD2 Open Banking use cases.</p>
+            <div class="tags"><span>JSP</span><span>Security</span><span>OAuth2</span></div>
+          </a>
+          <a href="https://github.com/AthulyaWeerakoon/ExamRegistrationUoJ" target="_blank" rel="noopener noreferrer" class="project-card glass" data-aos="fade-up" data-aos-delay="100">
+            <h3>Exam Registration Portal</h3>
+            <p>University exam registration with cloud deployment and GitHub Actions CI/CD.</p>
+            <div class="tags"><span>ASP.NET</span><span>Blazor</span><span>AWS</span><span>Docker</span></div>
+          </a>
+          <a href="https://github.com/AthulyaWeerakoon/rustic-log-furnace" target="_blank" rel="noopener noreferrer" class="project-card glass" data-aos="fade-up" data-aos-delay="100">
+            <h3>Rustic Log Furnace</h3>
+            <p>A simple high performance pipelined log processor written in Rust.</p>
+            <div class="tags"><span>Rust</span><span>Multi-threading</span></div>
+          </a>
+          <a href="https://github.com/AthulyaWeerakoon/SinhalaConstitutionRAG" target="_blank" rel="noopener noreferrer" class="project-card glass" data-aos="fade-up" data-aos-delay="0">
+            <h3>Sri Lankan Constitution Chatbot</h3>
+            <p>RAG-based Sinhala chatbot using LLMs, Transformers, and QLoRA fine-tuning.</p>
+            <div class="tags"><span>LLMs</span><span>RAG</span><span>QLoRA</span></div>
+          </a>
+          <a href="https://github.com/AthulyaWeerakoon/FlappyBirdVerilog" target="_blank" rel="noopener noreferrer" class="project-card glass" data-aos="fade-up" data-aos-delay="100">
+            <h3>Flappy Bird on FPGA</h3>
+            <p>Verilog game with VGA output on the DE2-115 development board.</p>
+            <div class="tags"><span>Verilog</span><span>VGA</span><span>FPGA</span></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <header class="section-header" data-aos="fade-up">
+          <span class="section-tag">Career</span>
+          <h2>Experience</h2>
+        </header>
+        <article class="experience-card glass" data-aos="fade-up" data-aos-delay="100">
+          <div class="experience-meta">
+            <div>
+              <h3>Intern Software Engineer</h3>
+              <p class="company">WSO2 · Sri Lanka</p>
+            </div>
+            <time datetime="2024-02/2024-08">Feb 2024 — Aug 2024</time>
+          </div>
+          <p class="experience-intro">Contributed to the Financial Services Accelerator 4.0 release — Open Banking compliant extensions and core platform features.</p>
+          <ul>
+            <li>Battle tested new Accelerator Extensions by rewriting OBIE and NextGenPSD2 Open Banking toolkits.</li>
+            <li>Resolved critical and minor defects within the Accelerator platform.</li>
+            <li>Redesigned the consent authorization module for NextGenPSD2 customization.</li>
+            <li>Authored technical documentation and implemented JUnit unit and Groovy integration tests.</li>
+          </ul>
+        </article>
+        <article class="experience-card glass mt-5" data-aos="fade-up" data-aos-delay="100">
+          <div class="experience-meta">
+            <div>
+              <h3>DevOps Engineer</h3>
+              <p class="company">Virtual System Solutions · Sri Lanka</p>
+            </div>
+            <time datetime="2025-02">Since Feb 2025</time>
+          </div>
+          <p class="experience-intro">Contributed to Site Reliability, System Security, Deployment Automation and Deployment Observability.</p>
+          <ul>
+            <li>Wrote multi-tenancy middleware for cloud-native ANT Enterprise Resource Planning system and containerized its deployment.</li>
+            <li>Designed and implemented a centralized Identity and Access Management solution for identity handling across multiple major products.</li>
+            <li>Adopted and integrated system for log centralization and system observability for developers.</li>
+            <li>Automated backup management and provisioning for concerned customers.</li>
+            <li>Designed a secure handshake flow for secure over-the-browser Add-on integration with the main product.</li>
+            <li>Designed a reliable self-hosting solution for scalability through product containerization, database cluster management and decentralized self-hosted S3 bucket solutions.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <header class="section-header" data-aos="fade-up">
+          <span class="section-tag">Expertise</span>
+          <h2>Skills</h2>
+        </header>
+        <div class="skills-grid">
+          <div class="skill-card glass" data-aos="zoom-in" data-aos-delay="0">
+            <h3>Backend &amp; Platform</h3>
+            <p>Java, OSGi, PHP, Laravel, dotNET</p>
+          </div>
+          <div class="skill-card glass" data-aos="zoom-in" data-aos-delay="50">
+            <h3>Cloud &amp; DevOps</h3>
+            <p>AWS, Docker, Docker Compose, CI/CD, Grafana, Garage, Jenkins</p>
+          </div>
+          <div class="skill-card glass" data-aos="zoom-in" data-aos-delay="100">
+            <h3>Network &amp; API Security</h3>
+            <p>Open Banking security, OAuth2, API hardening, secure auth flows</p>
+          </div>
+          <div class="skill-card glass" data-aos="zoom-in" data-aos-delay="150">
+            <h3>AI / ML</h3>
+            <p>LLMs, RAG, Transformers, QLoRA</p>
+          </div>
+          <div class="skill-card glass" data-aos="zoom-in" data-aos-delay="200">
+            <h3>Embedded Systems</h3>
+            <p>C, Rust, hardware–software integration</p>
+          </div>
+          <div class="skill-card glass" data-aos="zoom-in" data-aos-delay="250">
+            <h3>VLSI Design</h3>
+            <p>FPGA development, Verilog, digital logic design</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <header class="section-header" data-aos="fade-up">
+          <span class="section-tag">Background</span>
+          <h2>Education &amp; credentials</h2>
+        </header>
+        <div class="education-grid">
+          <article class="edu-card glass" data-aos="fade-right">
+            <div class="edu-meta">
+              <h3>BSc Computer Science and Engineering</h3>
+              <time datetime="2020-04/2025-09">Apr 2020 — Sep 2025</time>
+            </div>
+            <p class="edu-school">University of Jaffna, Sri Lanka</p>
+            <p class="edu-detail">First Class Honours · GPA 3.71</p>
+          </article>
+          <article class="edu-card glass" data-aos="fade-up" data-aos-delay="100">
+            <h3>Activities</h3>
+            <p>Secretary, Computer Engineering Society (2025)</p>
+          </article>
+          <article class="edu-card glass" data-aos="fade-up" data-aos-delay="200">
+            <h3>Certifications</h3>
+            <p>Google Cybersecurity Professional Certificate</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer glass" data-aos="fade-up">
+      <div class="container footer-inner">
+        <p>&copy; 2026 Athulya Weerakoon</p>
+        <div class="footer-links">
+          <a href="mailto:athulyaweerakoon@gmail.com">athulyaweerakoon@gmail.com</a>
+          <a href="https://github.com/AthulyaWeerakoon" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="assets/Athulya_Weerakoon_CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="scripts/globals.js"></script>
+  <script src="scripts/util.js"></script>
+  <script src="scripts/section-scroll.js"></script>
+  <script src="scripts/backdrop-scroll-control.js"></script>
+  <script src="scripts/theme-control.js"></script>
+  <script src="scripts/particle-control.js"></script>
+  <script src="scripts/page-control.js"></script>
+  <script>
+    AOS.init({ duration: 700, easing: "ease-out-cubic", once: true, offset: 60 });
+  </script>
+</body>
+</html>
