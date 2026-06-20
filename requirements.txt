@@ -1,8 +1,8 @@
+gradio
+google-genai
+groq
 torch
 transformers
 sentence-transformers
 faiss-cpu
 numpy
-google-genai
-gradio
-groq
