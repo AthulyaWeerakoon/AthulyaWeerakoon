@@ -31,6 +31,8 @@ Athulya enjoys adversarial thinking: asking what can break, what can be misused,
 
 ## Experience
 
+Experience summary: Athulya has professional experience as an Intern Software Engineer at WSO2 in Sri Lanka from February 2024 to August 2024, and as a DevOps Engineer at Virtual System Solutions in Sri Lanka since February 2025. At WSO2, he worked on the WSO2 Financial Services Accelerator 4.0 release, Open Banking compliant extensions, OBIE and NextGenPSD2 toolkits, consent authorization customization, defects, documentation, JUnit tests, and Groovy integration tests. At Virtual System Solutions, he works on site reliability, system security, deployment automation, observability, multi-tenancy middleware, centralized Identity and Access Management, backup automation, secure browser add-on handshake design, containerization, database cluster management, and self-hosted S3-style storage.
+
 ### Intern Software Engineer, WSO2, Sri Lanka
 
 Period: February 2024 to August 2024
@@ -107,6 +109,8 @@ VLSI design:
 - Digital logic design
 
 ## Project Highlights
+
+Project summary: Athulya's project highlights include OBL UK And NextGenPSD2 Open Banking Toolkits, Consent Authorization Page, Exam Registration Portal, Rustic Log Furnace, Sri Lankan Constitution Chatbot, and Flappy Bird On FPGA. These projects cover Open Banking reference implementations, secure consent authorization, ASP.NET and Blazor exam registration with AWS Docker and GitHub Actions CI/CD, a Rust multi-threaded pipelined log processor, a Sinhala RAG chatbot using LLMs Transformers and QLoRA, and a Verilog VGA Flappy Bird game on the DE2-115 FPGA board.
 
 ### OBL UK And NextGenPSD2 Open Banking Toolkits
 
@@ -205,6 +209,8 @@ Technologies and concepts:
 Useful response angle: highlight the hardware-software boundary, digital systems knowledge, and making a playable game with low-level constraints.
 
 ## Writing
+
+Athulya writes on Medium at https://medium.com/@athulyaweerakoon. Current Medium articles: Why Every Developer Should Learn Rust, about software engineering discipline, explicit contracts, Rust-shaped thinking, ownership, mutability, failure, boundaries, and guarantees; I Tried EfficientNet's Scaling Trick On ShuffleNet, about computer vision, CNN scaling, EfficientNet-style compound scaling, ShuffleNetV2b, implementation, tuning, and results; GitHub For HTTPS Web Hosting CI/CD, about GitHub Actions, Docker, AWS EC2, Cloudflare origin certificates, repository secrets, HTTPS, and repeatable deployment; Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap, about practical web hosting, domains, Namecheap, Cloudflare, AWS EC2, HTTPS, and Cloudflare Workers routing.
 
 ### Why Every Developer Should Learn Rust
 
