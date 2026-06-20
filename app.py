@@ -76,8 +76,8 @@ def respond(message: str, history: list[dict] | None = None):
 
 demo = gr.ChatInterface(
     fn=respond,
-    title="Huggy T.H.A.F.A",
-    description="Huggy The Huggingface Assistant For Athulya.",
+    title="Huggy",
+    description="Athulya's portfolio assistant.",
     type="messages",
 )
 
