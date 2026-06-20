@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from dataclasses import dataclass
 from datetime import datetime, timezone
@@ -22,6 +23,10 @@ MAX_CHUNK_WORDS = 140
 MIN_CHUNK_WORDS = 8
 OVERLAP_WORDS = 22
 SKIP_TOP_LEVEL_SECTIONS = {"Future Additions"}
+
+
+def env_truthy(name: str) -> bool:
+    return os.environ.get(name, "").lower() in {"1", "true", "yes", "on"}
 
 
 @dataclass
@@ -133,8 +138,13 @@ def build_chunks(blocks: list[RawBlock], source: Path) -> list[dict]:
     return chunks
 
 
-def encode(model_name: str, texts: list[str], batch_size: int) -> np.ndarray:
-    model = SentenceTransformer(model_name, device="cpu")
+def encode(
+    model_name: str,
+    texts: list[str],
+    batch_size: int,
+    local_files_only: bool = False,
+) -> np.ndarray:
+    model = SentenceTransformer(model_name, device="cpu", local_files_only=local_files_only)
     vectors = model.encode(
         texts,
         batch_size=batch_size,
@@ -151,6 +161,7 @@ def main() -> None:
     parser.add_argument("--out-dir", type=Path, default=DEFAULT_OUT_DIR)
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--batch-size", type=int, default=32)
+    parser.add_argument("--local-files-only", action="store_true")
     args = parser.parse_args()
 
     blocks = markdown_blocks(args.source)
@@ -158,7 +169,12 @@ def main() -> None:
     if not chunks:
         raise SystemExit("No chunks generated.")
 
-    vectors = encode(args.model, [chunk["embedding_text"] for chunk in chunks], args.batch_size)
+    vectors = encode(
+        args.model,
+        [chunk["embedding_text"] for chunk in chunks],
+        args.batch_size,
+        local_files_only=args.local_files_only or env_truthy("RAG_LOCAL_FILES_ONLY"),
+    )
     index = faiss.IndexFlatIP(vectors.shape[1])
     index.add(vectors)
 

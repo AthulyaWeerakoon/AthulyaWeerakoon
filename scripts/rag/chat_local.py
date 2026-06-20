@@ -126,7 +126,7 @@ def main() -> None:
         retrieved_context = render_context(results)
         if args.show_context:
             print("\n[retrieved context]")
-            print(retrieved_context or "<empty>")
+            print(render_context(results, include_scores=True) or "<empty>")
             print("[/retrieved context]\n")
         prompt = build_prompt(message, chatbot_context, retrieved_context)
         reply = generate_reply(
