@@ -1,0 +1,61 @@
+name: Sync Hugging Face Space
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  sync-space:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push to Hugging Face Space
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          HF_SPACE_REPO: ${{ secrets.HF_SPACE_REPO }}
+        run: |
+          if [ -z "$HF_TOKEN" ] || [ -z "$HF_SPACE_REPO" ]; then
+            echo "HF_TOKEN and HF_SPACE_REPO secrets are required."
+            exit 1
+          fi
+
+          mkdir -p /tmp/huggy-space
+          rsync -a --delete \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='__pycache__' \
+            ./ /tmp/huggy-space/
+
+          cat > /tmp/huggy-space/README.md <<'EOF'
+          ---
+          title: Huggy T.H.A.F.A
+          emoji: 🤗
+          colorFrom: blue
+          colorTo: green
+          sdk: gradio
+          sdk_version: 5.0.0
+          app_file: app.py
+          pinned: false
+          ---
+
+          # Huggy T.H.A.F.A
+
+          Huggy The Huggingface Assistant For Athulya.
+          EOF
+
+          cd /tmp/huggy-space
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Sync Huggy Space"
+          git branch -M main
+          git remote add huggingface "https://hf:${HF_TOKEN}@huggingface.co/spaces/${HF_SPACE_REPO}"
+          git push --force huggingface main
