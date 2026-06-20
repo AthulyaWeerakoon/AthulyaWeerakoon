@@ -1,0 +1,235 @@
+#!/usr/bin/env python3
+"""Huggy chat runner using Gemini plus retrieved portfolio context."""
+
+from __future__ import annotations
+
+import argparse
+import os
+import sys
+import time
+from pathlib import Path
+from typing import Iterable
+
+from commands import match_frontend_command
+
+
+DEFAULT_MODEL = "gemini-2.5-flash"
+DEFAULT_CHATBOT_CONTEXT = Path("knowledge/huggy-chatbot-context.md")
+DEFAULT_ARTIFACT_DIR = Path("rag_artifacts")
+DEFAULT_MAX_CHUNKS = 6
+DEFAULT_SCORE_THRESHOLD = 0.34
+DEFAULT_MAX_OUTPUT_TOKENS = 320
+DEFAULT_TIMEOUT_MS = 20_000
+DEFAULT_THINKING_LEVEL = ""
+
+
+def read_text(path: Path) -> str:
+    return path.read_text(encoding="utf-8").strip()
+
+
+def log(message: str, verbose: bool) -> None:
+    if verbose:
+        print(message, file=sys.stderr, flush=True)
+
+
+def log_elapsed(label: str, start_time: float, verbose: bool) -> None:
+    log(f"{label} in {time.perf_counter() - start_time:.2f}s.", verbose)
+
+
+def build_prompt(
+    user_message: str,
+    chatbot_context: str,
+    retrieved_context: str,
+) -> str:
+    context_block = retrieved_context if retrieved_context else "<no relevant context found>"
+    return f"""You are answering as Huggy.
+
+CHATBOT INSTRUCTIONS:
+{chatbot_context}
+
+RETRIEVED KNOWLEDGE:
+{context_block}
+
+USER MESSAGE:
+{user_message}
+
+Answer using only the retrieved knowledge and chatbot instructions. If the retrieved knowledge is empty or does not answer the question, say that the answer is not in the current corpus. If a frontend command is appropriate, output only the command."""
+
+
+class HuggyGemini:
+    def __init__(
+        self,
+        *,
+        api_key: str | None = None,
+        model: str = DEFAULT_MODEL,
+        artifact_dir: Path = DEFAULT_ARTIFACT_DIR,
+        chatbot_context_path: Path = DEFAULT_CHATBOT_CONTEXT,
+        max_chunks: int = DEFAULT_MAX_CHUNKS,
+        score_threshold: float = DEFAULT_SCORE_THRESHOLD,
+        max_output_tokens: int = DEFAULT_MAX_OUTPUT_TOKENS,
+        timeout_ms: int = DEFAULT_TIMEOUT_MS,
+        thinking_level: str = DEFAULT_THINKING_LEVEL,
+        verbose: bool = False,
+        local_files_only: bool | None = None,
+    ) -> None:
+        self.api_key = api_key or os.environ.get("GEMINI_API_KEY")
+        if not self.api_key:
+            raise RuntimeError("GEMINI_API_KEY is not set.")
+
+        started_at = time.perf_counter()
+        log("Initializing Gemini client...", verbose)
+        from google import genai
+        from google.genai import types
+
+        self.types = types
+        self.client = genai.Client(
+            api_key=self.api_key,
+            http_options=types.HttpOptions(timeout=timeout_ms),
+        )
+        log_elapsed("Initialized Gemini client", started_at, verbose)
+
+        self.model = model
+        self.verbose = verbose
+        self.chatbot_context = read_text(chatbot_context_path)
+
+        started_at = time.perf_counter()
+        log("Loading RAG retriever...", verbose)
+        from fetch_context import Retriever
+
+        self.retriever = Retriever(
+            artifact_dir,
+            verbose=verbose,
+            local_files_only=local_files_only,
+        )
+        log_elapsed("Loaded RAG retriever", started_at, verbose)
+
+        self.max_chunks = max_chunks
+        self.score_threshold = score_threshold
+        self.max_output_tokens = max_output_tokens
+        self.thinking_level = thinking_level
+
+    def retrieved_context_for(self, message: str, include_scores: bool = False) -> str:
+        started_at = time.perf_counter()
+        log("Fetching relevant RAG context...", self.verbose)
+        results = self.retriever.fetch(message, self.max_chunks, self.score_threshold)
+        log_elapsed(f"Retrieved {len(results)} chunk(s)", started_at, self.verbose)
+        from fetch_context import render_context
+
+        return render_context(results, include_scores=include_scores)
+
+    def prompt_for(self, message: str) -> str:
+        return build_prompt(message, self.chatbot_context, self.retrieved_context_for(message))
+
+    def _contents_for(self, message: str) -> list:
+        return [
+            self.types.Content(
+                role="user",
+                parts=[self.types.Part.from_text(text=self.prompt_for(message))],
+            )
+        ]
+
+    def _config(self):
+        config_kwargs = {"max_output_tokens": self.max_output_tokens}
+        if self.thinking_level:
+            config_kwargs["thinking_config"] = self.types.ThinkingConfig(
+                thinking_level=self.thinking_level
+            )
+        return self.types.GenerateContentConfig(**config_kwargs)
+
+    def stream(self, message: str) -> Iterable[str]:
+        if command := match_frontend_command(message):
+            log(f"Matched frontend command: {command}", self.verbose)
+            yield command
+            return
+
+        contents = self._contents_for(message)
+        started_at = time.perf_counter()
+        log(f"Calling Gemini model: {self.model}", self.verbose)
+        received_first_chunk = False
+        for chunk in self.client.models.generate_content_stream(
+            model=self.model,
+            contents=contents,
+            config=self._config(),
+        ):
+            if text := chunk.text:
+                if not received_first_chunk:
+                    log_elapsed("Received first Gemini chunk", started_at, self.verbose)
+                    received_first_chunk = True
+                yield text
+        log_elapsed("Finished Gemini response", started_at, self.verbose)
+
+    def answer(self, message: str) -> str:
+        return "".join(self.stream(message)).strip()
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Try Huggy locally with Gemini and RAG context.")
+    parser.add_argument("message", nargs="?", help="User message. Omit for interactive mode.")
+    parser.add_argument("--model", default=os.environ.get("GEMINI_MODEL", DEFAULT_MODEL))
+    parser.add_argument("--artifact-dir", type=Path, default=DEFAULT_ARTIFACT_DIR)
+    parser.add_argument("--chatbot-context", type=Path, default=DEFAULT_CHATBOT_CONTEXT)
+    parser.add_argument("--max-chunks", type=int, default=DEFAULT_MAX_CHUNKS)
+    parser.add_argument("--score-threshold", type=float, default=DEFAULT_SCORE_THRESHOLD)
+    parser.add_argument("--max-output-tokens", type=int, default=DEFAULT_MAX_OUTPUT_TOKENS)
+    parser.add_argument(
+        "--timeout-ms",
+        type=int,
+        default=int(os.environ.get("GEMINI_TIMEOUT_MS", DEFAULT_TIMEOUT_MS)),
+        help="Gemini request timeout in milliseconds.",
+    )
+    parser.add_argument(
+        "--thinking-level",
+        default=os.environ.get("GEMINI_THINKING_LEVEL", DEFAULT_THINKING_LEVEL),
+        help="Optional Gemini thinking level. Leave empty for models that do not support it.",
+    )
+    parser.add_argument("--verbose", action="store_true", help="Show progress logs.")
+    parser.add_argument("--show-context", action="store_true")
+    parser.add_argument("--show-scores", action="store_true")
+    parser.add_argument("--local-files-only", action="store_true")
+    args = parser.parse_args()
+
+    if args.message and (command := match_frontend_command(args.message)):
+        print(command)
+        return
+
+    huggy = HuggyGemini(
+        model=args.model,
+        artifact_dir=args.artifact_dir,
+        chatbot_context_path=args.chatbot_context,
+        max_chunks=args.max_chunks,
+        score_threshold=args.score_threshold,
+        max_output_tokens=args.max_output_tokens,
+        timeout_ms=args.timeout_ms,
+        thinking_level=args.thinking_level,
+        verbose=args.verbose,
+        local_files_only=args.local_files_only or None,
+    )
+
+    def answer(message: str) -> str:
+        if args.show_context:
+            print("\n[retrieved context]")
+            print(huggy.retrieved_context_for(message, include_scores=args.show_scores) or "<empty>")
+            print("[/retrieved context]\n")
+        return huggy.answer(message)
+
+    if args.message:
+        print(answer(args.message))
+        return
+
+    print("Huggy Gemini chat. Press Ctrl-D or Ctrl-C to exit.")
+    while True:
+        try:
+            message = input("\nYou: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print()
+            break
+        if not message:
+            continue
+        print("\nHuggy: ", end="")
+        for text in huggy.stream(message):
+            print(text, end="", flush=True)
+        print()
+
+
+if __name__ == "__main__":
+    main()
