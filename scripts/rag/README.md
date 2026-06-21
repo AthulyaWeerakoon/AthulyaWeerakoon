@@ -143,12 +143,49 @@ python scripts/rag/benchmark_groq.py
 ## Run The Gradio App
 
 ```bash
-export GEMINI_API_KEY="your-key-here"
+export HUGGY_PROVIDER=groq
+export GROQ_API_KEY="your-key-here"
 python app.py
 ```
 
-The Hugging Face Space should use the same `app.py` entrypoint. Store `GEMINI_API_KEY` as a Space secret, not in the repository.
-Set `HUGGY_PROVIDER=groq` and store `GROQ_API_KEY` as a Space secret to use Groq instead of Gemini.
+The Hugging Face Space should use the same `app.py` entrypoint. Store provider keys as Space secrets, not in the repository. Set `HUGGY_PROVIDER=groq` and store `GROQ_API_KEY` as a Space secret to use the current Groq path. Gemini still works with `HUGGY_PROVIDER=gemini` and `GEMINI_API_KEY`.
+
+### Frontend API Contract
+
+The visible Gradio chat works normally, and the app also exposes two JSON-oriented API actions for the portfolio frontend.
+
+`chat` accepts:
+
+```json
+{
+  "message": "What did Athulya do at WSO2?",
+  "chat_history": [
+    {"user": "Show me his experience", "assistant": "/navigate experience"}
+  ],
+  "long_term_context": {"summary": "The user prefers concise answers."}
+}
+```
+
+It returns `reply`, `backend_refused`, `accepted_history`, `forwarded_history`, `ignored_history`, and `metadata`. Normal chat keeps the newest complete user/assistant pairs within the word budget and forwards older overflow back to the frontend for later compaction.
+
+`compact_context` accepts a previous `long_term_context` object plus history to compact. It keeps the oldest complete pairs within the compaction word budget, ignores overflow at the end, and returns:
+
+```json
+{
+  "long_term_context": {"summary": "Compacted memory text"},
+  "ignored_end_history": []
+}
+```
+
+If a user message is too long, the backend returns `backend_refused: true` with a short refusal message. The frontend should not add that rejected message to chat history. If the previous long-term context exceeds the configured budget, the backend refuses the request until the frontend compacts or trims it.
+
+Useful budget environment variables:
+
+- `HUGGY_MAX_MESSAGE_WORDS`, default `160`
+- `HUGGY_MAX_HISTORY_WORDS`, default `700`
+- `HUGGY_MAX_LONG_TERM_WORDS`, default `360`
+- `HUGGY_COMPACT_HISTORY_WORDS`, default `900`
+- `HUGGY_COMPACT_TARGET_WORDS`, default `220`
 
 ## Sync To A Hugging Face Space
 

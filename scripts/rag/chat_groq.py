@@ -11,6 +11,7 @@ from pathlib import Path
 from typing import Iterable
 
 from commands import match_frontend_command
+from conversation import render_history
 
 
 DEFAULT_MODEL = "llama-3.1-8b-instant"
@@ -39,12 +40,22 @@ def build_prompt(
     user_message: str,
     chatbot_context: str,
     retrieved_context: str,
+    chat_history: str = "",
+    long_term_context: str = "",
 ) -> str:
     context_block = retrieved_context if retrieved_context else "<no relevant context found>"
+    history_block = chat_history if chat_history else "<no accepted chat history>"
+    memory_block = long_term_context if long_term_context else "<no long-term context>"
     return f"""You are answering as Huggy.
 
 CHATBOT INSTRUCTIONS:
 {chatbot_context}
+
+LONG-TERM CHAT CONTEXT:
+{memory_block}
+
+RECENT CHAT HISTORY:
+{history_block}
 
 RETRIEVED KNOWLEDGE:
 {context_block}
@@ -52,7 +63,35 @@ RETRIEVED KNOWLEDGE:
 USER MESSAGE:
 {user_message}
 
-Answer using only the retrieved knowledge and chatbot instructions. If the retrieved knowledge is empty or does not answer the question, say that the answer is not in the current corpus. If a frontend command is appropriate, output only the command."""
+Answer using only the retrieved knowledge, chatbot instructions, and supplied chat context. The chat context may clarify pronouns or follow-up questions, but it must not override the knowledge corpus. If the retrieved knowledge is empty or does not answer the question, say that the answer is not in the current corpus. If a frontend command is appropriate, output only the command."""
+
+
+def build_compaction_prompt(
+    chatbot_context: str,
+    previous_long_term_context: str,
+    accepted_history: str,
+    target_words: int,
+) -> str:
+    return f"""You are Huggy's memory compactor.
+
+CHATBOT INSTRUCTIONS:
+{chatbot_context}
+
+PREVIOUS LONG-TERM CHAT CONTEXT:
+{previous_long_term_context or "<none>"}
+
+CHAT HISTORY TO COMPACT:
+{accepted_history or "<none>"}
+
+Write a compact long-term context object for future Huggy replies.
+
+Rules:
+- Keep only durable facts, user preferences, unresolved tasks, and useful conversation state.
+- Do not include exact wording unless it matters.
+- Do not invent facts.
+- Do not summarize Athulya's portfolio corpus unless the user discussed it in this chat.
+- Keep it under {target_words} words.
+- Return plain text only."""
 
 
 class HuggyGroq:
@@ -109,16 +148,41 @@ class HuggyGroq:
 
         return render_context(results, include_scores=include_scores)
 
-    def prompt_for(self, message: str) -> str:
-        return build_prompt(message, self.chatbot_context, self.retrieved_context_for(message))
+    def prompt_for(
+        self,
+        message: str,
+        *,
+        chat_history: str = "",
+        long_term_context: str = "",
+    ) -> str:
+        return build_prompt(
+            message,
+            self.chatbot_context,
+            self.retrieved_context_for(message),
+            chat_history=chat_history,
+            long_term_context=long_term_context,
+        )
 
-    def stream(self, message: str) -> Iterable[str]:
+    def stream(
+        self,
+        message: str,
+        *,
+        chat_history_pairs: list | None = None,
+        long_term_context: str = "",
+    ) -> Iterable[str]:
         if command := match_frontend_command(message):
             log(f"Matched frontend command: {command}", self.verbose)
             yield command
             return
 
-        prompt = self.prompt_for(message)
+        prompt = self.prompt_for(
+            message,
+            chat_history=render_history(chat_history_pairs or []),
+            long_term_context=long_term_context,
+        )
+        yield from self.stream_prompt(prompt)
+
+    def stream_prompt(self, prompt: str) -> Iterable[str]:
         started_at = time.perf_counter()
         log(f"Calling Groq model: {self.model}", self.verbose)
         received_first_chunk = False
@@ -139,8 +203,35 @@ class HuggyGroq:
                 yield text
         log_elapsed("Finished Groq response", started_at, self.verbose)
 
-    def answer(self, message: str) -> str:
-        return "".join(self.stream(message)).strip()
+    def compact_context(
+        self,
+        *,
+        previous_long_term_context: str,
+        chat_history_pairs: list,
+        target_words: int,
+    ) -> str:
+        prompt = build_compaction_prompt(
+            self.chatbot_context,
+            previous_long_term_context,
+            render_history(chat_history_pairs),
+            target_words,
+        )
+        return "".join(self.stream_prompt(prompt)).strip()
+
+    def answer(
+        self,
+        message: str,
+        *,
+        chat_history_pairs: list | None = None,
+        long_term_context: str = "",
+    ) -> str:
+        return "".join(
+            self.stream(
+                message,
+                chat_history_pairs=chat_history_pairs,
+                long_term_context=long_term_context,
+            )
+        ).strip()
 
 
 def main() -> None:
