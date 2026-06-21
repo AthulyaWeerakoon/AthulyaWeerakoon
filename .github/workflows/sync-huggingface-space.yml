@@ -14,6 +14,7 @@ on:
       - "scripts/rag/commands.py"
       - "scripts/rag/conversation.py"
       - "scripts/rag/fetch_context.py"
+      - "scripts/rag/rate_limits.py"
       - ".github/workflows/sync-huggingface-space.yml"
   workflow_dispatch:
 
@@ -87,6 +88,7 @@ jobs:
             scripts/rag/commands.py \
             scripts/rag/conversation.py \
             scripts/rag/fetch_context.py \
+            scripts/rag/rate_limits.py \
             /tmp/huggy-space/rag/
 
           find /tmp/huggy-space -maxdepth 3 -type f | sort

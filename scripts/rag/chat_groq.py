@@ -12,6 +12,7 @@ from typing import Iterable
 
 from commands import match_frontend_command
 from conversation import render_history, render_retrieval_query
+from rate_limits import rate_limit_payload
 
 
 DEFAULT_MODEL = "llama-3.1-8b-instant"
@@ -138,6 +139,7 @@ class HuggyGroq:
         self.max_chunks = max_chunks
         self.score_threshold = score_threshold
         self.max_output_tokens = max_output_tokens
+        self.last_rate_limit: dict = {}
 
     def retrieved_context_for(self, message: str, include_scores: bool = False) -> str:
         started_at = time.perf_counter()
@@ -189,22 +191,31 @@ class HuggyGroq:
         started_at = time.perf_counter()
         log(f"Calling Groq model: {self.model}", self.verbose)
         received_first_chunk = False
-        stream = self.client.chat.completions.create(
+        with self.client.chat.completions.with_streaming_response.create(
             model=self.model,
             messages=[{"role": "user", "content": prompt}],
             max_completion_tokens=self.max_output_tokens,
             temperature=0.4,
             top_p=0.95,
             stream=True,
-        )
-        for chunk in stream:
-            text = chunk.choices[0].delta.content
-            if text:
-                if not received_first_chunk:
-                    log_elapsed("Received first Groq chunk", started_at, self.verbose)
-                    received_first_chunk = True
-                yield text
+        ) as response:
+            self.last_rate_limit = rate_limit_payload(
+                response.headers,
+                provider="groq",
+                status_code=response.status_code,
+            )
+            stream = response.parse()
+            for chunk in stream:
+                text = chunk.choices[0].delta.content
+                if text:
+                    if not received_first_chunk:
+                        log_elapsed("Received first Groq chunk", started_at, self.verbose)
+                        received_first_chunk = True
+                    yield text
         log_elapsed("Finished Groq response", started_at, self.verbose)
+
+    def rate_limit_metadata(self) -> dict:
+        return self.last_rate_limit
 
     def compact_context(
         self,

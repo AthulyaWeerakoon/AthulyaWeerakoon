@@ -34,6 +34,7 @@ from conversation import (  # noqa: E402
     validate_long_term_context,
     word_count,
 )
+from rate_limits import rate_limit_payload  # noqa: E402
 
 
 _huggy: HuggyGemini | HuggyGroq | None = None
@@ -78,9 +79,6 @@ REQUIRE_SECRET = env_truthy("HUGGY_REQUIRE_SECRET") or bool(os.environ.get("HUGG
 SECRET_HEADER_NAME = os.environ.get("HUGGY_SECRET_HEADER", "x-huggy-secret").lower()
 SECRET_VALUE = os.environ.get("HUGGY_CLOUDFLARE_SECRET", "")
 PORTFOLIO_URL = os.environ.get("HUGGY_PORTFOLIO_URL", "https://athulyaweerakoon.xyz")
-
-RATE_LIMIT_HEADER_PREFIX = "x-ratelimit-"
-RATE_LIMIT_HEADER_EXACT = {"retry-after"}
 
 
 def get_huggy():
@@ -160,54 +158,26 @@ def _headers_from_exception(exc: Exception):
     return getattr(response, "headers", None)
 
 
-def _header_value(headers, name: str) -> str:
-    if not headers or not hasattr(headers, "get"):
-        return ""
-    return headers.get(name, "") or headers.get(name.lower(), "") or headers.get(name.title(), "")
-
-
-def _iter_header_items(headers):
-    if not headers:
-        return []
-    if hasattr(headers, "items"):
-        return headers.items()
-    return []
-
-
-def _rate_limit_headers(headers) -> dict[str, str]:
-    values: dict[str, str] = {}
-    for name, value in _iter_header_items(headers):
-        header_name = str(name).lower()
-        if header_name in RATE_LIMIT_HEADER_EXACT or header_name.startswith(RATE_LIMIT_HEADER_PREFIX):
-            values[header_name] = str(value)
-
-    for name in RATE_LIMIT_HEADER_EXACT:
-        if name not in values and (value := _header_value(headers, name)):
-            values[name] = value
-
-    return values
-
-
 def _rate_limit_metadata(exc: Exception) -> dict:
     headers = _headers_from_exception(exc)
-    raw_headers = _rate_limit_headers(headers)
-    values = {name.replace("-", "_"): value for name, value in raw_headers.items()}
 
     status_code = getattr(exc, "status_code", None)
     if status_code is None:
         response = getattr(exc, "response", None)
         status_code = getattr(response, "status_code", None)
 
-    is_rate_limited = status_code == 429 or bool(values.get("retry_after"))
+    metadata = rate_limit_payload(
+        headers,
+        provider=os.environ.get("HUGGY_PROVIDER", "groq").lower(),
+        status_code=status_code,
+    )
+    is_rate_limited = status_code == 429 or bool(metadata.get("retry_after"))
     if not is_rate_limited:
         return {}
 
     return {
         "error": "rate_limited",
-        "provider": os.environ.get("HUGGY_PROVIDER", "groq").lower(),
-        "status_code": status_code,
-        "headers": raw_headers,
-        **values,
+        **metadata,
     }
 
 
@@ -303,14 +273,17 @@ def _chat_response(
         max_message_words=MAX_MESSAGE_WORDS,
     )
 
+    rate_limit = {}
     if command := match_frontend_command(message):
         reply = command
     else:
-        reply = get_huggy().answer(
+        huggy = get_huggy()
+        reply = huggy.answer(
             message,
             chat_history_pairs=budgeted.accepted,
             long_term_context=accepted_long_term_context,
         )
+        rate_limit = getattr(huggy, "rate_limit_metadata", lambda: {})()
 
     return {
         "reply": reply,
@@ -325,6 +298,7 @@ def _chat_response(
             "max_history_words": MAX_HISTORY_WORDS,
             "max_long_term_words": MAX_LONG_TERM_WORDS,
             "long_term_context_words": word_count(accepted_long_term_context),
+            "rate_limit": rate_limit,
         },
     }
 
@@ -406,7 +380,8 @@ def compact_context_api(
         }
 
     try:
-        compacted = get_huggy().compact_context(
+        huggy = get_huggy()
+        compacted = huggy.compact_context(
             previous_long_term_context=accepted_long_term_context,
             chat_history_pairs=budgeted.accepted,
             target_words=COMPACT_TARGET_WORDS,
@@ -456,6 +431,7 @@ def compact_context_api(
             "target_words": COMPACT_TARGET_WORDS,
             "previous_long_term_context_words": word_count(accepted_long_term_context),
             "new_long_term_context_words": word_count(compacted),
+            "rate_limit": getattr(huggy, "rate_limit_metadata", lambda: {})(),
         },
     }
 
