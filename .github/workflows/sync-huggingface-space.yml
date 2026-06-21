@@ -4,8 +4,17 @@ on:
   push:
     branches:
       - main
-    paths-ignore:
-      - ".github/workflows/**"
+    paths:
+      - "app.py"
+      - "requirements.txt"
+      - "knowledge/**"
+      - "rag_artifacts/**"
+      - "scripts/rag/chat_gemini.py"
+      - "scripts/rag/chat_groq.py"
+      - "scripts/rag/commands.py"
+      - "scripts/rag/conversation.py"
+      - "scripts/rag/fetch_context.py"
+      - ".github/workflows/sync-huggingface-space.yml"
   workflow_dispatch:
 
 jobs:
@@ -70,7 +79,35 @@ jobs:
           python -m pip install --upgrade "huggingface_hub[hf_xet]>=0.32.0"
 
           mkdir -p /tmp/huggy-space
-          rsync -a app.py requirements.txt knowledge rag_artifacts scripts/rag /tmp/huggy-space/
+          mkdir -p /tmp/huggy-space/rag
+          rsync -a app.py requirements.txt knowledge rag_artifacts /tmp/huggy-space/
+          rsync -a \
+            scripts/rag/chat_gemini.py \
+            scripts/rag/chat_groq.py \
+            scripts/rag/commands.py \
+            scripts/rag/conversation.py \
+            scripts/rag/fetch_context.py \
+            /tmp/huggy-space/rag/
+
+          find /tmp/huggy-space -maxdepth 3 -type f | sort
+          test -f /tmp/huggy-space/rag/chat_gemini.py
+          test -f /tmp/huggy-space/rag/chat_groq.py
+          test -f /tmp/huggy-space/rag/fetch_context.py
+
+          cd /tmp/huggy-space
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+
+          root = Path.cwd()
+          sys.path.insert(0, str(root / "rag"))
+          import chat_gemini  # noqa: F401
+          import chat_groq  # noqa: F401
+          import commands  # noqa: F401
+          import conversation  # noqa: F401
+          print("Space payload imports OK")
+          PY
+          python -m py_compile app.py rag/*.py
 
           cat > /tmp/huggy-space/README.md <<'EOF'
           ---
@@ -98,6 +135,16 @@ jobs:
               repo_id=os.environ["HF_SPACE_REPO"],
               repo_type="space",
               commit_message="Sync Huggy Space",
-              delete_patterns=["*"],
+              delete_patterns=[
+                  ".github/**",
+                  "assets/**",
+                  "index.html",
+                  "styles.css",
+                  "CNAME",
+                  "robots.txt",
+                  "sitemap.xml",
+                  "scripts/*.js",
+                  "scripts/rag/**",
+              ],
           )
           PY
