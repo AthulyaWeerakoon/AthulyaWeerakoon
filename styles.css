@@ -892,6 +892,239 @@ a {
   color: var(--accent);
 }
 
+/* Huggy chat assistant */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.huggy-widget {
+  --huggy-bottom: 0.35rem;
+  --huggy-size: clamp(7.5rem, 13vw, 10.25rem);
+  --huggy-chat-width: min(25rem, calc(100vw - 2rem));
+  position: fixed;
+  right: max(0.75rem, calc((100vw - 1100px) / 2));
+  bottom: calc(var(--huggy-bottom) + env(safe-area-inset-bottom));
+  z-index: 120;
+  width: var(--huggy-size);
+  pointer-events: none;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease, bottom 0.25s ease;
+}
+
+.huggy-widget.huggy-visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.huggy-avatar {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: var(--huggy-size);
+  min-height: var(--huggy-size);
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  pointer-events: auto;
+  transform-origin: bottom center;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.huggy-avatar:hover {
+  transform: translateY(-0.25rem) scale(1.02);
+  filter: drop-shadow(0 0.65rem 1.2rem rgba(0, 190, 220, 0.2));
+}
+
+.huggy-avatar:focus-visible,
+.huggy-icon-button:focus-visible,
+.huggy-send:focus-visible,
+.huggy-form textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.huggy-avatar img {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0.8rem 1.2rem rgba(0, 0, 0, 0.18));
+}
+
+.huggy-status {
+  position: absolute;
+  left: 50%;
+  bottom: 0.15rem;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 11rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  color: var(--fg-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.2;
+  box-shadow: var(--glass-shadow);
+}
+
+.huggy-chat {
+  position: absolute;
+  right: calc(var(--huggy-size) * 0.22);
+  bottom: calc(var(--huggy-size) * 0.9);
+  z-index: 1;
+  width: var(--huggy-chat-width);
+  max-height: min(34rem, calc(100vh - 7rem));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  overflow: hidden;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(0.75rem) scale(0.98);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.huggy-widget.chat-open .huggy-chat {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.huggy-chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.9rem 1rem 0.65rem;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.huggy-kicker {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.huggy-chat-header h2 {
+  margin-top: 0.1rem;
+  font-size: 1rem;
+  letter-spacing: 0;
+  color: var(--fg);
+}
+
+.huggy-icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.huggy-icon-button span {
+  font-size: 1.35rem;
+  line-height: 1;
+}
+
+.huggy-messages {
+  min-height: 12rem;
+  overflow-y: auto;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.huggy-message {
+  max-width: 86%;
+  padding: 0.62rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.huggy-message.assistant {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.54);
+  border: 1px solid var(--glass-border);
+  color: var(--fg);
+}
+
+.huggy-message.user {
+  align-self: flex-end;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+}
+
+.dark .huggy-message.assistant {
+  background: rgba(18, 12, 38, 0.66);
+}
+
+.huggy-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.55rem;
+  padding: 0.75rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.huggy-form textarea {
+  width: 100%;
+  max-height: 8rem;
+  resize: none;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 0.68rem 0.75rem;
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--fg);
+  font: inherit;
+  line-height: 1.35;
+}
+
+.dark .huggy-form textarea {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.huggy-form textarea:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.huggy-send {
+  min-width: 4.6rem;
+  border: 0;
+  border-radius: 8px;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-fg);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.huggy-send:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .hero-stats {
@@ -991,6 +1224,49 @@ a {
   .topbar.nav-open .topnav a {
     width: 100%;
     text-align: center;
+  }
+
+  .huggy-widget {
+    --huggy-bottom: 4.05rem;
+    --huggy-size: clamp(6.1rem, 28vw, 8.1rem);
+    right: 0.35rem;
+  }
+
+  .huggy-widget.chat-open {
+    left: 0;
+    right: 0;
+    width: 100vw;
+  }
+
+  .huggy-widget.chat-open .huggy-avatar {
+    margin-left: auto;
+    margin-right: 0.35rem;
+  }
+
+  .topbar.nav-open ~ .huggy-widget,
+  body:has(.topbar.nav-open) .huggy-widget {
+    --huggy-bottom: 20rem;
+  }
+
+  .huggy-chat {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(var(--huggy-size) * 0.88);
+    width: 100vw;
+    height: calc(100vh - var(--huggy-bottom) - var(--huggy-size) * 0.88 - env(safe-area-inset-bottom));
+    max-height: none;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .huggy-widget.chat-open .huggy-chat {
+    transform: translateY(0);
+  }
+
+  .huggy-messages {
+    min-height: 10rem;
   }
 
   .brand {
