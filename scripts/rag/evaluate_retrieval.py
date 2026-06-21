@@ -133,12 +133,22 @@ CASES += cases_for(
 )
 
 CASES += cases_for(
+    ("Programming Languages And Frameworks", "Java", "Python", "C++"),
+    [
+        "what programming languages is Athulya familiar with?",
+        "what languages is he familiar with?",
+        "what coding languages does Athulya know?",
+        "does Athulya know programming languages?",
+        "what are Athulya's strongest languages?",
+    ],
+)
+
+CASES += cases_for(
     ("Network and API security",),
     [
         "what security qualifications does Athulya have?",
         "does Athulya understand FAPI?",
         "does Athulya know mTLS?",
-        "what IAM experience does Athulya have?",
         "does Athulya understand RBAC scopes and permissions?",
         "does Athulya know MFA CIBA SSO and SCIM?",
         "does Athulya know JWT validation with JWKS?",
@@ -147,6 +157,10 @@ CASES += cases_for(
         "what ethical hacking exposure does Athulya have?",
     ],
 )
+
+CASES += [
+    RetrievalCase("what IAM experience does Athulya have?", required=("Identity and Access Management",)),
+]
 
 CASES += cases_for(
     ("AI And Research Background",),
@@ -315,6 +329,10 @@ CASES += [
     RetrievalCase("open Hall of Ivory", expected_command="/open-link https://www.wattpad.com/myworks/394332711-the-hall-of-ivory"),
     RetrievalCase("open A Hundred Years", expected_command="/open-link https://www.wattpad.com/myworks/408067856-a-hundred-years"),
     RetrievalCase("visit https://example.com", expected_command="/open-link https://example.com"),
+    RetrievalCase(
+        "what about this? I worked on Open Banking at WSO2 and also wrote about MIPS processor architecture and pipeline registers during university tutoring",
+        required=("Teaching And Tutoring", "WSO2"),
+    ),
 ]
 
 CASES += [

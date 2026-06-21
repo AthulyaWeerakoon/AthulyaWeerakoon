@@ -1063,6 +1063,25 @@ a {
   overflow-wrap: anywhere;
 }
 
+.huggy-message p {
+  margin: 0;
+}
+
+.huggy-message p + p,
+.huggy-message p + ul,
+.huggy-message ul + p {
+  margin-top: 0.55rem;
+}
+
+.huggy-message ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.huggy-message li + li {
+  margin-top: 0.35rem;
+}
+
 .huggy-message.assistant {
   align-self: flex-start;
   background: rgba(255, 255, 255, 0.54);

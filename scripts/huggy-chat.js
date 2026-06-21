@@ -44,6 +44,7 @@
     longTermContext: { summary: "" },
     compactPromise: null,
     lastQuotaReply: "",
+    hasAskedQuestion: false,
   };
 
   restoreState();
@@ -78,15 +79,9 @@
       state.dailyGraceUntil = 0;
       state.lastQuotaReply = "";
       ensureAssistantGreeting(greeting);
-      setMode("waving", "Hi there");
+      setMode(state.hasAskedQuestion ? "standing" : "waving", state.hasAskedQuestion ? "Ready" : "Hi there");
       setDisabled(false);
       saveState();
-
-      window.setTimeout(() => {
-        if (!state.busy && !state.disabled) {
-          setMode("standing", "Ready");
-        }
-      }, 2600);
     } catch (error) {
       showWidget();
       ensureAssistantGreeting("Huggy is having trouble waking up right now. Very free-tier of him.");
@@ -106,6 +101,8 @@
     if (state.disabled) {
       return;
     }
+
+    state.hasAskedQuestion = true;
 
     if (state.dailyQuota) {
       appendMessage("user", message);
@@ -187,8 +184,8 @@
       }
     }
 
-    if (command.startsWith("/open ")) {
-      const href = command.slice("/open ".length).trim();
+    if (command.startsWith("/open ") || command.startsWith("/open-link ")) {
+      const href = command.replace(/^\/open(?:-link)?\s+/, "").trim();
       try {
         const url = new URL(href, window.location.href);
         window.open(url.href, "_blank", "noopener,noreferrer");
@@ -267,7 +264,11 @@
     for (const message of state.messages) {
       const bubble = document.createElement("div");
       bubble.className = `huggy-message ${message.role === "user" ? "user" : "assistant"}`;
-      bubble.textContent = message.text;
+      if (message.role === "assistant") {
+        bubble.innerHTML = formatAssistantMessage(message.text);
+      } else {
+        bubble.textContent = message.text;
+      }
       messagesEl.appendChild(bubble);
     }
     messagesEl.scrollTop = messagesEl.scrollHeight;
@@ -311,7 +312,7 @@
     if (isBusy) {
       setMode("thinking", status);
     } else if (!state.disabled && !state.dailyQuota) {
-      setMode("standing", "Ready");
+      setMode(state.hasAskedQuestion ? "standing" : "waving", state.hasAskedQuestion ? "Ready" : "Hi there");
     }
   }
 
@@ -391,6 +392,7 @@
           dailyQuota: state.dailyQuota,
           dailyGraceUntil: state.dailyGraceUntil,
           lastQuotaReply: state.lastQuotaReply,
+          hasAskedQuestion: state.hasAskedQuestion,
         }),
       );
     } catch {
@@ -411,8 +413,48 @@
       state.dailyQuota = Boolean(saved.dailyQuota);
       state.dailyGraceUntil = Number(saved.dailyGraceUntil || 0);
       state.lastQuotaReply = saved.lastQuotaReply || "";
+      state.hasAskedQuestion = Boolean(saved.hasAskedQuestion);
     } catch {
       localStorage.removeItem(STORAGE_KEY);
     }
+  }
+
+  function formatAssistantMessage(text) {
+    const lines = String(text).split(/\r?\n/);
+    const parts = [];
+    let listItems = [];
+
+    function flushList() {
+      if (!listItems.length) {
+        return;
+      }
+      parts.push(`<ul>${listItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`);
+      listItems = [];
+    }
+
+    for (const line of lines) {
+      const match = line.match(/^\s*[-*]\s+(.+)$/);
+      if (match) {
+        listItems.push(match[1]);
+        continue;
+      }
+
+      flushList();
+      if (line.trim()) {
+        parts.push(`<p>${escapeHtml(line.trim())}</p>`);
+      }
+    }
+
+    flushList();
+    return parts.join("");
+  }
+
+  function escapeHtml(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
   }
 })();

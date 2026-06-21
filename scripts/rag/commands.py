@@ -40,6 +40,8 @@ NAVIGATION_INTENTS = [
     "scroll",
 ]
 
+MAX_COMMAND_WORDS = 18
+
 
 def normalize_text(text: str) -> str:
     lowered = text.lower()
@@ -79,4 +81,6 @@ def match_open_link_command(message: str) -> str | None:
 
 
 def match_frontend_command(message: str) -> str | None:
+    if len(normalize_text(message).split()) > MAX_COMMAND_WORDS:
+        return None
     return match_open_link_command(message) or match_navigation_command(message)

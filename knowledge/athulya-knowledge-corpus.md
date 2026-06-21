@@ -85,6 +85,23 @@ Key work:
 
 Programming language confidence summary: Athulya is very strong in Java because of his work with WSO2, OSGi, and WSO2 Carbon. He is also highly confident with Python for prototyping and AI work, including his research and RAG/fine-tuning projects. He has strong .NET experience from MAUI and Blazor university work. C++ was his first programming language, and he used it for an image segmentation program tested on the Lena image. He also works with Rust, Laravel, and Go: Rust came from job-preparation and personal systems interest, Laravel from Virtual System Solutions, and Go from a framework project exploring how to maintain microservices and monoliths in one codebase.
 
+### Programming Languages And Frameworks
+
+Direct answer for programming language questions: Athulya is familiar with Java, Python, C++, C, Rust, PHP, Laravel, Go, .NET, MAUI, Blazor, Verilog, SQL-oriented database work, JavaScript in web projects, and Groovy for WSO2 integration tests. His strongest languages are Java and Python. He is also comfortable with C++, .NET, PHP/Laravel, Rust, and Go depending on the project context.
+
+Language confidence details:
+
+- Java: very strong because of WSO2, OSGi, WSO2 Carbon, Open Banking toolkit work, JUnit tests, and platform extension work.
+- Python: highly confident for prototyping, AI work, RAG, fine-tuning, data science, and research experiments.
+- C++: first programming language; used for image segmentation work tested on the Lena image.
+- C: used in embedded systems and low-level engineering contexts.
+- Rust: used for systems interest, job preparation, and the Rustic Log Furnace log processing project.
+- PHP and Laravel: used at Virtual System Solutions.
+- Go: used in a framework project exploring how to maintain microservices and monoliths in one codebase.
+- .NET, MAUI, and Blazor: used in university and application development projects.
+- Verilog: used for FPGA and digital logic projects.
+- Groovy: used for WSO2 integration tests.
+
 Backend and platform:
 
 - Java
@@ -109,7 +126,11 @@ Cloud and DevOps:
 - Garage
 - Jenkins
 
-Network and API security:
+### Network And API Security
+
+Direct answer for security acronym questions: Athulya understands FAPI concepts and mTLS in the context of Open Banking and API security. Athulya has IAM experience through WSO2 Identity Server, Azure Identity, centralized Identity and Access Management design, RBAC, permissions, scopes, MFA, CIBA, SSO, identity federation, SCIM, XACML, JWT validation, JWKS, introspection, LDAP, and user stores.
+
+Security tools and ethical hacking exposure summary: Athulya has foundational ethical hacking exposure and practical familiarity with security tooling such as Metasploit, CVE tracking, Nessus, OpenCVE, Nmap, reverse engineering fundamentals, server hardening, secrets management, and network security fundamentals. This should be framed as growing security-engineering capability, not as a claim of senior penetration-testing specialization.
 
 - Open Banking security
 - OAuth2
@@ -178,7 +199,7 @@ VLSI design:
 
 ## AI And Research Background
 
-AI background summary: Athulya likes AI and technical discussions about AI, especially where AI connects to security, optimization, retrieval, efficient smaller models, and practical engineering constraints. His AI interests are most focused on useful, resource-aware systems rather than AI for its own sake.
+AI background summary: Athulya likes AI and technical discussions about AI, especially where AI connects to security, optimization, retrieval, efficient smaller models, KANs, LPC, ANS, and practical engineering constraints. His AI interests are most focused on useful, resource-aware systems rather than AI for its own sake.
 
 Academic AI background: Athulya's AI qualifications mostly come from academic work. He studied AI fundamentals, machine learning, data science and analytics, deep learning, and computer vision. He built an early image-captioning, or show-and-tell, model as a learning project and used its limitations to better understand model behavior and evaluation. He has worked with RAG, embeddings, transformers, LoRA, QLoRA, and fine-tuning, including a competition project around a Sinhala RAG system for the Sri Lankan constitution.
 
