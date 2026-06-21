@@ -16,6 +16,19 @@
     "Daily quota is gone. Huggy would love to answer, but the free-tier meter has filed a formal complaint.",
     "I am afraid today's Huggy budget has left the chat. Try again after the reset.",
   ];
+  const STATUS_KINDS = {
+    "Waking up...": "waking",
+    "Hi there": "ready",
+    Ready: "ready",
+    "Thinking...": "ready",
+    "Thinking deeply...": "ready",
+    "Thinking deeper...": "ready",
+    "Rate limited": "limited",
+    "Daily limit": "daily",
+    Asleep: "offline",
+    "Offline-ish": "offline",
+    "Network trouble": "offline",
+  };
 
   const widget = document.getElementById("huggy-widget");
   const avatar = document.getElementById("huggy-avatar");
@@ -370,7 +383,10 @@
   function setMode(mode, status) {
     avatarImg.src = SPRITES[mode] || SPRITES.standing;
     widget.dataset.huggyState = mode;
-    statusEl.textContent = status;
+    statusEl.dataset.huggyStatus = STATUS_KINDS[status] || "ready";
+    statusEl.setAttribute("aria-label", status);
+    statusEl.title = status;
+    statusEl.textContent = "";
   }
 
   function setBusy(isBusy, status = "Thinking...") {
