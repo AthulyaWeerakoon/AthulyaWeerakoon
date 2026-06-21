@@ -157,9 +157,10 @@ export HUGGY_API_ONLY=1
 export HUGGY_REQUIRE_SECRET=1
 export HUGGY_CLOUDFLARE_SECRET="long-random-shared-secret"
 export HUGGY_SECRET_HEADER="x-huggy-secret"
+export HUGGY_PORTFOLIO_URL="https://athulyaweerakoon.xyz"
 ```
 
-In that mode the Space still registers the `wakeup`, `chat`, and `compact_context` API endpoints, but it does not show the public chat interface. Cloudflare should inject the configured header before forwarding requests to the Hugging Face Space. Browser clients should call your Cloudflare route, not the Space directly, because the shared secret must not be exposed in frontend code.
+In that mode the Space still registers the `wakeup`, `chat`, and `compact_context` API endpoints, but it does not show the public chat interface. It shows a small API-only note pointing visitors to `HUGGY_PORTFOLIO_URL`. Cloudflare should inject the configured header before forwarding requests to the Hugging Face Space. Browser clients should call your Cloudflare route, not the Space directly, because the shared secret must not be exposed in frontend code.
 
 ### Frontend API Contract
 
@@ -190,6 +191,29 @@ Call this through Cloudflare when the portfolio loads or before opening the chat
 ```
 
 It returns `reply`, `backend_refused`, `accepted_history`, `forwarded_history`, `ignored_history`, and `metadata`. Normal chat keeps the newest complete user/assistant pairs within the word budget and forwards older overflow back to the frontend for later compaction.
+
+If Groq returns a rate limit error, the response includes a frontend-readable `metadata.rate_limit` object copied from Groq's response headers when available:
+
+```json
+{
+  "reply": "Huggy is being rate-limited. Tiny free-tier traffic jam. Try again in about 2 second(s).",
+  "backend_refused": true,
+  "metadata": {
+    "rate_limit": {
+      "error": "rate_limited",
+      "provider": "groq",
+      "status_code": 429,
+      "retry_after": "2",
+      "x_ratelimit_remaining_requests": "14370",
+      "x_ratelimit_remaining_tokens": "17997",
+      "x_ratelimit_reset_requests": "2m59.56s",
+      "x_ratelimit_reset_tokens": "7.66s"
+    }
+  }
+}
+```
+
+The frontend or Cloudflare layer can use `retry_after`, remaining request count, remaining token count, and reset timings to back off before trying again.
 
 If the frontend did not store a giant refused user message, it can send a compact marker in `chat_history` instead of the original content:
 
@@ -238,5 +262,6 @@ Add this Hugging Face Space secret:
 - `HUGGY_REQUIRE_SECRET`: set to `1` for deployment.
 - `HUGGY_CLOUDFLARE_SECRET`: the shared secret Cloudflare injects into API requests.
 - `HUGGY_SECRET_HEADER`: optional header name, defaults to `x-huggy-secret`.
+- `HUGGY_PORTFOLIO_URL`: public portfolio URL shown on the API-only Space page.
 
 If using Gemini instead of Groq, store `GEMINI_API_KEY` and set `HUGGY_PROVIDER=gemini`.

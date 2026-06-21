@@ -77,6 +77,17 @@ API_ONLY = env_truthy("HUGGY_API_ONLY")
 REQUIRE_SECRET = env_truthy("HUGGY_REQUIRE_SECRET") or bool(os.environ.get("HUGGY_CLOUDFLARE_SECRET"))
 SECRET_HEADER_NAME = os.environ.get("HUGGY_SECRET_HEADER", "x-huggy-secret").lower()
 SECRET_VALUE = os.environ.get("HUGGY_CLOUDFLARE_SECRET", "")
+PORTFOLIO_URL = os.environ.get("HUGGY_PORTFOLIO_URL", "https://athulyaweerakoon.xyz")
+
+RATE_LIMIT_HEADERS = [
+    "retry-after",
+    "x-ratelimit-limit-requests",
+    "x-ratelimit-limit-tokens",
+    "x-ratelimit-remaining-requests",
+    "x-ratelimit-remaining-tokens",
+    "x-ratelimit-reset-requests",
+    "x-ratelimit-reset-tokens",
+]
 
 
 def get_huggy():
@@ -146,6 +157,68 @@ def _unauthorized_response() -> dict:
         "forwarded_history": [],
         "ignored_history": [],
         "metadata": {"error": "missing_or_invalid_cloudflare_secret_header"},
+    }
+
+
+def _headers_from_exception(exc: Exception):
+    response = getattr(exc, "response", None)
+    if response is None:
+        return None
+    return getattr(response, "headers", None)
+
+
+def _header_value(headers, name: str) -> str:
+    if not headers or not hasattr(headers, "get"):
+        return ""
+    return headers.get(name, "") or headers.get(name.lower(), "") or headers.get(name.title(), "")
+
+
+def _rate_limit_metadata(exc: Exception) -> dict:
+    headers = _headers_from_exception(exc)
+    values = {
+        name.replace("-", "_"): value
+        for name in RATE_LIMIT_HEADERS
+        if (value := _header_value(headers, name))
+    }
+
+    status_code = getattr(exc, "status_code", None)
+    if status_code is None:
+        response = getattr(exc, "response", None)
+        status_code = getattr(response, "status_code", None)
+
+    is_rate_limited = status_code == 429 or bool(values.get("retry_after"))
+    if not is_rate_limited:
+        return {}
+
+    return {
+        "error": "rate_limited",
+        "provider": os.environ.get("HUGGY_PROVIDER", "groq").lower(),
+        "status_code": status_code,
+        **values,
+    }
+
+
+def _rate_limit_response(exc: Exception) -> dict | None:
+    metadata = _rate_limit_metadata(exc)
+    if not metadata:
+        return None
+
+    retry_after = metadata.get("retry_after")
+    if retry_after:
+        reply = (
+            f"Huggy is being rate-limited. Tiny free-tier traffic jam. "
+            f"Try again in about {retry_after} second(s)."
+        )
+    else:
+        reply = "Huggy is being rate-limited. Tiny free-tier traffic jam. Try again in a moment."
+
+    return {
+        "reply": reply,
+        "backend_refused": True,
+        "accepted_history": [],
+        "forwarded_history": [],
+        "ignored_history": [],
+        "metadata": {"rate_limit": metadata},
     }
 
 
@@ -258,6 +331,8 @@ def chat_api(
             f"{exc} Add it as a Hugging Face Space secret or local environment variable."
         )
     except Exception as exc:
+        if rate_limited := _rate_limit_response(exc):
+            return rate_limited
         if env_truthy("HUGGY_DEBUG_ERRORS"):
             return _error_response(f"Huggy hit an API error before answering: {exc}")
         return _error_response(
@@ -334,6 +409,16 @@ def compact_context_api(
             "metadata": {"target_words": COMPACT_TARGET_WORDS},
         }
     except Exception as exc:
+        if rate_limited := _rate_limit_response(exc):
+            return {
+                "long_term_context": {"summary": ""},
+                "backend_refused": True,
+                "error": rate_limited["reply"],
+                "accepted_history": pair_dicts(budgeted.accepted),
+                "ignored_end_history": pair_dicts(budgeted.rejected),
+                "ignored_history": budgeted.ignored,
+                "metadata": rate_limited["metadata"],
+            }
         error = f"Huggy hit an API error during compaction: {exc}" if env_truthy("HUGGY_DEBUG_ERRORS") else "Huggy hit an API error during compaction."
         return {
             "long_term_context": {"summary": ""},
@@ -388,6 +473,9 @@ def respond(message: str, history: list[dict] | None = None):
     except RuntimeError as exc:
         yield f"{exc} Add it as a Hugging Face Space secret or local environment variable."
     except Exception as exc:
+        if rate_limited := _rate_limit_response(exc):
+            yield rate_limited["reply"]
+            return
         if env_truthy("HUGGY_DEBUG_ERRORS"):
             yield f"Huggy hit an API error before answering: {exc}"
         else:
@@ -395,7 +483,11 @@ def respond(message: str, history: list[dict] | None = None):
 
 
 with gr.Blocks(title="Huggy") as demo:
-    if not API_ONLY:
+    if API_ONLY:
+        gr.Markdown(
+            f"# Huggy API\n\nThis Hugging Face Space is an API-only backend for Athulya Weerakoon's portfolio assistant.\n\nVisit {PORTFOLIO_URL} to use the chatbot."
+        )
+    else:
         gr.ChatInterface(
             fn=respond,
             title="Huggy",
