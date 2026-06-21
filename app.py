@@ -13,6 +13,8 @@ import gradio as gr
 
 ROOT = Path(__file__).resolve().parent
 RAG_DIR = ROOT / "scripts" / "rag"
+if not RAG_DIR.exists():
+    RAG_DIR = ROOT / "rag"
 sys.path.insert(0, str(RAG_DIR))
 
 from chat_gemini import DEFAULT_MODEL as DEFAULT_GEMINI_MODEL, HuggyGemini  # noqa: E402
