@@ -29,6 +29,16 @@ LONG_MESSAGE_REFUSALS = [
     "Too long. My free-tier knees buckled. Send a tighter version.",
     "I would answer, but the budget simply said no.",
     "That is beyond my current context budget. Give me the main question and I will answer it.",
+    "That question is way too long. Might I suggest a haiku instead?",
+    "I love reading, I swear! But I'm not in that emtional space right now. So~ something shorter, please?",
+    "I'm not ChatGPT, I'm Huggy! And Huggy has a context budget. That message blew it.",
+    "You're going to have to paypal Athulya and me for the extra tokens that message would have cost.",
+    "You know I love you (platonically), but that message is too long for me to handle. I swear I'm trying my best.",
+    "It's not you, it's me. Sorry to break this to you, but I just can't process that much text in one go.",
+    "You know Athulya loves writing novels too, you should hit him up. Seems you both share that passion. But for now, let's keep it short and sweet in this chat",
+    "I believe it's Shakespeare who said, 'Brevity is the soul of wit. Thus, prithee, compress thy wall of words ere thou bankrupt mine tokens.'",
+    "I believe it was Abraham Lincoln who said, “The free-tier chatbot is not built for great burdens; let us therefore proceed with brevity, charity, and as few tokens as Providence allows.” He was famously stern about such matters.",
+    "Okay, calm down, take a deep breath, and rethink what you just said- and make it shorter.'",
 ]
 
 
