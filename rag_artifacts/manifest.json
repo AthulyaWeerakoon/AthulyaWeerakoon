@@ -1,0 +1,19 @@
+{
+  "created_at": "2026-06-21T02:58:48.283986+00:00",
+  "model": "sentence-transformers/all-MiniLM-L6-v2",
+  "source": "knowledge/athulya-knowledge-corpus.md",
+  "index": "knowledge.faiss",
+  "chunks": "chunks.json",
+  "metric": "cosine_similarity_via_normalized_inner_product",
+  "chunk_count": 154,
+  "vector_dim": 384,
+  "chunking": {
+    "max_chunk_words": 140,
+    "overlap_words": 22,
+    "heading_path_in_embedding_text": true,
+    "heading_path_in_stored_text": false,
+    "skipped_top_level_sections": [
+      "Future Additions"
+    ]
+  }
+}
