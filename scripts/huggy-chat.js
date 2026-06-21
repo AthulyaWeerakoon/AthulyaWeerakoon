@@ -481,7 +481,7 @@
       state.dailyQuota = Boolean(saved.dailyQuota);
       state.dailyGraceUntil = Number(saved.dailyGraceUntil || 0);
       state.lastQuotaReply = saved.lastQuotaReply || "";
-      state.hasAskedQuestion = Boolean(saved.hasAskedQuestion);
+      state.hasAskedQuestion = Boolean(saved.hasAskedQuestion || state.history.length || state.messages.some((message) => message.role === "user"));
     } catch {
       localStorage.removeItem(STORAGE_KEY);
     }
