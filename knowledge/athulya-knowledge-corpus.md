@@ -29,9 +29,13 @@ Athulya enjoys adversarial thinking: asking what can break, what can be misused,
 - Activity: Secretary, Computer Engineering Society in 2025
 - Certification: Google Cybersecurity Professional Certificate
 
+## Teaching And Tutoring
+
+Tutoring summary: During university, Athulya tutored friends and juniors. Some of his tutoring recordings still circulate among juniors. His most referenced tutoring recording was on Computer Architecture, especially MIPS processor architecture, processor pipelining, pipeline registers, and parallelization techniques. This reflects his ability to explain difficult engineering concepts clearly and practically.
+
 ## Experience
 
-Experience summary: Athulya has professional experience as an Intern Software Engineer at WSO2 in Sri Lanka from February 2024 to August 2024, and as a DevOps Engineer at Virtual System Solutions in Sri Lanka since February 2025. At WSO2, he worked on the WSO2 Financial Services Accelerator 4.0 release, Open Banking compliant extensions, OBIE and NextGenPSD2 toolkits, consent authorization customization, defects, documentation, JUnit tests, and Groovy integration tests. At Virtual System Solutions, he works on site reliability, system security, deployment automation, observability, multi-tenancy middleware, centralized Identity and Access Management, backup automation, secure browser add-on handshake design, containerization, database cluster management, and self-hosted S3-style storage.
+Experience summary: Athulya has professional experience as an Intern Software Engineer at WSO2 in Sri Lanka from February 2024 to August 2024, and as a project manager, infrastructure engineer, site-reliability engineer, DevOps engineer, and security engineer at Virtual System Solutions in Sri Lanka since February 2025. At WSO2, he worked in a solutions and vertical-product context around Financial Services Accelerator 4.0, Open Banking compliant extensions, OBIE and NextGenPSD2 toolkits, API-based extension points, consent authorization customization, localization, defects, documentation, JUnit tests, and Groovy integration tests. At Virtual System Solutions, he works around architectural limitations of base products to improve workflows, security, automation, observability, deployment, and solution engineering for ANT and customer product lines whose details are not public.
 
 ### Intern Software Engineer, WSO2, Sri Lanka
 
@@ -39,22 +43,37 @@ Period: February 2024 to August 2024
 
 Athulya contributed to the WSO2 Financial Services Accelerator 4.0 release, focused on Open Banking compliant extensions and core platform features.
 
+WSO2 context: WSO2 builds base products for API management, identity and access management, integration, and developer platforms. The Solutions BU context around Athulya's work involved building vertical solutions and extensions on top of WSO2 base products, including Open Banking and Open Healthcare style solution layers.
+
+Financial Services Accelerator context: the Financial Services Accelerator adds compliance-oriented financial services and Open Banking capabilities on top of WSO2 Identity Server and WSO2 API Manager. Athulya's work involved helping old toolkit implementations fit newer accelerator extension patterns.
+
+Extension architecture context: the older Open Banking toolkit model used Java class and library based extension points. The newer model shifted toward API-based extension points documented through OpenAPI documents, making extension behavior easier for developers to discover and integrate. Athulya worked with versions 1.0.0 and 1.0.1 of these extension API resources, visible in WSO2's public `financial-services-accelerator` repository under `financial-services-accelerator/accelerators/fs-is/repository/resources/apis`.
+
 Key work:
 
+- Started reworking the consent authorization module as a separate microservice that could be hosted on Choreo, WSO2's developer platform, and used by developers as an add-on. This work was not completed because he was reassigned to toolkit work due to deadlines the Open Banking team had been facing.
 - Battle tested new Accelerator Extensions by rewriting OBIE and NextGenPSD2 Open Banking toolkits.
+- Reworked the OBIE, formerly UK, Open Banking Framework toolkit to use new API-based extension points instead of Java class based extensions. He did a majority of the OBIE framework work, while still working as part of a team.
+- Worked on the Berlin or NextGenPSD2 Open Banking framework and rewrote it using the new API-based extension points.
+- Identified an explanation gap in multi-step authorization behavior around account selection in consecutive SCAs, meaning Strong Customer Authentications, where the old toolkit implementation appeared to handle missing details incorrectly.
+- Worked on the localization module for the Financial Services Accelerator.
 - Resolved critical and minor defects within the Accelerator platform.
-- Redesigned the consent authorization module for NextGenPSD2 customization.
+- Redesigned the consent authorization module of the Financial Services Accelerator for NextGenPSD2 customization.
 - Authored technical documentation.
 - Implemented JUnit unit tests and Groovy integration tests.
 
-### DevOps Engineer, Virtual System Solutions, Sri Lanka
+### Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka
 
 Period: Since February 2025
 
-Athulya contributes to site reliability, system security, deployment automation, and deployment observability.
+Athulya contributes to project management, infrastructure engineering, site reliability, system security, deployment automation, deployment observability, and solution engineering.
 
 Key work:
 
+- Worked on ANT, Virtual System Solutions' base financial management product.
+- Worked on product lines for major customers whose names and details are not public.
+- Became a core part of company decision making and solution engineering.
+- Worked around architectural limitations in base products to provide better workflows, security, automation, and operational reliability.
 - Wrote multi-tenancy middleware for the cloud-native ANT Enterprise Resource Planning system and containerized its deployment.
 - Designed and implemented a centralized Identity and Access Management solution for identity handling across multiple major products.
 - Adopted and integrated a system for log centralization and system observability for developers.
@@ -64,13 +83,21 @@ Key work:
 
 ## Skills
 
+Programming language confidence summary: Athulya is very strong in Java because of his work with WSO2, OSGi, and WSO2 Carbon. He is also highly confident with Python for prototyping and AI work, including his research and RAG/fine-tuning projects. He has strong .NET experience from MAUI and Blazor university work. C++ was his first programming language, and he used it for an image segmentation program tested on the Lena image. He also works with Rust, Laravel, and Go: Rust came from job-preparation and personal systems interest, Laravel from Virtual System Solutions, and Go from a framework project exploring how to maintain microservices and monoliths in one codebase.
+
 Backend and platform:
 
 - Java
 - OSGi
+- WSO2 Carbon
+- Python
+- C++
+- Go
 - PHP
 - Laravel
 - .NET
+- MAUI
+- Blazor
 
 Cloud and DevOps:
 
@@ -88,13 +115,54 @@ Network and API security:
 - OAuth2
 - API hardening
 - Secure authentication flows
+- Google Cybersecurity Professional Certificate
+- FAPI concepts
+- mTLS
+- Least privilege
+- Server hardening
+- Secrets management
+- WSO2 Identity Server
+- Azure Identity
+- IAM
+- RBAC
+- Permissions and scopes
+- MFA
+- CIBA
+- SSO
+- Identity federation
+- SCIM
+- XACML
+- JWT validation
+- JWKS
+- Introspection
+- LDAP and user stores
+- RADIUS fundamentals
+- Network security fundamentals
+- Ethical hacking fundamentals
+- Metasploit
+- CVEs
+- Nessus
+- OpenCVE
+- Nmap
+- Reverse engineering fundamentals
 
 AI and machine learning:
 
 - LLMs
 - RAG
 - Transformers
+- LoRA
 - QLoRA
+- Embeddings
+- Fine-tuning
+- Computer vision
+- Deep learning
+- Data science and analytics
+- Bayesian optimization and Bayesian techniques
+- KAN, or Kolmogorov Arnold Networks
+- Symbolic interpretation
+- Real-time time-series prediction
+- ANS
 
 Embedded systems:
 
@@ -107,6 +175,14 @@ VLSI design:
 - FPGA development
 - Verilog
 - Digital logic design
+
+## AI And Research Background
+
+AI background summary: Athulya likes AI and technical discussions about AI, but is most interested in AI where it connects to security, optimization, retrieval, smaller models, or practical constraints. He is less excited by resource-heavy model scaling races and repeated hyperparameter tuning that only gives marginal improvements.
+
+Academic AI background: Athulya's AI qualifications mostly come from academic work. He studied AI fundamentals, machine learning, data science and analytics, deep learning, and computer vision. He built a weak show-and-tell model and learned from why it performed poorly. He has worked with RAG, embeddings, transformers, LoRA, QLoRA, and fine-tuning, including a competition project around a Sinhala RAG system for the Sri Lankan constitution.
+
+Research background: Athulya's undergraduate research focused on lightweight real-time nonlinear time-series prediction that could rival LPC performance under strict speed constraints. He explored Bayesian techniques, then KANs, meaning Kolmogorov Arnold Networks, and their symbolic interpretations. His idea was to fit KANs, extract symbolic forms, and use those symbols to address LPC's linearity while keeping inference close to the speed of solving a single equation. Paired with ANS, the approach performed well in the context of precision agriculture, though not necessarily outperforming LPC plus ANS.
 
 ## Project Highlights
 
@@ -211,6 +287,34 @@ Useful response angle: highlight the hardware-software boundary, digital systems
 ## Writing
 
 Athulya writes on Medium at https://medium.com/@athulyaweerakoon. Current Medium articles: Why Every Developer Should Learn Rust, about software engineering discipline, explicit contracts, Rust-shaped thinking, ownership, mutability, failure, boundaries, and guarantees; I Tried EfficientNet's Scaling Trick On ShuffleNet, about computer vision, CNN scaling, EfficientNet-style compound scaling, ShuffleNetV2b, implementation, tuning, and results; GitHub For HTTPS Web Hosting CI/CD, about GitHub Actions, Docker, AWS EC2, Cloudflare origin certificates, repository secrets, HTTPS, and repeatable deployment; Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap, about practical web hosting, domains, Namecheap, Cloudflare, AWS EC2, HTTPS, and Cloudflare Workers routing.
+
+## Creative Writing
+
+Creative writing summary: Athulya writes fiction on Wattpad under AtleeBugs at https://www.wattpad.com/user/AtleeBugs. His public Wattpad works include Triagon Origins, Hall of Ivory, and A Hundred Years. Triagon Origins is the science-fiction series he loves most and the one he would want to be known for if he succeeds as a writer. Hall of Ivory is a fantasy project he started partly to prove he could keep going with a book-length idea; it became better than expected and is about 80 percent complete. A Hundred Years is a first-person novella from Jasmine's perspective, written for the 2026 Open Novella Contest and being expanded or reworked for the 2026 Wattys.
+
+### Triagon Origins
+
+URL: https://www.wattpad.com/myworks/352689078-triagon-origins
+
+Genre: Science fiction
+
+Summary: Triagon Origins is set in a shattered omniverse where prophets carry the message of an artifact that can give its chosen owner one chance to alter reality. The story follows many people seeking wishes of their own, including a widowed soldier, a guilt-ridden cyborg, an engineered revolutionary, an orphan born to be a monster, and a young girl lost in the chaos. Athulya is rewriting it to appeal to more casual readers without losing its value.
+
+### Hall Of Ivory
+
+URL: https://www.wattpad.com/myworks/394332711-the-hall-of-ivory
+
+Genre: Fantasy
+
+Summary: Hall of Ivory follows Turren, the lonely adventurer and godslayer of Thales, who joins three old friends on a quest to rescue their once-companion from a world beyond reach. It crosses a world of legends, nightmare cities, old heartbreaks, and a fatal prophecy. It is not finished yet but is roughly 80 percent complete.
+
+### A Hundred Years
+
+URL: https://www.wattpad.com/myworks/408067856-a-hundred-years
+
+Genre: Speculative romance or reincarnation mystery
+
+Summary: A Hundred Years is written in first person from Jasmine's perspective. Jasmine does not believe in soulmates, fate, or love at first sight until she meets Ethan during a summer internship in the Andes and begins remembering things from another life. The story was an entry for the 2026 Open Novella Contest and is being expanded or reworked for the 2026 Wattys.
 
 ### Why Every Developer Should Learn Rust
 
@@ -323,6 +427,8 @@ Visual behavior:
 - The site has light and dark modes.
 - Weather buttons switch between clear, rain, and snow particle themes.
 - The adventurer GIF links secretly to Athulya's Wattpad profile.
+- Most page mechanics are custom-written by Athulya. AOS and a few styles are external imports, but the rest of the behavior is his own JavaScript and CSS.
+- The background-image color changes use CSS filter techniques as a workaround for CSS not naturally recoloring raster images. The idea is to combine filters such as `sepia()` and `hue-rotate()` to push the existing pixel-art background into different color moods, then pair that with brightness, contrast, saturation, and opacity adjustments where needed. This lets the same background art support theme and weather variations without needing a separate recolored image for every state.
 
 SEO and crawler files:
 

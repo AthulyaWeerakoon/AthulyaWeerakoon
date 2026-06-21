@@ -81,28 +81,27 @@
     "id": "chunk-0006",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Experience"
+      "Teaching And Tutoring"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Experience",
-    "text": "Experience summary: Athulya has professional experience as an Intern Software Engineer at WSO2 in Sri Lanka from February 2024 to August 2024, and as a DevOps Engineer at Virtual System Solutions in Sri Lanka since February 2025. At WSO2, he worked on the WSO2 Financial Services Accelerator 4.0 release, Open Banking compliant extensions, OBIE and NextGenPSD2 toolkits, consent authorization customization, defects, documentation, JUnit tests, and Groovy integration tests. At Virtual System Solutions, he works on site reliability, system security, deployment automation, observability, multi-tenancy middleware, centralized Identity and Access Management, backup automation, secure browser add-on handshake design, containerization, database cluster management, and self-hosted S3-style storage.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Teaching And Tutoring",
+    "text": "Tutoring summary: During university, Athulya tutored friends and juniors. Some of his tutoring recordings still circulate among juniors. His most referenced tutoring recording was on Computer Architecture, especially MIPS processor architecture, processor pipelining, pipeline registers, and parallelization techniques. This reflects his ability to explain difficult engineering concepts clearly and practically.",
     "source": "knowledge/athulya-knowledge-corpus.md",
     "start_line": 34,
     "part": 0,
-    "word_count": 104
+    "word_count": 50
   },
   {
     "id": "chunk-0007",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Experience",
-      "Intern Software Engineer, WSO2, Sri Lanka"
+      "Experience"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Intern Software Engineer, WSO2, Sri Lanka",
-    "text": "Period: February 2024 to August 2024",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience",
+    "text": "Experience summary: Athulya has professional experience as an Intern Software Engineer at WSO2 in Sri Lanka from February 2024 to August 2024, and as a project manager, infrastructure engineer, site-reliability engineer, DevOps engineer, and security engineer at Virtual System Solutions in Sri Lanka since February 2025. At WSO2, he worked in a solutions and vertical-product context around Financial Services Accelerator 4.0, Open Banking compliant extensions, OBIE and NextGenPSD2 toolkits, API-based extension points, consent authorization customization, localization, defects, documentation, JUnit tests, and Groovy integration tests. At Virtual System Solutions, he works around architectural limitations of base products to improve workflows, security, automation, observability, deployment, and solution engineering for ANT and customer product lines whose details are not public.",
     "source": "knowledge/athulya-knowledge-corpus.md",
     "start_line": 38,
     "part": 0,
-    "word_count": 6
+    "word_count": 117
   },
   {
     "id": "chunk-0008",
@@ -112,11 +111,11 @@
       "Intern Software Engineer, WSO2, Sri Lanka"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Intern Software Engineer, WSO2, Sri Lanka",
-    "text": "Athulya contributed to the WSO2 Financial Services Accelerator 4.0 release, focused on Open Banking compliant extensions and core platform features.",
+    "text": "Period: February 2024 to August 2024",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 40,
+    "start_line": 42,
     "part": 0,
-    "word_count": 20
+    "word_count": 6
   },
   {
     "id": "chunk-0009",
@@ -126,11 +125,11 @@
       "Intern Software Engineer, WSO2, Sri Lanka"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Intern Software Engineer, WSO2, Sri Lanka",
-    "text": "Key work:",
+    "text": "Athulya contributed to the WSO2 Financial Services Accelerator 4.0 release, focused on Open Banking compliant extensions and core platform features.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 42,
+    "start_line": 44,
     "part": 0,
-    "word_count": 2
+    "word_count": 20
   },
   {
     "id": "chunk-0010",
@@ -140,51 +139,51 @@
       "Intern Software Engineer, WSO2, Sri Lanka"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Intern Software Engineer, WSO2, Sri Lanka",
-    "text": "- Battle tested new Accelerator Extensions by rewriting OBIE and NextGenPSD2 Open Banking toolkits. - Resolved critical and minor defects within the Accelerator platform. - Redesigned the consent authorization module for NextGenPSD2 customization. - Authored technical documentation. - Implemented JUnit unit tests and Groovy integration tests.",
+    "text": "WSO2 context: WSO2 builds base products for API management, identity and access management, integration, and developer platforms. The Solutions BU context around Athulya's work involved building vertical solutions and extensions on top of WSO2 base products, including Open Banking and Open Healthcare style solution layers.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 44,
+    "start_line": 46,
     "part": 0,
-    "word_count": 46
+    "word_count": 45
   },
   {
     "id": "chunk-0011",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Experience",
-      "DevOps Engineer, Virtual System Solutions, Sri Lanka"
+      "Intern Software Engineer, WSO2, Sri Lanka"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > DevOps Engineer, Virtual System Solutions, Sri Lanka",
-    "text": "Period: Since February 2025",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Intern Software Engineer, WSO2, Sri Lanka",
+    "text": "Financial Services Accelerator context: the Financial Services Accelerator adds compliance-oriented financial services and Open Banking capabilities on top of WSO2 Identity Server and WSO2 API Manager. Athulya's work involved helping old toolkit implementations fit newer accelerator extension patterns.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 52,
+    "start_line": 48,
     "part": 0,
-    "word_count": 4
+    "word_count": 38
   },
   {
     "id": "chunk-0012",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Experience",
-      "DevOps Engineer, Virtual System Solutions, Sri Lanka"
+      "Intern Software Engineer, WSO2, Sri Lanka"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > DevOps Engineer, Virtual System Solutions, Sri Lanka",
-    "text": "Athulya contributes to site reliability, system security, deployment automation, and deployment observability.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Intern Software Engineer, WSO2, Sri Lanka",
+    "text": "Extension architecture context: the older Open Banking toolkit model used Java class and library based extension points. The newer model shifted toward API-based extension points documented through OpenAPI documents, making extension behavior easier for developers to discover and integrate. Athulya worked with versions 1.0.0 and 1.0.1 of these extension API resources, visible in WSO2's public `financial-services-accelerator` repository under `financial-services-accelerator/accelerators/fs-is/repository/resources/apis`.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 54,
+    "start_line": 50,
     "part": 0,
-    "word_count": 12
+    "word_count": 59
   },
   {
     "id": "chunk-0013",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Experience",
-      "DevOps Engineer, Virtual System Solutions, Sri Lanka"
+      "Intern Software Engineer, WSO2, Sri Lanka"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > DevOps Engineer, Virtual System Solutions, Sri Lanka",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Intern Software Engineer, WSO2, Sri Lanka",
     "text": "Key work:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 56,
+    "start_line": 52,
     "part": 0,
     "word_count": 2
   },
@@ -193,92 +192,98 @@
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Experience",
-      "DevOps Engineer, Virtual System Solutions, Sri Lanka"
+      "Intern Software Engineer, WSO2, Sri Lanka"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > DevOps Engineer, Virtual System Solutions, Sri Lanka",
-    "text": "- Wrote multi-tenancy middleware for the cloud-native ANT Enterprise Resource Planning system and containerized its deployment. - Designed and implemented a centralized Identity and Access Management solution for identity handling across multiple major products. - Adopted and integrated a system for log centralization and system observability for developers. - Automated backup management and provisioning for concerned customers. - Designed a secure handshake flow for secure over-the-browser Add-on integration with the main product. - Designed a reliable self-hosting solution for scalability through product containerization, database cluster management, and decentralized self-hosted S3 bucket solutions.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Intern Software Engineer, WSO2, Sri Lanka",
+    "text": "- Started reworking the consent authorization module as a separate microservice that could be hosted on Choreo, WSO2's developer platform, and used by developers as an add-on. This work was not completed because he was reassigned to toolkit work due to deadlines the Open Banking team had been facing. - Battle tested new Accelerator Extensions by rewriting OBIE and NextGenPSD2 Open Banking toolkits. - Reworked the OBIE, formerly UK, Open Banking Framework toolkit to use new API-based extension points instead of Java class based extensions. He did a majority of the OBIE framework work, while still working as part of a team. - Worked on the Berlin or NextGenPSD2 Open Banking framework and rewrote it using the new API-based extension points. - Identified an explanation gap in multi-step authorization behavior around account selection in consecutive SCAs, meaning Strong Customer Authentications,",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 58,
+    "start_line": 54,
     "part": 0,
-    "word_count": 92
+    "word_count": 140
   },
   {
     "id": "chunk-0015",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Skills"
+      "Experience",
+      "Intern Software Engineer, WSO2, Sri Lanka"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "Backend and platform:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Intern Software Engineer, WSO2, Sri Lanka",
+    "text": "API-based extension points. - Identified an explanation gap in multi-step authorization behavior around account selection in consecutive SCAs, meaning Strong Customer Authentications, where the old toolkit implementation appeared to handle missing details incorrectly. - Worked on the localization module for the Financial Services Accelerator. - Resolved critical and minor defects within the Accelerator platform. - Redesigned the consent authorization module of the Financial Services Accelerator for NextGenPSD2 customization. - Authored technical documentation. - Implemented JUnit unit tests and Groovy integration tests.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 67,
-    "part": 0,
-    "word_count": 3
+    "start_line": 54,
+    "part": 1,
+    "word_count": 81
   },
   {
     "id": "chunk-0016",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Skills"
+      "Experience",
+      "Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "- Java - OSGi - PHP - Laravel - .NET",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka",
+    "text": "Period: Since February 2025",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 69,
+    "start_line": 67,
     "part": 0,
-    "word_count": 10
+    "word_count": 4
   },
   {
     "id": "chunk-0017",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Skills"
+      "Experience",
+      "Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "Cloud and DevOps:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka",
+    "text": "Athulya contributes to project management, infrastructure engineering, site reliability, system security, deployment automation, deployment observability, and solution engineering.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 75,
+    "start_line": 69,
     "part": 0,
-    "word_count": 3
+    "word_count": 18
   },
   {
     "id": "chunk-0018",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Skills"
+      "Experience",
+      "Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "- AWS - Docker - Docker Compose - CI/CD - Grafana - Garage - Jenkins",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka",
+    "text": "Key work:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 77,
+    "start_line": 71,
     "part": 0,
-    "word_count": 15
+    "word_count": 2
   },
   {
     "id": "chunk-0019",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Skills"
+      "Experience",
+      "Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "Network and API security:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka",
+    "text": "- Worked on ANT, Virtual System Solutions' base financial management product. - Worked on product lines for major customers whose names and details are not public. - Became a core part of company decision making and solution engineering. - Worked around architectural limitations in base products to provide better workflows, security, automation, and operational reliability. - Wrote multi-tenancy middleware for the cloud-native ANT Enterprise Resource Planning system and containerized its deployment. - Designed and implemented a centralized Identity and Access Management solution for identity handling across multiple major products. - Adopted and integrated a system for log centralization and system observability for developers. - Automated backup management and provisioning for concerned customers. - Designed a secure handshake flow for secure over-the-browser Add-on integration with the main product. - Designed a reliable self-hosting solution for scalability through product containerization, database cluster",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 85,
+    "start_line": 73,
     "part": 0,
-    "word_count": 4
+    "word_count": 140
   },
   {
     "id": "chunk-0020",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Skills"
+      "Experience",
+      "Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "- Open Banking security - OAuth2 - API hardening - Secure authentication flows",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Experience > Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka",
+    "text": "for secure over-the-browser Add-on integration with the main product. - Designed a reliable self-hosting solution for scalability through product containerization, database cluster management, and decentralized self-hosted S3 bucket solutions.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 87,
-    "part": 0,
-    "word_count": 13
+    "start_line": 73,
+    "part": 1,
+    "word_count": 29
   },
   {
     "id": "chunk-0021",
@@ -287,11 +292,11 @@
       "Skills"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "AI and machine learning:",
+    "text": "Programming language confidence summary: Athulya is very strong in Java because of his work with WSO2, OSGi, and WSO2 Carbon. He is also highly confident with Python for prototyping and AI work, including his research and RAG/fine-tuning projects. He has strong .NET experience from MAUI and Blazor university work. C++ was his first programming language, and he used it for an image segmentation program tested on the Lena image. He also works with Rust, Laravel, and Go: Rust came from job-preparation and personal systems interest, Laravel from Virtual System Solutions, and Go from a framework project exploring how to maintain microservices and monoliths in one codebase.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 92,
+    "start_line": 86,
     "part": 0,
-    "word_count": 4
+    "word_count": 106
   },
   {
     "id": "chunk-0022",
@@ -300,11 +305,11 @@
       "Skills"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "- LLMs - RAG - Transformers - QLoRA",
+    "text": "Backend and platform:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 94,
+    "start_line": 88,
     "part": 0,
-    "word_count": 8
+    "word_count": 3
   },
   {
     "id": "chunk-0023",
@@ -313,11 +318,11 @@
       "Skills"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "Embedded systems:",
+    "text": "- Java - OSGi - WSO2 Carbon - Python - C++ - Go - PHP - Laravel - .NET - MAUI - Blazor",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 99,
+    "start_line": 90,
     "part": 0,
-    "word_count": 2
+    "word_count": 23
   },
   {
     "id": "chunk-0024",
@@ -326,11 +331,11 @@
       "Skills"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "- C - Rust - Hardware-software integration",
+    "text": "Cloud and DevOps:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 101,
+    "start_line": 102,
     "part": 0,
-    "word_count": 7
+    "word_count": 3
   },
   {
     "id": "chunk-0025",
@@ -339,11 +344,11 @@
       "Skills"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
-    "text": "VLSI design:",
+    "text": "- AWS - Docker - Docker Compose - CI/CD - Grafana - Garage - Jenkins",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 105,
+    "start_line": 104,
     "part": 0,
-    "word_count": 2
+    "word_count": 15
   },
   {
     "id": "chunk-0026",
@@ -352,14 +357,144 @@
       "Skills"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
+    "text": "Network and API security:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 112,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0027",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Skills"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
+    "text": "- Open Banking security - OAuth2 - API hardening - Secure authentication flows - Google Cybersecurity Professional Certificate - FAPI concepts - mTLS - Least privilege - Server hardening - Secrets management - WSO2 Identity Server - Azure Identity - IAM - RBAC - Permissions and scopes - MFA - CIBA - SSO - Identity federation - SCIM - XACML - JWT validation - JWKS - Introspection - LDAP and user stores - RADIUS fundamentals - Network security fundamentals - Ethical hacking fundamentals - Metasploit - CVEs - Nessus - OpenCVE - Nmap - Reverse engineering fundamentals",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 114,
+    "part": 0,
+    "word_count": 97
+  },
+  {
+    "id": "chunk-0028",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Skills"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
+    "text": "AI and machine learning:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 149,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0029",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Skills"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
+    "text": "- LLMs - RAG - Transformers - LoRA - QLoRA - Embeddings - Fine-tuning - Computer vision - Deep learning - Data science and analytics - Bayesian optimization and Bayesian techniques - KAN, or Kolmogorov Arnold Networks - Symbolic interpretation - Real-time time-series prediction - ANS",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 151,
+    "part": 0,
+    "word_count": 46
+  },
+  {
+    "id": "chunk-0030",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Skills"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
+    "text": "Embedded systems:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 167,
+    "part": 0,
+    "word_count": 2
+  },
+  {
+    "id": "chunk-0031",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Skills"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
+    "text": "- C - Rust - Hardware-software integration",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 169,
+    "part": 0,
+    "word_count": 7
+  },
+  {
+    "id": "chunk-0032",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Skills"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
+    "text": "VLSI design:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 173,
+    "part": 0,
+    "word_count": 2
+  },
+  {
+    "id": "chunk-0033",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Skills"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Skills",
     "text": "- FPGA development - Verilog - Digital logic design",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 107,
+    "start_line": 175,
     "part": 0,
     "word_count": 9
   },
   {
-    "id": "chunk-0027",
+    "id": "chunk-0034",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "AI And Research Background"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > AI And Research Background",
+    "text": "AI background summary: Athulya likes AI and technical discussions about AI, but is most interested in AI where it connects to security, optimization, retrieval, smaller models, or practical constraints. He is less excited by resource-heavy model scaling races and repeated hyperparameter tuning that only gives marginal improvements.",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 181,
+    "part": 0,
+    "word_count": 47
+  },
+  {
+    "id": "chunk-0035",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "AI And Research Background"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > AI And Research Background",
+    "text": "Academic AI background: Athulya's AI qualifications mostly come from academic work. He studied AI fundamentals, machine learning, data science and analytics, deep learning, and computer vision. He built a weak show-and-tell model and learned from why it performed poorly. He has worked with RAG, embeddings, transformers, LoRA, QLoRA, and fine-tuning, including a competition project around a Sinhala RAG system for the Sri Lankan constitution.",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 183,
+    "part": 0,
+    "word_count": 64
+  },
+  {
+    "id": "chunk-0036",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "AI And Research Background"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > AI And Research Background",
+    "text": "Research background: Athulya's undergraduate research focused on lightweight real-time nonlinear time-series prediction that could rival LPC performance under strict speed constraints. He explored Bayesian techniques, then KANs, meaning Kolmogorov Arnold Networks, and their symbolic interpretations. His idea was to fit KANs, extract symbolic forms, and use those symbols to address LPC's linearity while keeping inference close to the speed of solving a single equation. Paired with ANS, the approach performed well in the context of precision agriculture, though not necessarily outperforming LPC plus ANS.",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 185,
+    "part": 0,
+    "word_count": 84
+  },
+  {
+    "id": "chunk-0037",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights"
@@ -367,12 +502,12 @@
     "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights",
     "text": "Project summary: Athulya's project highlights include OBL UK And NextGenPSD2 Open Banking Toolkits, Consent Authorization Page, Exam Registration Portal, Rustic Log Furnace, Sri Lankan Constitution Chatbot, and Flappy Bird On FPGA. These projects cover Open Banking reference implementations, secure consent authorization, ASP.NET and Blazor exam registration with AWS Docker and GitHub Actions CI/CD, a Rust multi-threaded pipelined log processor, a Sinhala RAG chatbot using LLMs Transformers and QLoRA, and a Verilog VGA Flappy Bird game on the DE2-115 FPGA board.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 113,
+    "start_line": 189,
     "part": 0,
     "word_count": 80
   },
   {
-    "id": "chunk-0028",
+    "id": "chunk-0038",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
@@ -381,147 +516,7 @@
     "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > OBL UK And NextGenPSD2 Open Banking Toolkits",
     "text": "Repository: https://github.com/AthulyaWeerakoon/reference-implementation-nextgenpsd2",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 117,
-    "part": 0,
-    "word_count": 2
-  },
-  {
-    "id": "chunk-0029",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Project Highlights",
-      "OBL UK And NextGenPSD2 Open Banking Toolkits"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > OBL UK And NextGenPSD2 Open Banking Toolkits",
-    "text": "Summary: Battle-tested Open Banking reference implementations on WSO2 Financial Services Accelerator extensions.",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 119,
-    "part": 0,
-    "word_count": 12
-  },
-  {
-    "id": "chunk-0030",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Project Highlights",
-      "OBL UK And NextGenPSD2 Open Banking Toolkits"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > OBL UK And NextGenPSD2 Open Banking Toolkits",
-    "text": "Technologies and concepts:",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 121,
-    "part": 0,
-    "word_count": 3
-  },
-  {
-    "id": "chunk-0031",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Project Highlights",
-      "OBL UK And NextGenPSD2 Open Banking Toolkits"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > OBL UK And NextGenPSD2 Open Banking Toolkits",
-    "text": "- Java - Maven - OSGi - WSO2 API Manager - WSO2 Identity Server - Open Banking",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 123,
-    "part": 0,
-    "word_count": 17
-  },
-  {
-    "id": "chunk-0032",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Project Highlights",
-      "OBL UK And NextGenPSD2 Open Banking Toolkits"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > OBL UK And NextGenPSD2 Open Banking Toolkits",
-    "text": "Useful response angle: emphasize Open Banking, financial services compliance, reference implementation work, and testing or stabilization work around platform extensions.",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 130,
-    "part": 0,
-    "word_count": 20
-  },
-  {
-    "id": "chunk-0033",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Project Highlights",
-      "Consent Authorization Page"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Consent Authorization Page",
-    "text": "Link: https://github.com/wso2/financial-services-accelerator/pull/716",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 134,
-    "part": 0,
-    "word_count": 2
-  },
-  {
-    "id": "chunk-0034",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Project Highlights",
-      "Consent Authorization Page"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Consent Authorization Page",
-    "text": "Summary: Redesigned consent authorization for greater customization across NextGenPSD2 Open Banking use cases.",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 136,
-    "part": 0,
-    "word_count": 13
-  },
-  {
-    "id": "chunk-0035",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Project Highlights",
-      "Consent Authorization Page"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Consent Authorization Page",
-    "text": "Technologies and concepts:",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 138,
-    "part": 0,
-    "word_count": 3
-  },
-  {
-    "id": "chunk-0036",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Project Highlights",
-      "Consent Authorization Page"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Consent Authorization Page",
-    "text": "- JSP - Security - OAuth2 - Open Banking consent flows",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 140,
-    "part": 0,
-    "word_count": 11
-  },
-  {
-    "id": "chunk-0037",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Project Highlights",
-      "Consent Authorization Page"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Consent Authorization Page",
-    "text": "Useful response angle: explain this as work on a sensitive user-facing authorization flow where correctness, customization, and security boundaries matter.",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 145,
-    "part": 0,
-    "word_count": 20
-  },
-  {
-    "id": "chunk-0038",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Project Highlights",
-      "Exam Registration Portal"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Exam Registration Portal",
-    "text": "Repository: https://github.com/AthulyaWeerakoon/ExamRegistrationUoJ",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 149,
+    "start_line": 193,
     "part": 0,
     "word_count": 2
   },
@@ -530,26 +525,26 @@
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Exam Registration Portal"
+      "OBL UK And NextGenPSD2 Open Banking Toolkits"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Exam Registration Portal",
-    "text": "Summary: University exam registration with cloud deployment and GitHub Actions CI/CD.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > OBL UK And NextGenPSD2 Open Banking Toolkits",
+    "text": "Summary: Battle-tested Open Banking reference implementations on WSO2 Financial Services Accelerator extensions.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 151,
+    "start_line": 195,
     "part": 0,
-    "word_count": 11
+    "word_count": 12
   },
   {
     "id": "chunk-0040",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Exam Registration Portal"
+      "OBL UK And NextGenPSD2 Open Banking Toolkits"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Exam Registration Portal",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > OBL UK And NextGenPSD2 Open Banking Toolkits",
     "text": "Technologies and concepts:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 153,
+    "start_line": 197,
     "part": 0,
     "word_count": 3
   },
@@ -558,40 +553,40 @@
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Exam Registration Portal"
+      "OBL UK And NextGenPSD2 Open Banking Toolkits"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Exam Registration Portal",
-    "text": "- ASP.NET - Blazor - AWS - Docker - GitHub Actions - CI/CD",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > OBL UK And NextGenPSD2 Open Banking Toolkits",
+    "text": "- Java - Maven - OSGi - WSO2 API Manager - WSO2 Identity Server - Open Banking",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 155,
+    "start_line": 199,
     "part": 0,
-    "word_count": 13
+    "word_count": 17
   },
   {
     "id": "chunk-0042",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Exam Registration Portal"
+      "OBL UK And NextGenPSD2 Open Banking Toolkits"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Exam Registration Portal",
-    "text": "Useful response angle: describe it as a practical university system with deployment automation and cloud hosting concerns.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > OBL UK And NextGenPSD2 Open Banking Toolkits",
+    "text": "Useful response angle: emphasize Open Banking, financial services compliance, reference implementation work, and testing or stabilization work around platform extensions.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 162,
+    "start_line": 206,
     "part": 0,
-    "word_count": 17
+    "word_count": 20
   },
   {
     "id": "chunk-0043",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Rustic Log Furnace"
+      "Consent Authorization Page"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Rustic Log Furnace",
-    "text": "Repository: https://github.com/AthulyaWeerakoon/rustic-log-furnace",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Consent Authorization Page",
+    "text": "Link: https://github.com/wso2/financial-services-accelerator/pull/716",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 166,
+    "start_line": 210,
     "part": 0,
     "word_count": 2
   },
@@ -600,26 +595,26 @@
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Rustic Log Furnace"
+      "Consent Authorization Page"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Rustic Log Furnace",
-    "text": "Summary: A simple high-performance pipelined log processor written in Rust.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Consent Authorization Page",
+    "text": "Summary: Redesigned consent authorization for greater customization across NextGenPSD2 Open Banking use cases.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 168,
+    "start_line": 212,
     "part": 0,
-    "word_count": 10
+    "word_count": 13
   },
   {
     "id": "chunk-0045",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Rustic Log Furnace"
+      "Consent Authorization Page"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Rustic Log Furnace",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Consent Authorization Page",
     "text": "Technologies and concepts:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 170,
+    "start_line": 214,
     "part": 0,
     "word_count": 3
   },
@@ -628,40 +623,40 @@
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Rustic Log Furnace"
+      "Consent Authorization Page"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Rustic Log Furnace",
-    "text": "- Rust - Multi-threading - Pipelined processing - Log processing",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Consent Authorization Page",
+    "text": "- JSP - Security - OAuth2 - Open Banking consent flows",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 172,
+    "start_line": 216,
     "part": 0,
-    "word_count": 10
+    "word_count": 11
   },
   {
     "id": "chunk-0047",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Rustic Log Furnace"
+      "Consent Authorization Page"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Rustic Log Furnace",
-    "text": "Useful response angle: connect it to Athulya's interest in Rust, explicit engineering discipline, performance, and clean interfaces.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Consent Authorization Page",
+    "text": "Useful response angle: explain this as work on a sensitive user-facing authorization flow where correctness, customization, and security boundaries matter.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 177,
+    "start_line": 221,
     "part": 0,
-    "word_count": 17
+    "word_count": 20
   },
   {
     "id": "chunk-0048",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Sri Lankan Constitution Chatbot"
+      "Exam Registration Portal"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Sri Lankan Constitution Chatbot",
-    "text": "Repository: https://github.com/AthulyaWeerakoon/SinhalaConstitutionRAG",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Exam Registration Portal",
+    "text": "Repository: https://github.com/AthulyaWeerakoon/ExamRegistrationUoJ",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 181,
+    "start_line": 225,
     "part": 0,
     "word_count": 2
   },
@@ -670,26 +665,26 @@
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Sri Lankan Constitution Chatbot"
+      "Exam Registration Portal"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Sri Lankan Constitution Chatbot",
-    "text": "Summary: RAG-based Sinhala chatbot using LLMs, Transformers, and QLoRA fine-tuning.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Exam Registration Portal",
+    "text": "Summary: University exam registration with cloud deployment and GitHub Actions CI/CD.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 183,
+    "start_line": 227,
     "part": 0,
-    "word_count": 10
+    "word_count": 11
   },
   {
     "id": "chunk-0050",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Sri Lankan Constitution Chatbot"
+      "Exam Registration Portal"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Sri Lankan Constitution Chatbot",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Exam Registration Portal",
     "text": "Technologies and concepts:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 185,
+    "start_line": 229,
     "part": 0,
     "word_count": 3
   },
@@ -698,40 +693,40 @@
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Sri Lankan Constitution Chatbot"
+      "Exam Registration Portal"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Sri Lankan Constitution Chatbot",
-    "text": "- LLMs - RAG - QLoRA - Transformers - Sinhala language support",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Exam Registration Portal",
+    "text": "- ASP.NET - Blazor - AWS - Docker - GitHub Actions - CI/CD",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 187,
+    "start_line": 231,
     "part": 0,
-    "word_count": 12
+    "word_count": 13
   },
   {
     "id": "chunk-0052",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Sri Lankan Constitution Chatbot"
+      "Exam Registration Portal"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Sri Lankan Constitution Chatbot",
-    "text": "Useful response angle: describe it as an applied local-language AI project combining retrieval, fine-tuning, and constitutional knowledge access.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Exam Registration Portal",
+    "text": "Useful response angle: describe it as a practical university system with deployment automation and cloud hosting concerns.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 193,
+    "start_line": 238,
     "part": 0,
-    "word_count": 18
+    "word_count": 17
   },
   {
     "id": "chunk-0053",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Flappy Bird On FPGA"
+      "Rustic Log Furnace"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Flappy Bird On FPGA",
-    "text": "Repository: https://github.com/AthulyaWeerakoon/FlappyBirdVerilog",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Rustic Log Furnace",
+    "text": "Repository: https://github.com/AthulyaWeerakoon/rustic-log-furnace",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 197,
+    "start_line": 242,
     "part": 0,
     "word_count": 2
   },
@@ -740,26 +735,26 @@
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Flappy Bird On FPGA"
+      "Rustic Log Furnace"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Flappy Bird On FPGA",
-    "text": "Summary: Verilog game with VGA output on the DE2-115 development board.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Rustic Log Furnace",
+    "text": "Summary: A simple high-performance pipelined log processor written in Rust.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 199,
+    "start_line": 244,
     "part": 0,
-    "word_count": 11
+    "word_count": 10
   },
   {
     "id": "chunk-0055",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
-      "Flappy Bird On FPGA"
+      "Rustic Log Furnace"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Flappy Bird On FPGA",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Rustic Log Furnace",
     "text": "Technologies and concepts:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 201,
+    "start_line": 246,
     "part": 0,
     "word_count": 3
   },
@@ -768,17 +763,157 @@
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
+      "Rustic Log Furnace"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Rustic Log Furnace",
+    "text": "- Rust - Multi-threading - Pipelined processing - Log processing",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 248,
+    "part": 0,
+    "word_count": 10
+  },
+  {
+    "id": "chunk-0057",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Project Highlights",
+      "Rustic Log Furnace"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Rustic Log Furnace",
+    "text": "Useful response angle: connect it to Athulya's interest in Rust, explicit engineering discipline, performance, and clean interfaces.",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 253,
+    "part": 0,
+    "word_count": 17
+  },
+  {
+    "id": "chunk-0058",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Project Highlights",
+      "Sri Lankan Constitution Chatbot"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Sri Lankan Constitution Chatbot",
+    "text": "Repository: https://github.com/AthulyaWeerakoon/SinhalaConstitutionRAG",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 257,
+    "part": 0,
+    "word_count": 2
+  },
+  {
+    "id": "chunk-0059",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Project Highlights",
+      "Sri Lankan Constitution Chatbot"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Sri Lankan Constitution Chatbot",
+    "text": "Summary: RAG-based Sinhala chatbot using LLMs, Transformers, and QLoRA fine-tuning.",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 259,
+    "part": 0,
+    "word_count": 10
+  },
+  {
+    "id": "chunk-0060",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Project Highlights",
+      "Sri Lankan Constitution Chatbot"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Sri Lankan Constitution Chatbot",
+    "text": "Technologies and concepts:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 261,
+    "part": 0,
+    "word_count": 3
+  },
+  {
+    "id": "chunk-0061",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Project Highlights",
+      "Sri Lankan Constitution Chatbot"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Sri Lankan Constitution Chatbot",
+    "text": "- LLMs - RAG - QLoRA - Transformers - Sinhala language support",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 263,
+    "part": 0,
+    "word_count": 12
+  },
+  {
+    "id": "chunk-0062",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Project Highlights",
+      "Sri Lankan Constitution Chatbot"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Sri Lankan Constitution Chatbot",
+    "text": "Useful response angle: describe it as an applied local-language AI project combining retrieval, fine-tuning, and constitutional knowledge access.",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 269,
+    "part": 0,
+    "word_count": 18
+  },
+  {
+    "id": "chunk-0063",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Project Highlights",
+      "Flappy Bird On FPGA"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Flappy Bird On FPGA",
+    "text": "Repository: https://github.com/AthulyaWeerakoon/FlappyBirdVerilog",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 273,
+    "part": 0,
+    "word_count": 2
+  },
+  {
+    "id": "chunk-0064",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Project Highlights",
+      "Flappy Bird On FPGA"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Flappy Bird On FPGA",
+    "text": "Summary: Verilog game with VGA output on the DE2-115 development board.",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 275,
+    "part": 0,
+    "word_count": 11
+  },
+  {
+    "id": "chunk-0065",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Project Highlights",
+      "Flappy Bird On FPGA"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Flappy Bird On FPGA",
+    "text": "Technologies and concepts:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 277,
+    "part": 0,
+    "word_count": 3
+  },
+  {
+    "id": "chunk-0066",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Project Highlights",
       "Flappy Bird On FPGA"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Flappy Bird On FPGA",
     "text": "- Verilog - VGA - FPGA - Digital logic design - DE2-115 development board",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 203,
+    "start_line": 279,
     "part": 0,
     "word_count": 14
   },
   {
-    "id": "chunk-0057",
+    "id": "chunk-0067",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Project Highlights",
@@ -787,12 +922,12 @@
     "heading": "Athulya Weerakoon Knowledge Corpus > Project Highlights > Flappy Bird On FPGA",
     "text": "Useful response angle: highlight the hardware-software boundary, digital systems knowledge, and making a playable game with low-level constraints.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 209,
+    "start_line": 285,
     "part": 0,
     "word_count": 18
   },
   {
-    "id": "chunk-0058",
+    "id": "chunk-0068",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Writing"
@@ -800,217 +935,76 @@
     "heading": "Athulya Weerakoon Knowledge Corpus > Writing",
     "text": "Athulya writes on Medium at https://medium.com/@athulyaweerakoon. Current Medium articles: Why Every Developer Should Learn Rust, about software engineering discipline, explicit contracts, Rust-shaped thinking, ownership, mutability, failure, boundaries, and guarantees; I Tried EfficientNet's Scaling Trick On ShuffleNet, about computer vision, CNN scaling, EfficientNet-style compound scaling, ShuffleNetV2b, implementation, tuning, and results; GitHub For HTTPS Web Hosting CI/CD, about GitHub Actions, Docker, AWS EC2, Cloudflare origin certificates, repository secrets, HTTPS, and repeatable deployment; Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap, about practical web hosting, domains, Namecheap, Cloudflare, AWS EC2, HTTPS, and Cloudflare Workers routing.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 213,
+    "start_line": 289,
     "part": 0,
     "word_count": 95
-  },
-  {
-    "id": "chunk-0059",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Why Every Developer Should Learn Rust"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Why Every Developer Should Learn Rust",
-    "text": "URL: https://medium.com/@athulyaweerakoon/every-developer-should-learn-rust-at-least-once-281aecf9135d",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 217,
-    "part": 0,
-    "word_count": 2
-  },
-  {
-    "id": "chunk-0060",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Why Every Developer Should Learn Rust"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Why Every Developer Should Learn Rust",
-    "text": "Date: 2026-06-16",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 219,
-    "part": 0,
-    "word_count": 2
-  },
-  {
-    "id": "chunk-0061",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Why Every Developer Should Learn Rust"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Why Every Developer Should Learn Rust",
-    "text": "Category: Software engineering",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 221,
-    "part": 0,
-    "word_count": 3
-  },
-  {
-    "id": "chunk-0062",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Why Every Developer Should Learn Rust"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Why Every Developer Should Learn Rust",
-    "text": "Tags:",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 223,
-    "part": 0,
-    "word_count": 1
-  },
-  {
-    "id": "chunk-0063",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Why Every Developer Should Learn Rust"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Why Every Developer Should Learn Rust",
-    "text": "- Engineering discipline - Software design - Explicit contracts - Rust",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 225,
-    "part": 0,
-    "word_count": 11
-  },
-  {
-    "id": "chunk-0064",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Why Every Developer Should Learn Rust"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Why Every Developer Should Learn Rust",
-    "text": "Summary: A reflection on the engineering discipline Rust teaches, even outside Rust code. The article looks at how thinking like a Rust developer, and studying the tradeoffs made by Rust's own designers, can sharpen principles around explicit contracts, boundaries, failure, guarantees, and long-term software design.",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 230,
-    "part": 0,
-    "word_count": 45
-  },
-  {
-    "id": "chunk-0065",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Why Every Developer Should Learn Rust"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Why Every Developer Should Learn Rust",
-    "text": "Important framing: this article is less about Rust advocacy and more about engineering discipline. The main idea is that Rust can teach better software engineering principles through the way it forces explicit thinking about ownership, mutability, failure, boundaries, and guarantees.",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 232,
-    "part": 0,
-    "word_count": 40
-  },
-  {
-    "id": "chunk-0066",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
-    "text": "URL: https://medium.com/@athulyaweerakoon/i-tried-efficientnets-scaling-trick-on-shufflenet-3cf0d14e1107",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 236,
-    "part": 0,
-    "word_count": 2
-  },
-  {
-    "id": "chunk-0067",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
-    "text": "Date: 2026-02-09",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 238,
-    "part": 0,
-    "word_count": 2
-  },
-  {
-    "id": "chunk-0068",
-    "heading_path": [
-      "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
-    ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
-    "text": "Category: Computer vision",
-    "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 240,
-    "part": 0,
-    "word_count": 3
   },
   {
     "id": "chunk-0069",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
+      "Creative Writing"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
-    "text": "Tags:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing",
+    "text": "Creative writing summary: Athulya writes fiction on Wattpad under AtleeBugs at https://www.wattpad.com/user/AtleeBugs. His public Wattpad works include Triagon Origins, Hall of Ivory, and A Hundred Years. Triagon Origins is the science-fiction series he loves most and the one he would want to be known for if he succeeds as a writer. Hall of Ivory is a fantasy project he started partly to prove he could keep going with a book-length idea; it became better than expected and is about 80 percent complete. A Hundred Years is a first-person novella from Jasmine's perspective, written for the 2026 Open Novella Contest and being expanded or reworked for the 2026 Wattys.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 242,
+    "start_line": 293,
     "part": 0,
-    "word_count": 1
+    "word_count": 108
   },
   {
     "id": "chunk-0070",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
+      "Creative Writing",
+      "Triagon Origins"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
-    "text": "- CNN - EfficientNet - ShuffleNet - Scaling",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Triagon Origins",
+    "text": "URL: https://www.wattpad.com/myworks/352689078-triagon-origins",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 244,
+    "start_line": 297,
     "part": 0,
-    "word_count": 8
+    "word_count": 2
   },
   {
     "id": "chunk-0071",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
+      "Creative Writing",
+      "Triagon Origins"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
-    "text": "Summary: A hands-on experiment with compound scaling: taking the EfficientNet idea of balancing depth, width, and resolution, then trying it on the lightweight ShuffleNetV2b architecture. The article moves from CNN scaling theory into implementation, tuning, and interpreting the results.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Triagon Origins",
+    "text": "Genre: Science fiction",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 249,
+    "start_line": 299,
     "part": 0,
-    "word_count": 39
+    "word_count": 3
   },
   {
     "id": "chunk-0072",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "GitHub For HTTPS Web Hosting CI/CD"
+      "Creative Writing",
+      "Triagon Origins"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > GitHub For HTTPS Web Hosting CI/CD",
-    "text": "URL: https://medium.com/@athulyaweerakoon/github-for-https-web-hosting-ci-cd-ec3fcb49eec5",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Triagon Origins",
+    "text": "Summary: Triagon Origins is set in a shattered omniverse where prophets carry the message of an artifact that can give its chosen owner one chance to alter reality. The story follows many people seeking wishes of their own, including a widowed soldier, a guilt-ridden cyborg, an engineered revolutionary, an orphan born to be a monster, and a young girl lost in the chaos. Athulya is rewriting it to appeal to more casual readers without losing its value.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 253,
+    "start_line": 301,
     "part": 0,
-    "word_count": 2
+    "word_count": 77
   },
   {
     "id": "chunk-0073",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "GitHub For HTTPS Web Hosting CI/CD"
+      "Creative Writing",
+      "Hall Of Ivory"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > GitHub For HTTPS Web Hosting CI/CD",
-    "text": "Date: 2025-09-22",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Hall Of Ivory",
+    "text": "URL: https://www.wattpad.com/myworks/394332711-the-hall-of-ivory",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 255,
+    "start_line": 305,
     "part": 0,
     "word_count": 2
   },
@@ -1018,13 +1012,13 @@
     "id": "chunk-0074",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "GitHub For HTTPS Web Hosting CI/CD"
+      "Creative Writing",
+      "Hall Of Ivory"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > GitHub For HTTPS Web Hosting CI/CD",
-    "text": "Category: Deployment",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Hall Of Ivory",
+    "text": "Genre: Fantasy",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 257,
+    "start_line": 307,
     "part": 0,
     "word_count": 2
   },
@@ -1032,69 +1026,69 @@
     "id": "chunk-0075",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "GitHub For HTTPS Web Hosting CI/CD"
+      "Creative Writing",
+      "Hall Of Ivory"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > GitHub For HTTPS Web Hosting CI/CD",
-    "text": "Tags:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Hall Of Ivory",
+    "text": "Summary: Hall of Ivory follows Turren, the lonely adventurer and godslayer of Thales, who joins three old friends on a quest to rescue their once-companion from a world beyond reach. It crosses a world of legends, nightmare cities, old heartbreaks, and a fatal prophecy. It is not finished yet but is roughly 80 percent complete.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 259,
+    "start_line": 309,
     "part": 0,
-    "word_count": 1
+    "word_count": 55
   },
   {
     "id": "chunk-0076",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "GitHub For HTTPS Web Hosting CI/CD"
+      "Creative Writing",
+      "A Hundred Years"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > GitHub For HTTPS Web Hosting CI/CD",
-    "text": "- GitHub Actions - Docker - HTTPS - AWS EC2",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > A Hundred Years",
+    "text": "URL: https://www.wattpad.com/myworks/408067856-a-hundred-years",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 261,
+    "start_line": 313,
     "part": 0,
-    "word_count": 10
+    "word_count": 2
   },
   {
     "id": "chunk-0077",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "GitHub For HTTPS Web Hosting CI/CD"
+      "Creative Writing",
+      "A Hundred Years"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > GitHub For HTTPS Web Hosting CI/CD",
-    "text": "Summary: A practical walkthrough for turning GitHub Actions into a secure deployment pipeline for web hosting. The article connects Docker, AWS EC2, Cloudflare origin certificates, and repository secrets into a repeatable deployment flow.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > A Hundred Years",
+    "text": "Genre: Speculative romance or reincarnation mystery",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 266,
+    "start_line": 315,
     "part": 0,
-    "word_count": 33
+    "word_count": 6
   },
   {
     "id": "chunk-0078",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
+      "Creative Writing",
+      "A Hundred Years"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
-    "text": "URL: https://medium.com/@athulyaweerakoon/cheap-and-reliable-web-hosting-with-aws-cloudflare-namecheap-5727c22ec30c",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > A Hundred Years",
+    "text": "Summary: A Hundred Years is written in first person from Jasmine's perspective. Jasmine does not believe in soulmates, fate, or love at first sight until she meets Ethan during a summer internship in the Andes and begins remembering things from another life. The story was an entry for the 2026 Open Novella Contest and is being expanded or reworked for the 2026 Wattys.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 270,
+    "start_line": 317,
     "part": 0,
-    "word_count": 2
+    "word_count": 63
   },
   {
     "id": "chunk-0079",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
+      "Creative Writing",
+      "Why Every Developer Should Learn Rust"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
-    "text": "Date: 2025-09-22",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Why Every Developer Should Learn Rust",
+    "text": "URL: https://medium.com/@athulyaweerakoon/every-developer-should-learn-rust-at-least-once-281aecf9135d",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 272,
+    "start_line": 321,
     "part": 0,
     "word_count": 2
   },
@@ -1102,13 +1096,13 @@
     "id": "chunk-0080",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
+      "Creative Writing",
+      "Why Every Developer Should Learn Rust"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
-    "text": "Category: Infrastructure",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Why Every Developer Should Learn Rust",
+    "text": "Date: 2026-06-16",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 274,
+    "start_line": 323,
     "part": 0,
     "word_count": 2
   },
@@ -1116,93 +1110,97 @@
     "id": "chunk-0081",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
+      "Creative Writing",
+      "Why Every Developer Should Learn Rust"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
-    "text": "Tags:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Why Every Developer Should Learn Rust",
+    "text": "Category: Software engineering",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 276,
+    "start_line": 325,
     "part": 0,
-    "word_count": 1
+    "word_count": 3
   },
   {
     "id": "chunk-0082",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
+      "Creative Writing",
+      "Why Every Developer Should Learn Rust"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
-    "text": "- AWS EC2 - Cloudflare - Namecheap - Web hosting",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Why Every Developer Should Learn Rust",
+    "text": "Tags:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 278,
+    "start_line": 327,
     "part": 0,
-    "word_count": 10
+    "word_count": 1
   },
   {
     "id": "chunk-0083",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Writing",
-      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
+      "Creative Writing",
+      "Why Every Developer Should Learn Rust"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
-    "text": "Summary: A grounded guide to hosting personal web apps when static hosting is not quite enough. It covers buying a domain, connecting Namecheap and Cloudflare, setting up an AWS instance, keeping HTTPS in the loop, and using Cloudflare Workers for routing.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Why Every Developer Should Learn Rust",
+    "text": "- Engineering discipline - Software design - Explicit contracts - Rust",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 283,
+    "start_line": 329,
     "part": 0,
-    "word_count": 41
+    "word_count": 11
   },
   {
     "id": "chunk-0084",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "Why Every Developer Should Learn Rust"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "The portfolio is a static website hosted under the canonical domain https://athulyaweerakoon.xyz. It is also part of the GitHub profile repository.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Why Every Developer Should Learn Rust",
+    "text": "Summary: A reflection on the engineering discipline Rust teaches, even outside Rust code. The article looks at how thinking like a Rust developer, and studying the tradeoffs made by Rust's own designers, can sharpen principles around explicit contracts, boundaries, failure, guarantees, and long-term software design.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 287,
+    "start_line": 334,
     "part": 0,
-    "word_count": 21
+    "word_count": 45
   },
   {
     "id": "chunk-0085",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "Why Every Developer Should Learn Rust"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "Main files:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Why Every Developer Should Learn Rust",
+    "text": "Important framing: this article is less about Rust advocacy and more about engineering discipline. The main idea is that Rust can teach better software engineering principles through the way it forces explicit thinking about ownership, mutability, failure, boundaries, and guarantees.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 289,
+    "start_line": 336,
     "part": 0,
-    "word_count": 2
+    "word_count": 40
   },
   {
     "id": "chunk-0086",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "- `index.html`: page structure, content, metadata, sections, project cards, article cards, footer, script imports. - `styles.css`: visual design, responsive layout, toolbar, article cards, footer, glass styling, mobile behavior. - `scripts/globals.js`: shared state and particle/theme configuration. - `scripts/util.js`: utility helpers used by the theme and background code. - `scripts/section-scroll.js`: section navigation, active menu highlighting, mobile menu open/close behavior. - `scripts/backdrop-scroll-control.js`: parallax-style background scroll behavior. - `scripts/theme-control.js`: light/dark mode and seasonal/weather theme control. - `scripts/particle-control.js`: rain/snow/particle effects. - `scripts/page-control.js`: intro expansion, article reveal behavior, weather button state.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
+    "text": "URL: https://medium.com/@athulyaweerakoon/i-tried-efficientnets-scaling-trick-on-shufflenet-3cf0d14e1107",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 291,
+    "start_line": 340,
     "part": 0,
-    "word_count": 85
+    "word_count": 2
   },
   {
     "id": "chunk-0087",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "Page sections:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
+    "text": "Date: 2026-02-09",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 301,
+    "start_line": 342,
     "part": 0,
     "word_count": 2
   },
@@ -1210,142 +1208,153 @@
     "id": "chunk-0088",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "- About: hero introduction, expandable intro text, project and Medium links, adventurer/weather card. - Articles: Medium article cards. The current cards are hard-coded in `index.html`. - Projects: project highlight cards linking to GitHub repositories or PRs. - Experience: WSO2 internship and Virtual System Solutions DevOps role. - Skills: grouped skill cards. - Education: degree, activity, and certification cards. - Footer: email, GitHub, and CV link.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
+    "text": "Category: Computer vision",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 303,
+    "start_line": 344,
     "part": 0,
-    "word_count": 65
+    "word_count": 3
   },
   {
     "id": "chunk-0089",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "Navigation behavior:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
+    "text": "Tags:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 311,
+    "start_line": 346,
     "part": 0,
-    "word_count": 2
+    "word_count": 1
   },
   {
     "id": "chunk-0090",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "- Desktop toolbar is a slim fixed top toolbar. - Mobile toolbar is fixed at the bottom. - On mobile, the menu button is centered, the theme toggle is on the right, and the name is on the left. - Internal section links scroll smoothly to page sections. - External/action links open in a new tab.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
+    "text": "- CNN - EfficientNet - ShuffleNet - Scaling",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 313,
+    "start_line": 348,
     "part": 0,
-    "word_count": 56
+    "word_count": 8
   },
   {
     "id": "chunk-0091",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "I Tried EfficientNet's Scaling Trick On ShuffleNet"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "Visual behavior:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > I Tried EfficientNet's Scaling Trick On ShuffleNet",
+    "text": "Summary: A hands-on experiment with compound scaling: taking the EfficientNet idea of balancing depth, width, and resolution, then trying it on the lightweight ShuffleNetV2b architecture. The article moves from CNN scaling theory into implementation, tuning, and interpreting the results.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 319,
+    "start_line": 353,
     "part": 0,
-    "word_count": 2
+    "word_count": 39
   },
   {
     "id": "chunk-0092",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "GitHub For HTTPS Web Hosting CI/CD"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "- The page uses glass-like cards over layered pixel-art background images. - AOS is used for most section/card entrance animations, but not for the top/bottom toolbar or footer. - The site has light and dark modes. - Weather buttons switch between clear, rain, and snow particle themes. - The adventurer GIF links secretly to Athulya's Wattpad profile.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > GitHub For HTTPS Web Hosting CI/CD",
+    "text": "URL: https://medium.com/@athulyaweerakoon/github-for-https-web-hosting-ci-cd-ec3fcb49eec5",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 321,
+    "start_line": 357,
     "part": 0,
-    "word_count": 57
+    "word_count": 2
   },
   {
     "id": "chunk-0093",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "GitHub For HTTPS Web Hosting CI/CD"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "SEO and crawler files:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > GitHub For HTTPS Web Hosting CI/CD",
+    "text": "Date: 2025-09-22",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 327,
+    "start_line": 359,
     "part": 0,
-    "word_count": 4
+    "word_count": 2
   },
   {
     "id": "chunk-0094",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "GitHub For HTTPS Web Hosting CI/CD"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "- Metadata in `index.html` includes description, keywords, Open Graph tags, Twitter card tags, canonical URL, identity links, and JSON-LD for Person and WebSite. - `robots.txt` allows crawling and points to the sitemap. - `sitemap.xml` lists the canonical homepage. - `CNAME` contains `athulyaweerakoon.xyz`.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > GitHub For HTTPS Web Hosting CI/CD",
+    "text": "Category: Deployment",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 329,
+    "start_line": 361,
     "part": 0,
-    "word_count": 42
+    "word_count": 2
   },
   {
     "id": "chunk-0095",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Creative Writing",
+      "GitHub For HTTPS Web Hosting CI/CD"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "The portfolio frontend may support command execution from the chatbot. A command must be sent as the entire chatbot response. If the response contains any other text before or after the command, the frontend should treat it as normal chat text.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > GitHub For HTTPS Web Hosting CI/CD",
+    "text": "Tags:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 336,
+    "start_line": 363,
     "part": 0,
-    "word_count": 41
+    "word_count": 1
   },
   {
     "id": "chunk-0096",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Creative Writing",
+      "GitHub For HTTPS Web Hosting CI/CD"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Command format:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > GitHub For HTTPS Web Hosting CI/CD",
+    "text": "- GitHub Actions - Docker - HTTPS - AWS EC2",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 338,
+    "start_line": 365,
     "part": 0,
-    "word_count": 2
+    "word_count": 10
   },
   {
     "id": "chunk-0097",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Creative Writing",
+      "GitHub For HTTPS Web Hosting CI/CD"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /command-name argument ```",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > GitHub For HTTPS Web Hosting CI/CD",
+    "text": "Summary: A practical walkthrough for turning GitHub Actions into a secure deployment pipeline for web hosting. The article connects Docker, AWS EC2, Cloudflare origin certificates, and repository secrets into a repeatable deployment flow.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 340,
+    "start_line": 370,
     "part": 0,
-    "word_count": 4
+    "word_count": 33
   },
   {
     "id": "chunk-0098",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Creative Writing",
+      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Navigation command:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
+    "text": "URL: https://medium.com/@athulyaweerakoon/cheap-and-reliable-web-hosting-with-aws-cloudflare-namecheap-5727c22ec30c",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 344,
+    "start_line": 374,
     "part": 0,
     "word_count": 2
   },
@@ -1353,116 +1362,121 @@
     "id": "chunk-0099",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Creative Writing",
+      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /navigate section-id ```",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
+    "text": "Date: 2025-09-22",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 346,
+    "start_line": 376,
     "part": 0,
-    "word_count": 4
+    "word_count": 2
   },
   {
     "id": "chunk-0100",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Creative Writing",
+      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Supported section IDs:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
+    "text": "Category: Infrastructure",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 350,
+    "start_line": 378,
     "part": 0,
-    "word_count": 3
+    "word_count": 2
   },
   {
     "id": "chunk-0101",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Creative Writing",
+      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "- `about` - `articles` - `projects` - `experience` - `skills` - `education`",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
+    "text": "Tags:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 352,
+    "start_line": 380,
     "part": 0,
-    "word_count": 12
+    "word_count": 1
   },
   {
     "id": "chunk-0102",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Creative Writing",
+      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Navigation examples:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
+    "text": "- AWS EC2 - Cloudflare - Namecheap - Web hosting",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 359,
+    "start_line": 382,
     "part": 0,
-    "word_count": 2
+    "word_count": 10
   },
   {
     "id": "chunk-0103",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Creative Writing",
+      "Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /navigate projects ```",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap",
+    "text": "Summary: A grounded guide to hosting personal web apps when static hosting is not quite enough. It covers buying a domain, connecting Namecheap and Cloudflare, setting up an AWS instance, keeping HTTPS in the loop, and using Cloudflare Workers for routing.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 361,
+    "start_line": 387,
     "part": 0,
-    "word_count": 4
+    "word_count": 41
   },
   {
     "id": "chunk-0104",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /navigate articles ```",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "The portfolio is a static website hosted under the canonical domain https://athulyaweerakoon.xyz. It is also part of the GitHub profile repository.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 365,
+    "start_line": 391,
     "part": 0,
-    "word_count": 4
+    "word_count": 21
   },
   {
     "id": "chunk-0105",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Natural language navigation aliases:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "Main files:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 369,
+    "start_line": 393,
     "part": 0,
-    "word_count": 4
+    "word_count": 2
   },
   {
     "id": "chunk-0106",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "- \"show me the about section\" means `/navigate about` - \"go to the about section\" means `/navigate about` - \"show me the articles\" means `/navigate articles` - \"open the articles section\" means `/navigate articles` - \"show me the projects\" means `/navigate projects` - \"open the projects section\" means `/navigate projects` - \"show me his experience\" means `/navigate experience` - \"go to experience\" means `/navigate experience` - \"show me his skills\" means `/navigate skills` - \"open skills\" means `/navigate skills` - \"show me education\" means `/navigate education` - \"go to education\" means `/navigate education`",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "- `index.html`: page structure, content, metadata, sections, project cards, article cards, footer, script imports. - `styles.css`: visual design, responsive layout, toolbar, article cards, footer, glass styling, mobile behavior. - `scripts/globals.js`: shared state and particle/theme configuration. - `scripts/util.js`: utility helpers used by the theme and background code. - `scripts/section-scroll.js`: section navigation, active menu highlighting, mobile menu open/close behavior. - `scripts/backdrop-scroll-control.js`: parallax-style background scroll behavior. - `scripts/theme-control.js`: light/dark mode and seasonal/weather theme control. - `scripts/particle-control.js`: rain/snow/particle effects. - `scripts/page-control.js`: intro expansion, article reveal behavior, weather button state.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 371,
+    "start_line": 395,
     "part": 0,
-    "word_count": 93
+    "word_count": 85
   },
   {
     "id": "chunk-0107",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Open-link command:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "Page sections:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 384,
+    "start_line": 405,
     "part": 0,
     "word_count": 2
   },
@@ -1470,90 +1484,90 @@
     "id": "chunk-0108",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link url ```",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "- About: hero introduction, expandable intro text, project and Medium links, adventurer/weather card. - Articles: Medium article cards. The current cards are hard-coded in `index.html`. - Projects: project highlight cards linking to GitHub repositories or PRs. - Experience: WSO2 internship and Virtual System Solutions DevOps role. - Skills: grouped skill cards. - Education: degree, activity, and certification cards. - Footer: email, GitHub, and CV link.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 386,
+    "start_line": 407,
     "part": 0,
-    "word_count": 4
+    "word_count": 65
   },
   {
     "id": "chunk-0109",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "The chatbot may send any URL with `/open-link`. The frontend parser will decide whether the URL is allowed to open.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "Navigation behavior:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 390,
+    "start_line": 415,
     "part": 0,
-    "word_count": 20
+    "word_count": 2
   },
   {
     "id": "chunk-0110",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Natural language link aliases:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "- Desktop toolbar is a slim fixed top toolbar. - Mobile toolbar is fixed at the bottom. - On mobile, the menu button is centered, the theme toggle is on the right, and the name is on the left. - Internal section links scroll smoothly to page sections. - External/action links open in a new tab.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 392,
+    "start_line": 417,
     "part": 0,
-    "word_count": 4
+    "word_count": 56
   },
   {
     "id": "chunk-0111",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "- \"open Athulya's portfolio\" means `/open-link https://athulyaweerakoon.xyz` - \"open his GitHub\" means `/open-link https://github.com/AthulyaWeerakoon` - \"open his LinkedIn\" means `/open-link https://linkedin.com/in/athulya-weerakoon` - \"open his Medium\" means `/open-link https://medium.com/@athulyaweerakoon` - \"open his Wattpad\" means `/open-link https://www.wattpad.com/user/AtleeBugs` - \"open AtleeBugs\" means `/open-link https://www.wattpad.com/user/AtleeBugs` - \"email Athulya\" means `/open-link mailto:athulyaweerakoon@gmail.com`",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "Visual behavior:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 394,
+    "start_line": 423,
     "part": 0,
-    "word_count": 47
+    "word_count": 2
   },
   {
     "id": "chunk-0112",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Important public link commands:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "- The page uses glass-like cards over layered pixel-art background images. - AOS is used for most section/card entrance animations, but not for the top/bottom toolbar or footer. - The site has light and dark modes. - Weather buttons switch between clear, rain, and snow particle themes. - The adventurer GIF links secretly to Athulya's Wattpad profile. - Most page mechanics are custom-written by Athulya. AOS and a few styles are external imports, but the rest of the behavior is his own JavaScript and CSS. - The background-image color changes use CSS filter techniques as a workaround for CSS not naturally recoloring raster images. The idea is to combine filters such as `sepia()` and `hue-rotate()` to push the existing pixel-art background into different color moods, then pair that with brightness, contrast, saturation, and opacity adjustments where needed. This lets the",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 402,
+    "start_line": 425,
     "part": 0,
-    "word_count": 4
+    "word_count": 140
   },
   {
     "id": "chunk-0113",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://athulyaweerakoon.xyz ```",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "existing pixel-art background into different color moods, then pair that with brightness, contrast, saturation, and opacity adjustments where needed. This lets the same background art support theme and weather variations without needing a separate recolored image for every state.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 404,
-    "part": 0,
-    "word_count": 4
+    "start_line": 425,
+    "part": 1,
+    "word_count": 39
   },
   {
     "id": "chunk-0114",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon ```",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "SEO and crawler files:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 408,
+    "start_line": 433,
     "part": 0,
     "word_count": 4
   },
@@ -1561,14 +1575,14 @@
     "id": "chunk-0115",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://linkedin.com/in/athulya-weerakoon ```",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "- Metadata in `index.html` includes description, keywords, Open Graph tags, Twitter card tags, canonical URL, identity links, and JSON-LD for Person and WebSite. - `robots.txt` allows crawling and points to the sitemap. - `sitemap.xml` lists the canonical homepage. - `CNAME` contains `athulyaweerakoon.xyz`.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 412,
+    "start_line": 435,
     "part": 0,
-    "word_count": 4
+    "word_count": 42
   },
   {
     "id": "chunk-0116",
@@ -1577,11 +1591,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://medium.com/@athulyaweerakoon ```",
+    "text": "The portfolio frontend may support command execution from the chatbot. A command must be sent as the entire chatbot response. If the response contains any other text before or after the command, the frontend should treat it as normal chat text.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 416,
+    "start_line": 442,
     "part": 0,
-    "word_count": 4
+    "word_count": 41
   },
   {
     "id": "chunk-0117",
@@ -1590,11 +1604,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://www.wattpad.com/user/AtleeBugs ```",
+    "text": "Command format:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 420,
+    "start_line": 444,
     "part": 0,
-    "word_count": 4
+    "word_count": 2
   },
   {
     "id": "chunk-0118",
@@ -1603,9 +1617,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link mailto:athulyaweerakoon@gmail.com ```",
+    "text": "```text /command-name argument ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 424,
+    "start_line": 446,
     "part": 0,
     "word_count": 4
   },
@@ -1616,11 +1630,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Project link commands:",
+    "text": "Navigation command:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 428,
+    "start_line": 450,
     "part": 0,
-    "word_count": 3
+    "word_count": 2
   },
   {
     "id": "chunk-0120",
@@ -1629,9 +1643,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon/reference-implementation-nextgenpsd2 ```",
+    "text": "```text /navigate section-id ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 430,
+    "start_line": 452,
     "part": 0,
     "word_count": 4
   },
@@ -1642,11 +1656,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/wso2/financial-services-accelerator/pull/716 ```",
+    "text": "Supported section IDs:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 434,
+    "start_line": 456,
     "part": 0,
-    "word_count": 4
+    "word_count": 3
   },
   {
     "id": "chunk-0122",
@@ -1655,11 +1669,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon/ExamRegistrationUoJ ```",
+    "text": "- `about` - `articles` - `projects` - `experience` - `skills` - `education`",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 438,
+    "start_line": 458,
     "part": 0,
-    "word_count": 4
+    "word_count": 12
   },
   {
     "id": "chunk-0123",
@@ -1668,11 +1682,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon/rustic-log-furnace ```",
+    "text": "Navigation examples:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 442,
+    "start_line": 465,
     "part": 0,
-    "word_count": 4
+    "word_count": 2
   },
   {
     "id": "chunk-0124",
@@ -1681,9 +1695,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon/SinhalaConstitutionRAG ```",
+    "text": "```text /navigate projects ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 446,
+    "start_line": 467,
     "part": 0,
     "word_count": 4
   },
@@ -1694,9 +1708,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon/FlappyBirdVerilog ```",
+    "text": "```text /navigate articles ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 450,
+    "start_line": 471,
     "part": 0,
     "word_count": 4
   },
@@ -1707,11 +1721,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Article link commands:",
+    "text": "Natural language navigation aliases:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 454,
+    "start_line": 475,
     "part": 0,
-    "word_count": 3
+    "word_count": 4
   },
   {
     "id": "chunk-0127",
@@ -1720,11 +1734,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://medium.com/@athulyaweerakoon/every-developer-should-learn-rust-at-least-once-281aecf9135d ```",
+    "text": "- \"show me the about section\" means `/navigate about` - \"go to the about section\" means `/navigate about` - \"show me the articles\" means `/navigate articles` - \"open the articles section\" means `/navigate articles` - \"show me the projects\" means `/navigate projects` - \"open the projects section\" means `/navigate projects` - \"show me his experience\" means `/navigate experience` - \"go to experience\" means `/navigate experience` - \"show me his skills\" means `/navigate skills` - \"open skills\" means `/navigate skills` - \"show me education\" means `/navigate education` - \"go to education\" means `/navigate education`",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 456,
+    "start_line": 477,
     "part": 0,
-    "word_count": 4
+    "word_count": 93
   },
   {
     "id": "chunk-0128",
@@ -1733,11 +1747,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://medium.com/@athulyaweerakoon/i-tried-efficientnets-scaling-trick-on-shufflenet-3cf0d14e1107 ```",
+    "text": "Open-link command:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 460,
+    "start_line": 490,
     "part": 0,
-    "word_count": 4
+    "word_count": 2
   },
   {
     "id": "chunk-0129",
@@ -1746,9 +1760,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://medium.com/@athulyaweerakoon/github-for-https-web-hosting-ci-cd-ec3fcb49eec5 ```",
+    "text": "```text /open-link url ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 464,
+    "start_line": 492,
     "part": 0,
     "word_count": 4
   },
@@ -1759,11 +1773,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://medium.com/@athulyaweerakoon/cheap-and-reliable-web-hosting-with-aws-cloudflare-namecheap-5727c22ec30c ```",
+    "text": "The chatbot may send any URL with `/open-link`. The frontend parser will decide whether the URL is allowed to open.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 468,
+    "start_line": 496,
     "part": 0,
-    "word_count": 4
+    "word_count": 20
   },
   {
     "id": "chunk-0131",
@@ -1772,9 +1786,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "When to use commands:",
+    "text": "Natural language link aliases:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 472,
+    "start_line": 498,
     "part": 0,
     "word_count": 4
   },
@@ -1785,9 +1799,282 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "- \"open Athulya's portfolio\" means `/open-link https://athulyaweerakoon.xyz` - \"open his GitHub\" means `/open-link https://github.com/AthulyaWeerakoon` - \"open his LinkedIn\" means `/open-link https://linkedin.com/in/athulya-weerakoon` - \"open his Medium\" means `/open-link https://medium.com/@athulyaweerakoon` - \"open his Wattpad\" means `/open-link https://www.wattpad.com/user/AtleeBugs` - \"open AtleeBugs\" means `/open-link https://www.wattpad.com/user/AtleeBugs` - \"email Athulya\" means `/open-link mailto:athulyaweerakoon@gmail.com`",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 500,
+    "part": 0,
+    "word_count": 47
+  },
+  {
+    "id": "chunk-0133",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "Important public link commands:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 508,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0134",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://athulyaweerakoon.xyz ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 510,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0135",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 514,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0136",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://linkedin.com/in/athulya-weerakoon ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 518,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0137",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://medium.com/@athulyaweerakoon ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 522,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0138",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://www.wattpad.com/user/AtleeBugs ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 526,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0139",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link mailto:athulyaweerakoon@gmail.com ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 530,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0140",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "Project link commands:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 534,
+    "part": 0,
+    "word_count": 3
+  },
+  {
+    "id": "chunk-0141",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon/reference-implementation-nextgenpsd2 ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 536,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0142",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://github.com/wso2/financial-services-accelerator/pull/716 ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 540,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0143",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon/ExamRegistrationUoJ ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 544,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0144",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon/rustic-log-furnace ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 548,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0145",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon/SinhalaConstitutionRAG ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 552,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0146",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon/FlappyBirdVerilog ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 556,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0147",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "Article link commands:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 560,
+    "part": 0,
+    "word_count": 3
+  },
+  {
+    "id": "chunk-0148",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://medium.com/@athulyaweerakoon/every-developer-should-learn-rust-at-least-once-281aecf9135d ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 562,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0149",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://medium.com/@athulyaweerakoon/i-tried-efficientnets-scaling-trick-on-shufflenet-3cf0d14e1107 ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 566,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0150",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://medium.com/@athulyaweerakoon/github-for-https-web-hosting-ci-cd-ec3fcb49eec5 ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 570,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0151",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://medium.com/@athulyaweerakoon/cheap-and-reliable-web-hosting-with-aws-cloudflare-namecheap-5727c22ec30c ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 574,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0152",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "When to use commands:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 578,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0153",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
     "text": "- If the user asks to see a page section, send only the matching `/navigate` command. - If the user asks to open a public profile, project, article, CV, or external page, send only the matching `/open-link` command. - If the user asks a normal question, answer normally and do not send a command. - If the user asks for both an explanation and navigation, answer the explanation normally first. Do not send a command unless the frontend supports command-plus-message behavior.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 474,
+    "start_line": 580,
     "part": 0,
     "word_count": 81
   }

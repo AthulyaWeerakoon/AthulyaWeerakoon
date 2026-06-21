@@ -45,6 +45,18 @@ CASES += cases_for(
 )
 
 CASES += cases_for(
+    ("Teaching And Tutoring", "Computer Architecture", "MIPS"),
+    [
+        "did Athulya tutor anyone?",
+        "what did Athulya teach in university?",
+        "tell me about Athulya's tutoring recordings",
+        "what was Athulya's computer architecture tutoring about?",
+        "did Athulya explain MIPS pipelining?",
+        "what teaching experience does Athulya have?",
+    ],
+)
+
+CASES += cases_for(
     ("WSO2", "Financial Services Accelerator"),
     [
         "what did Athulya do at WSO2?",
@@ -55,6 +67,14 @@ CASES += cases_for(
         "what tests did Athulya write at WSO2?",
         "what did Athulya do with NextGenPSD2?",
         "what was his internship period at WSO2?",
+        "what did Athulya do with OBIE?",
+        "what did Athulya do with the Berlin Open Banking framework?",
+        "what did he notice about multi-step authorization?",
+        "did Athulya work on SCA account selection?",
+        "what did Athulya do with Choreo at WSO2?",
+        "what was the old Java class extension model?",
+        "what were the API-based extension points at WSO2?",
+        "did Athulya work on accelerator localization?",
     ],
 )
 
@@ -69,6 +89,10 @@ CASES += cases_for(
         "what identity access management work has he done?",
         "what secure handshake work did Athulya design?",
         "what backup automation work did he do?",
+        "what is ANT at Virtual System Solutions?",
+        "what role does Athulya have at VSS?",
+        "is Athulya involved in solution engineering?",
+        "what kind of customer products did Athulya work on at VSS?",
     ],
 )
 
@@ -99,6 +123,50 @@ CASES += cases_for(
         "what AI skills does Athulya have?",
         "what embedded systems skills does he have?",
         "what VLSI skills does Athulya have?",
+        "how strong is Athulya in Java?",
+        "does Athulya know WSO2 Carbon?",
+        "how good is Athulya with Python?",
+        "does Athulya know C++?",
+        "why does Athulya know Go?",
+        "where did Athulya use Laravel?",
+    ],
+)
+
+CASES += cases_for(
+    ("Network and API security",),
+    [
+        "what security qualifications does Athulya have?",
+        "does Athulya understand FAPI?",
+        "does Athulya know mTLS?",
+        "what IAM experience does Athulya have?",
+        "does Athulya understand RBAC scopes and permissions?",
+        "does Athulya know MFA CIBA SSO and SCIM?",
+        "does Athulya know JWT validation with JWKS?",
+        "does Athulya have server hardening experience?",
+        "does Athulya know nmap and Nessus?",
+        "what ethical hacking exposure does Athulya have?",
+    ],
+)
+
+CASES += cases_for(
+    ("AI And Research Background",),
+    [
+        "what is Athulya's AI background?",
+        "what does Athulya think about AI?",
+        "what did Athulya do with LoRA and QLoRA?",
+        "does Athulya like small models?",
+        "what was his Sinhala RAG work?",
+        "what did Athulya learn from show and tell?",
+    ],
+)
+
+CASES += cases_for(
+    ("AI And Research Background", "KAN"),
+    [
+        "what AI research did Athulya do?",
+        "what was Athulya's undergraduate research about?",
+        "did Athulya work with KANs?",
+        "what did Athulya do with LPC and ANS?",
     ],
 )
 
@@ -166,8 +234,14 @@ CASES += cases_for(
         "what has he written?",
         "what blog posts has Athulya written?",
         "what articles are on Athulya's Medium?",
-        "what does Athulya write about?",
         "does Athulya write about web hosting?",
+    ],
+)
+
+CASES += cases_for(
+    ("Creative Writing",),
+    [
+        "what does Athulya write about?",
     ],
 )
 
@@ -194,6 +268,31 @@ CASES += cases_for(
 )
 
 CASES += cases_for(
+    ("Portfolio Page Mechanics",),
+    [
+        "how does the portfolio recolor background images?",
+        "what is the sepia hue rotate trick?",
+        "did Athulya write the portfolio mechanics himself?",
+    ],
+)
+
+CASES += cases_for(
+    ("Creative Writing", "Wattpad"),
+    [
+        "what does Athulya write on Wattpad?",
+        "what stories has Athulya published?",
+        "tell me about Triagon Origins",
+        "what is Hall of Ivory?",
+        "what is A Hundred Years about?",
+        "which story does Athulya want to be known for?",
+        "what was Athulya's ONC entry?",
+        "what is Athulya rewriting for the Wattys?",
+        "who is Jasmine in Athulya's writing?",
+        "who is Turren?",
+    ],
+)
+
+CASES += cases_for(
     ("Contact And Public Links",),
     [
         "what is Athulya's Medium link?",
@@ -212,6 +311,9 @@ CASES += [
     RetrievalCase("show me articles", expected_command="/navigate articles"),
     RetrievalCase("take me to Athulya's Medium", expected_command="/open-link https://medium.com/@athulyaweerakoon"),
     RetrievalCase("open his Wattpad", expected_command="/open-link https://www.wattpad.com/user/AtleeBugs"),
+    RetrievalCase("open Triagon Origins", expected_command="/open-link https://www.wattpad.com/myworks/352689078-triagon-origins"),
+    RetrievalCase("open Hall of Ivory", expected_command="/open-link https://www.wattpad.com/myworks/394332711-the-hall-of-ivory"),
+    RetrievalCase("open A Hundred Years", expected_command="/open-link https://www.wattpad.com/myworks/408067856-a-hundred-years"),
     RetrievalCase("visit https://example.com", expected_command="/open-link https://example.com"),
 ]
 

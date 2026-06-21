@@ -57,31 +57,51 @@ def is_private_query(query: str) -> bool:
 def is_writing_query(query: str) -> bool:
     normalized = query.lower()
     tokens = set(re.findall(r"[a-z0-9]+", normalized))
-    return bool(tokens & {"written", "write", "writing", "medium", "article", "articles", "blog", "blogs"})
+    if tokens & {"medium", "article", "articles", "blog", "blogs", "writing", "written"}:
+        return True
+    return "what has" in normalized and "written" in normalized
 
 
 PINNED_SECTION_RULES = [
     (
         "experience",
-        ["experience", "work history", "worked", "work with", "job", "jobs", "career", "internship", "professional", "wso2", "virtual system solutions", "open banking", "nextgenpsd2", "financial services accelerator", "identity access management", "secure handshake", "backup automation"],
+        ["experience", "work history", "worked", "work with", "job", "jobs", "career", "internship", "professional", "wso2", "virtual system solutions", "open banking", "nextgenpsd2", "financial services accelerator", "obie", "berlin", "strong customer authentication", "sca", "choreo", "extension model", "extension points", "identity access management", "secure handshake", "backup automation", "ant"],
         "Experience",
         ["Experience summary:"],
     ),
     (
+        "tutoring",
+        ["tutor", "tutoring", "teaching", "recording", "computer architecture", "mips", "pipelining", "pipeline registers"],
+        "Teaching And Tutoring",
+        ["Tutoring summary:"],
+    ),
+    (
         "education",
-        ["education", "degree", "university", "gpa", "honours", "honors", "graduated", "certification"],
+        ["education", "degree", "university", "study", "studied", "gpa", "honours", "honors", "graduated", "certification"],
         "Education",
         ["Degree:", "Institution:", "GPA:"],
     ),
     (
         "skills",
-        ["skills", "skill", "tech stack", "technologies", "tools", "devops", "cloud", "security"],
+        ["skills", "skill", "tech stack", "technologies", "tools", "devops", "cloud", "security", "java", "python", "carbon", "osgi", "dotnet", ".net", "c++", "go", "laravel", "rust", "maui", "blazor", "server hardening"],
         "Skills",
         ["Backend and platform:", "Cloud and DevOps:", "Network and API security:"],
     ),
     (
+        "security",
+        ["security", "iam", "identity", "rbac", "oauth", "fapi", "mtls", "jwt", "jwks", "introspection", "mfa", "ciba", "sso", "scim", "xacml", "ldap", "radius", "nmap", "nessus", "metasploit", "cve", "server hardening"],
+        "Skills",
+        ["Network and API security:"],
+    ),
+    (
+        "ai",
+        ["ai", "machine learning", "deep learning", "computer vision", "rag", "embedding", "transformers", "lora", "qlora", "kan", "kolmogorov", "time series", "lpc", "ans", "precision agriculture", "show and tell", "small models"],
+        "AI And Research Background",
+        ["AI background summary:"],
+    ),
+    (
         "projects",
-        ["projects", "project", "built", "portfolio work", "examples of", "github repositories", "asp.net", "blazor", "qlora", "sinhala", "constitution", "fpga", "verilog", "de2", "vga", "github actions", "ci/cd"],
+        ["projects", "project", "built", "portfolio work", "examples of", "github repositories", "university system", "asp.net", "blazor", "qlora", "sinhala", "constitution", "fpga", "verilog", "de2", "vga", "github actions", "ci/cd"],
         "Project Highlights",
         ["Project summary:"],
     ),
@@ -93,9 +113,15 @@ PINNED_SECTION_RULES = [
     ),
     (
         "portfolio",
-        ["weather", "rain", "snow", "particles", "particle", "portfolio page", "adventurer", "aos"],
+        ["weather", "rain", "snow", "particles", "particle", "portfolio page", "adventurer", "aos", "sepia", "hue rotate", "hue-rotate", "background color"],
         "Portfolio Page Mechanics",
         ["particle-control.js", "Weather buttons", "adventurer"],
+    ),
+    (
+        "creative-writing",
+        ["wattpad", "fiction", "story", "stories", "triagon", "hall of ivory", "a hundred years", "onc", "wattys", "jasmine", "turren"],
+        "Creative Writing",
+        ["Creative writing summary:"],
     ),
 ]
 

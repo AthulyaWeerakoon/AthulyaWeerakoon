@@ -22,6 +22,10 @@ PUBLIC_LINKS = {
     "atleebugs": "https://www.wattpad.com/user/AtleeBugs",
     "portfolio": "https://athulyaweerakoon.xyz",
     "website": "https://athulyaweerakoon.xyz",
+    "triagon": "https://www.wattpad.com/myworks/352689078-triagon-origins",
+    "triagon origins": "https://www.wattpad.com/myworks/352689078-triagon-origins",
+    "hall of ivory": "https://www.wattpad.com/myworks/394332711-the-hall-of-ivory",
+    "a hundred years": "https://www.wattpad.com/myworks/408067856-a-hundred-years",
 }
 
 NAVIGATION_INTENTS = [
