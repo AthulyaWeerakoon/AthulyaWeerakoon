@@ -1,2 +1,9 @@
 __pycache__/
 *.py[cod]
+
+# Cloudflare Worker local files
+cloudflare/huggy-worker/.wrangler/
+cloudflare/huggy-worker/.dev.vars
+cloudflare/huggy-worker/.dev.vars.*
+cloudflare/huggy-worker/node_modules/
+cloudflare/huggy-worker/wrangler.toml

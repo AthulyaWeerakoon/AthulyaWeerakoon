@@ -1,0 +1,13 @@
+name = "huggy-worker"
+main = "worker.js"
+compatibility_date = "2026-06-21"
+
+[vars]
+# Use the public Space URL, not the repo URL.
+# Example format: https://atleebugs-huggy.hf.space
+HUGGY_SPACE_URL = "https://atleebugs-huggy.hf.space"
+HUGGY_SECRET_HEADER = "x-huggy-secret"
+ALLOWED_ORIGIN = "https://athulyaweerakoon.xyz"
+
+# Set this as a secret, not a plain var:
+# wrangler secret put HUGGY_CLOUDFLARE_SECRET
