@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hmac
 import os
 import sys
 from pathlib import Path
@@ -54,6 +55,10 @@ MAX_HISTORY_WORDS = env_int("HUGGY_MAX_HISTORY_WORDS", DEFAULT_MAX_HISTORY_WORDS
 MAX_LONG_TERM_WORDS = env_int("HUGGY_MAX_LONG_TERM_WORDS", DEFAULT_MAX_LONG_TERM_WORDS)
 COMPACT_HISTORY_WORDS = env_int("HUGGY_COMPACT_HISTORY_WORDS", DEFAULT_COMPACT_HISTORY_WORDS)
 COMPACT_TARGET_WORDS = env_int("HUGGY_COMPACT_TARGET_WORDS", DEFAULT_COMPACT_TARGET_WORDS)
+API_ONLY = env_truthy("HUGGY_API_ONLY")
+REQUIRE_SECRET = env_truthy("HUGGY_REQUIRE_SECRET") or bool(os.environ.get("HUGGY_CLOUDFLARE_SECRET"))
+SECRET_HEADER_NAME = os.environ.get("HUGGY_SECRET_HEADER", "x-huggy-secret").lower()
+SECRET_VALUE = os.environ.get("HUGGY_CLOUDFLARE_SECRET", "")
 
 
 def get_huggy():
@@ -95,6 +100,34 @@ def _error_response(message: str, *, refused: bool = True) -> dict:
             "max_history_words": MAX_HISTORY_WORDS,
             "max_long_term_words": MAX_LONG_TERM_WORDS,
         },
+    }
+
+
+def _request_header(request: gr.Request | None, name: str) -> str:
+    if request is None:
+        return ""
+    headers = getattr(request, "headers", {}) or {}
+    if hasattr(headers, "get"):
+        return headers.get(name, "") or headers.get(name.lower(), "") or headers.get(name.title(), "")
+    return ""
+
+
+def _authorized(request: gr.Request | None) -> bool:
+    if not REQUIRE_SECRET:
+        return True
+    if not SECRET_VALUE:
+        return False
+    return hmac.compare_digest(_request_header(request, SECRET_HEADER_NAME), SECRET_VALUE)
+
+
+def _unauthorized_response() -> dict:
+    return {
+        "reply": "Unauthorized.",
+        "backend_refused": True,
+        "accepted_history": [],
+        "forwarded_history": [],
+        "ignored_history": [],
+        "metadata": {"error": "missing_or_invalid_cloudflare_secret_header"},
     }
 
 
@@ -155,7 +188,10 @@ def chat_api(
     message: str,
     chat_history: list[dict] | dict | None = None,
     long_term_context: dict | str | None = None,
+    request: gr.Request | None = None,
 ) -> dict:
+    if not _authorized(request):
+        return _unauthorized_response()
     try:
         return _chat_response(message, chat_history, long_term_context)
     except RuntimeError as exc:
@@ -173,7 +209,19 @@ def chat_api(
 def compact_context_api(
     chat_history: list[dict] | dict | None = None,
     previous_long_term_context: dict | str | None = None,
+    request: gr.Request | None = None,
 ) -> dict:
+    if not _authorized(request):
+        return {
+            "long_term_context": {"summary": ""},
+            "backend_refused": True,
+            "error": "Unauthorized.",
+            "accepted_history": [],
+            "ignored_end_history": [],
+            "ignored_history": [],
+            "metadata": {"error": "missing_or_invalid_cloudflare_secret_header"},
+        }
+
     try:
         accepted_long_term_context = validate_long_term_context(
             previous_long_term_context,
@@ -288,41 +336,46 @@ def respond(message: str, history: list[dict] | None = None):
 
 
 with gr.Blocks(title="Huggy") as demo:
-    gr.ChatInterface(
-        fn=respond,
-        title="Huggy",
-        description="Athulya's portfolio assistant.",
+    if not API_ONLY:
+        gr.ChatInterface(
+            fn=respond,
+            title="Huggy",
+            description="Athulya's portfolio assistant.",
+        )
+
+    with gr.Group(visible=not API_ONLY):
+        with gr.Accordion("API utilities", open=False):
+            gr.Markdown(
+                "Use these for the portfolio frontend. Chat keeps the newest full turns and forwards older overflow. Compaction keeps the oldest overflow and ignores newer overflow."
+            )
+            with gr.Tab("Chat API"):
+                chat_message = gr.Textbox(label="Message")
+                chat_history = gr.JSON(label="Chat history")
+                chat_long_term_context = gr.JSON(label="Long-term context")
+                chat_output = gr.JSON(label="Response")
+                chat_button = gr.Button("Send")
+            with gr.Tab("Compact Context API"):
+                compact_history = gr.JSON(label="History to compact")
+                previous_context = gr.JSON(label="Previous long-term context")
+                compact_output = gr.JSON(label="Compacted context")
+                compact_button = gr.Button("Compact")
+
+    chat_button.click(
+        chat_api,
+        inputs=[chat_message, chat_history, chat_long_term_context],
+        outputs=chat_output,
+        api_name="chat",
+        api_visibility="public",
     )
 
-    with gr.Accordion("API utilities", open=False):
-        gr.Markdown(
-            "Use these for the portfolio frontend. Chat keeps the newest full turns and forwards older overflow. Compaction keeps the oldest overflow and ignores newer overflow."
-        )
-        with gr.Tab("Chat API"):
-            chat_message = gr.Textbox(label="Message")
-            chat_history = gr.JSON(label="Chat history")
-            chat_long_term_context = gr.JSON(label="Long-term context")
-            chat_output = gr.JSON(label="Response")
-            chat_button = gr.Button("Send")
-            chat_button.click(
-                chat_api,
-                inputs=[chat_message, chat_history, chat_long_term_context],
-                outputs=chat_output,
-                api_name="chat",
-            )
-
-        with gr.Tab("Compact Context API"):
-            compact_history = gr.JSON(label="History to compact")
-            previous_context = gr.JSON(label="Previous long-term context")
-            compact_output = gr.JSON(label="Compacted context")
-            compact_button = gr.Button("Compact")
-            compact_button.click(
-                compact_context_api,
-                inputs=[compact_history, previous_context],
-                outputs=compact_output,
-                api_name="compact_context",
-            )
+    compact_button.click(
+        compact_context_api,
+        inputs=[compact_history, previous_context],
+        outputs=compact_output,
+        api_name="compact_context",
+        api_visibility="public",
+    )
 
 
 if __name__ == "__main__":
-    demo.launch()
+    demo.launch(footer_links=[] if API_ONLY else None)

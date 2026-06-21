@@ -43,6 +43,8 @@ LONG_MESSAGE_REFUSALS = [
 
 
 WORD_RE = re.compile(r"\b[\w'-]+\b")
+LONG_HISTORY_PREVIEW_WORDS = 48
+RETRIEVAL_HISTORY_PAIRS = 3
 
 
 @dataclass(frozen=True)
@@ -129,6 +131,10 @@ def normalize_history(raw_history: Any, max_message_words: int) -> tuple[list[Ch
         if pair is None:
             ignored.append({"reason": "unsupported_history_item", "item": str(item)[:200]})
             continue
+        compact_pair = _compact_long_refusal_pair(pair, max_message_words)
+        if compact_pair is not None:
+            pairs.append(compact_pair)
+            continue
         if _pair_has_long_message(pair, max_message_words):
             ignored.append({"reason": "history_pair_too_long", "pair": pair.to_dict()})
             continue
@@ -204,6 +210,20 @@ def render_history(pairs: list[ChatPair]) -> str:
     return "\n\n".join(rendered)
 
 
+def render_retrieval_query(
+    message: str,
+    pairs: list[ChatPair],
+    long_term_context: str = "",
+) -> str:
+    query_parts = []
+    if long_term_context:
+        query_parts.append(f"Long-term chat context: {long_term_context}")
+    if pairs:
+        query_parts.append(f"Recent chat history:\n{render_history(pairs[-RETRIEVAL_HISTORY_PAIRS:])}")
+    query_parts.append(f"Current user message: {message}")
+    return "\n\n".join(query_parts)
+
+
 def pair_dicts(pairs: list[ChatPair]) -> list[dict[str, str]]:
     return [pair.to_dict() for pair in pairs]
 
@@ -235,6 +255,10 @@ def _pairs_from_messages(
                 continue
             pair = ChatPair(user=pending_user, assistant=content)
             pending_user = None
+            compact_pair = _compact_long_refusal_pair(pair, max_message_words)
+            if compact_pair is not None:
+                pairs.append(compact_pair)
+                continue
             if _pair_has_long_message(pair, max_message_words):
                 ignored.append({"reason": "history_pair_too_long", "pair": pair.to_dict()})
                 continue
@@ -254,6 +278,9 @@ def _pair_from_item(item: Any) -> ChatPair | None:
         if user and assistant:
             return ChatPair(user=user, assistant=assistant)
     if isinstance(item, dict):
+        long_message_pair = _long_message_marker_from_item(item)
+        if long_message_pair is not None:
+            return long_message_pair
         user = item.get("user") or item.get("request") or item.get("question")
         assistant = item.get("assistant") or item.get("response") or item.get("answer")
         if user and assistant:
@@ -263,6 +290,77 @@ def _pair_from_item(item: Any) -> ChatPair | None:
 
 def _pair_has_long_message(pair: ChatPair, max_message_words: int) -> bool:
     return word_count(pair.user) > max_message_words or word_count(pair.assistant) > max_message_words
+
+
+def _compact_long_refusal_pair(pair: ChatPair, max_message_words: int) -> ChatPair | None:
+    if word_count(pair.user) <= max_message_words:
+        return None
+    if not _is_long_message_refusal(pair.assistant):
+        return None
+
+    preview = _word_preview(pair.user, LONG_HISTORY_PREVIEW_WORDS)
+    return ChatPair(
+        user=(
+            "Previous user turn was an over-budget long message that Huggy did not answer. "
+            f"Preview of that message: {preview}"
+        ),
+        assistant=(
+            "Huggy short-circuited that turn because the user's message was too long for the "
+            f"current free-tier context budget. The refusal shown to the user was: {pair.assistant} "
+            "If the user asks what happened or says 'huh?', explain that their previous message was "
+            "too long and ask them to resend a shorter version or split it into smaller questions."
+        ),
+    )
+
+
+def _long_message_marker_from_item(item: dict[str, Any]) -> ChatPair | None:
+    marker = item.get("type") or item.get("event") or item.get("reason")
+    if str(marker).lower() not in {
+        "message_too_long",
+        "long_message_refused",
+        "over_budget_message",
+        "history_pair_too_long",
+    }:
+        return None
+
+    preview = str(item.get("preview") or item.get("summary") or "content omitted by frontend").strip()
+    refusal = str(
+        item.get("assistant")
+        or item.get("response")
+        or item.get("refusal")
+        or "Huggy refused a previous message because it was too long for the context budget."
+    ).strip()
+    if word_count(preview) > LONG_HISTORY_PREVIEW_WORDS:
+        preview = _word_preview(preview, LONG_HISTORY_PREVIEW_WORDS)
+
+    return ChatPair(
+        user=(
+            "Previous user turn was an over-budget long message that Huggy did not answer. "
+            f"Frontend marker preview: {preview}"
+        ),
+        assistant=(
+            "Huggy short-circuited that turn because the user's message was too long for the "
+            f"current free-tier context budget. The refusal shown to the user was: {refusal} "
+            "If the user asks what happened or says 'huh?', explain that their previous message was "
+            "too long and ask them to resend a shorter version or split it into smaller questions."
+        ),
+    )
+
+
+def _is_long_message_refusal(text: str) -> bool:
+    normalized = _normalize_text(text)
+    return any(_normalize_text(refusal) == normalized for refusal in LONG_MESSAGE_REFUSALS)
+
+
+def _normalize_text(text: str) -> str:
+    return " ".join(str(text).strip().split()).lower()
+
+
+def _word_preview(text: str, max_words: int) -> str:
+    words = WORD_RE.findall(text)
+    if len(words) <= max_words:
+        return " ".join(words)
+    return f"{' '.join(words[:max_words])} ..."
 
 
 def _pair_word_count(pair: ChatPair) -> int:

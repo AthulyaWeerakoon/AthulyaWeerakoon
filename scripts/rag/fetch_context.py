@@ -62,12 +62,20 @@ def is_writing_query(query: str) -> bool:
     return "what has" in normalized and "written" in normalized
 
 
+def is_tiny_work_followup(query: str) -> bool:
+    normalized = query.lower()
+    return bool(
+        re.search(r"current user message:\s*(what\s+)?(work|his work|what work)\??\s*$", normalized)
+        or re.search(r"\bwhat\s+work\??\s*$", normalized)
+    )
+
+
 PINNED_SECTION_RULES = [
     (
         "experience",
-        ["experience", "work history", "worked", "work with", "job", "jobs", "career", "internship", "professional", "wso2", "virtual system solutions", "open banking", "nextgenpsd2", "financial services accelerator", "obie", "berlin", "strong customer authentication", "sca", "choreo", "extension model", "extension points", "identity access management", "secure handshake", "backup automation", "ant"],
+        ["experience", "work history", "work experience", "professional work", "what work", "his work", "job", "jobs", "career", "internship", "professional", "wso2", "virtual system solutions", "open banking", "nextgenpsd2", "financial services accelerator", "obie", "berlin", "strong customer authentication", "sca", "choreo", "extension model", "extension points", "identity access management", "secure handshake", "backup automation", "ant"],
         "Experience",
-        ["Experience summary:"],
+        ["Experience summary:", "Athulya contributed", "Battle tested", "Athulya contributes", "Worked on ANT"],
     ),
     (
         "tutoring",
@@ -128,6 +136,7 @@ PINNED_SECTION_RULES = [
 
 def pinned_chunks_for_query(query: str, chunks: list[dict]) -> list[dict]:
     normalized = query.lower()
+    tiny_work_followup = is_tiny_work_followup(query)
     pins: list[dict] = []
 
     if is_writing_query(normalized):
@@ -138,6 +147,8 @@ def pinned_chunks_for_query(query: str, chunks: list[dict]) -> list[dict]:
         )
 
     for _name, triggers, heading_suffix, required_texts in PINNED_SECTION_RULES:
+        if tiny_work_followup and _name not in {"experience", "projects"}:
+            continue
         if not any(trigger in normalized for trigger in triggers):
             continue
         pins.extend(

@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Iterable
 
 from commands import match_frontend_command
-from conversation import render_history
+from conversation import render_history, render_retrieval_query
 
 
 DEFAULT_MODEL = "llama-3.1-8b-instant"
@@ -154,11 +154,12 @@ class HuggyGroq:
         *,
         chat_history: str = "",
         long_term_context: str = "",
+        retrieval_query: str | None = None,
     ) -> str:
         return build_prompt(
             message,
             self.chatbot_context,
-            self.retrieved_context_for(message),
+            self.retrieved_context_for(retrieval_query or message),
             chat_history=chat_history,
             long_term_context=long_term_context,
         )
@@ -175,10 +176,12 @@ class HuggyGroq:
             yield command
             return
 
+        history_pairs = chat_history_pairs or []
         prompt = self.prompt_for(
             message,
-            chat_history=render_history(chat_history_pairs or []),
+            chat_history=render_history(history_pairs),
             long_term_context=long_term_context,
+            retrieval_query=render_retrieval_query(message, history_pairs, long_term_context),
         )
         yield from self.stream_prompt(prompt)
 

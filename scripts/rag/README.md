@@ -150,9 +150,20 @@ python app.py
 
 The Hugging Face Space should use the same `app.py` entrypoint. Store provider keys as Space secrets, not in the repository. Set `HUGGY_PROVIDER=groq` and store `GROQ_API_KEY` as a Space secret to use the current Groq path. Gemini still works with `HUGGY_PROVIDER=gemini` and `GEMINI_API_KEY`.
 
+For deployment behind Cloudflare, hide the Gradio chat UI and require a shared secret header on API calls:
+
+```bash
+export HUGGY_API_ONLY=1
+export HUGGY_REQUIRE_SECRET=1
+export HUGGY_CLOUDFLARE_SECRET="long-random-shared-secret"
+export HUGGY_SECRET_HEADER="x-huggy-secret"
+```
+
+In that mode the Space still registers the `chat` and `compact_context` API endpoints, but it does not show the public chat interface. Cloudflare should inject the configured header before forwarding requests to the Hugging Face Space. Browser clients should call your Cloudflare route, not the Space directly, because the shared secret must not be exposed in frontend code.
+
 ### Frontend API Contract
 
-The visible Gradio chat works normally, and the app also exposes two JSON-oriented API actions for the portfolio frontend.
+The visible Gradio chat works normally in local/dev mode and receives recent session history from Gradio. It does not manage long-term compact memory by itself. The app also exposes two JSON-oriented API actions for the portfolio frontend when you want both bounded recent history and compact long-term context.
 
 `chat` accepts:
 
@@ -167,6 +178,18 @@ The visible Gradio chat works normally, and the app also exposes two JSON-orient
 ```
 
 It returns `reply`, `backend_refused`, `accepted_history`, `forwarded_history`, `ignored_history`, and `metadata`. Normal chat keeps the newest complete user/assistant pairs within the word budget and forwards older overflow back to the frontend for later compaction.
+
+If the frontend did not store a giant refused user message, it can send a compact marker in `chat_history` instead of the original content:
+
+```json
+{
+  "type": "message_too_long",
+  "preview": "User pasted a long numbered explanation about WSO2, security, AI, writing, and portfolio mechanics.",
+  "refusal": "That message is too long for me to handle."
+}
+```
+
+Huggy will treat that as a real conversation event. If the next user says "huh?", Huggy should explain that the previous message was rejected because it exceeded the context budget and ask them to split it into smaller questions.
 
 `compact_context` accepts a previous `long_term_context` object plus history to compact. It keeps the oldest complete pairs within the compaction word budget, ignores overflow at the end, and returns:
 
@@ -198,4 +221,10 @@ Add these GitHub repository secrets:
 
 Add this Hugging Face Space secret:
 
-- `GEMINI_API_KEY`: the Gemini key used by `app.py`.
+- `GROQ_API_KEY`: the Groq key used by `app.py`.
+- `HUGGY_API_ONLY`: set to `1` for deployment.
+- `HUGGY_REQUIRE_SECRET`: set to `1` for deployment.
+- `HUGGY_CLOUDFLARE_SECRET`: the shared secret Cloudflare injects into API requests.
+- `HUGGY_SECRET_HEADER`: optional header name, defaults to `x-huggy-secret`.
+
+If using Gemini instead of Groq, store `GEMINI_API_KEY` and set `HUGGY_PROVIDER=gemini`.

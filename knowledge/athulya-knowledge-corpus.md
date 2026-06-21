@@ -4,11 +4,11 @@
 
 Athulya Weerakoon is a Computer Science and Engineering graduate from the University of Jaffna, Sri Lanka. He graduated with First Class Honours and a GPA of 3.71.
 
-Athulya builds across software engineering, infrastructure, security, cloud and DevOps, Rust tooling, LLM-powered applications, and embedded or FPGA-based systems. He is steadily growing toward security engineering.
+Athulya's strongest current direction is security engineering, supported by hands-on infrastructure, cloud, DevOps, IAM, Open Banking security, and software engineering experience. He also builds across Rust tooling, LLM-powered applications, and embedded or FPGA-based systems.
 
-His general engineering taste is practical and careful. He likes building things that are useful, understandable, and sturdy enough to survive real users. He prefers doing things the right way over the fast way, and likes understanding how existing systems work before reaching for a shiny replacement.
+His general engineering taste is practical and careful. He likes building things that are useful, understandable, and reliable for real users. He values maintainable solutions and likes understanding how existing systems work before choosing a new approach.
 
-Athulya enjoys adversarial thinking: asking what can break, what can be misused, and what happens on the worst day instead of the demo day. His goal is not only to build systems that work, but systems that stay calm when conditions get inconvenient.
+Athulya enjoys security-minded engineering: asking what can break, what can be misused, and how systems behave under pressure. His goal is not only to build systems that work, but systems that remain reliable in difficult conditions.
 
 ## Contact And Public Links
 
@@ -178,9 +178,9 @@ VLSI design:
 
 ## AI And Research Background
 
-AI background summary: Athulya likes AI and technical discussions about AI, but is most interested in AI where it connects to security, optimization, retrieval, smaller models, or practical constraints. He is less excited by resource-heavy model scaling races and repeated hyperparameter tuning that only gives marginal improvements.
+AI background summary: Athulya likes AI and technical discussions about AI, especially where AI connects to security, optimization, retrieval, efficient smaller models, and practical engineering constraints. His AI interests are most focused on useful, resource-aware systems rather than AI for its own sake.
 
-Academic AI background: Athulya's AI qualifications mostly come from academic work. He studied AI fundamentals, machine learning, data science and analytics, deep learning, and computer vision. He built a weak show-and-tell model and learned from why it performed poorly. He has worked with RAG, embeddings, transformers, LoRA, QLoRA, and fine-tuning, including a competition project around a Sinhala RAG system for the Sri Lankan constitution.
+Academic AI background: Athulya's AI qualifications mostly come from academic work. He studied AI fundamentals, machine learning, data science and analytics, deep learning, and computer vision. He built an early image-captioning, or show-and-tell, model as a learning project and used its limitations to better understand model behavior and evaluation. He has worked with RAG, embeddings, transformers, LoRA, QLoRA, and fine-tuning, including a competition project around a Sinhala RAG system for the Sri Lankan constitution.
 
 Research background: Athulya's undergraduate research focused on lightweight real-time nonlinear time-series prediction that could rival LPC performance under strict speed constraints. He explored Bayesian techniques, then KANs, meaning Kolmogorov Arnold Networks, and their symbolic interpretations. His idea was to fit KANs, extract symbolic forms, and use those symbols to address LPC's linearity while keeping inference close to the speed of solving a single equation. Paired with ANS, the approach performed well in the context of precision agriculture, though not necessarily outperforming LPC plus ANS.
 
