@@ -5,6 +5,7 @@ from __future__ import annotations
 import hmac
 import os
 import sys
+import time
 from pathlib import Path
 
 import gradio as gr
@@ -34,6 +35,21 @@ from conversation import (  # noqa: E402
 
 
 _huggy: HuggyGemini | HuggyGroq | None = None
+_woke_at: float | None = None
+_wakeup_count = 0
+
+WAKEUP_GREETINGS = [
+    "Huggy is awake, caffeinated in spirit, and ready to answer.",
+    "Huggy is up. The tiny free-tier engine has remembered where it parked the context.",
+    "Hello from Huggy. Assets are loaded and the portfolio brain is open for business.",
+    "Huggy is awake now. Ask away.",
+    "Warmup complete. Huggy has stretched, loaded the index, and chosen professionalism.",
+    "Huggy is online. The context is loaded and no tokens were harmed in this greeting.",
+    "Ready when you are. Huggy has the portfolio context loaded.",
+    "Huggy has woken up successfully. Very heroic for a small backend.",
+    "The assistant is awake, the RAG index is ready, and the vibes are stable.",
+    "Huggy is ready. Free-tier dignity restored.",
+]
 
 
 def env_int(name: str, default: int) -> int:
@@ -128,6 +144,47 @@ def _unauthorized_response() -> dict:
         "forwarded_history": [],
         "ignored_history": [],
         "metadata": {"error": "missing_or_invalid_cloudflare_secret_header"},
+    }
+
+
+def _greeting_for_seed(seed: int) -> str:
+    return WAKEUP_GREETINGS[seed % len(WAKEUP_GREETINGS)]
+
+
+def wakeup_api(request: gr.Request | None = None) -> dict:
+    global _woke_at, _wakeup_count
+    if not _authorized(request):
+        return _unauthorized_response()
+
+    was_awake = _huggy is not None
+    started_at = time.perf_counter()
+    try:
+        get_huggy()
+    except RuntimeError as exc:
+        return _error_response(
+            f"{exc} Add it as a Hugging Face Space secret or local environment variable."
+        )
+    except Exception as exc:
+        if env_truthy("HUGGY_DEBUG_ERRORS"):
+            return _error_response(f"Huggy hit an error while waking up: {exc}")
+        return _error_response("Huggy hit an error while waking up. Try again in a moment.")
+
+    if _woke_at is None:
+        _woke_at = time.time()
+    _wakeup_count += 1
+
+    elapsed_ms = round((time.perf_counter() - started_at) * 1000)
+    greeting_seed = int(_woke_at) + _wakeup_count
+    return {
+        "reply": _greeting_for_seed(greeting_seed),
+        "backend_refused": False,
+        "ready": True,
+        "already_awake": was_awake,
+        "metadata": {
+            "warmup_ms": elapsed_ms,
+            "provider": os.environ.get("HUGGY_PROVIDER", "groq").lower(),
+            "woke_at": _woke_at,
+        },
     }
 
 
@@ -359,6 +416,9 @@ with gr.Blocks(title="Huggy") as demo:
                 previous_context = gr.JSON(label="Previous long-term context")
                 compact_output = gr.JSON(label="Compacted context")
                 compact_button = gr.Button("Compact")
+            with gr.Tab("Wakeup API"):
+                wakeup_output = gr.JSON(label="Wakeup")
+                wakeup_button = gr.Button("Wake Up")
 
     chat_button.click(
         chat_api,
@@ -373,6 +433,14 @@ with gr.Blocks(title="Huggy") as demo:
         inputs=[compact_history, previous_context],
         outputs=compact_output,
         api_name="compact_context",
+        api_visibility="public",
+    )
+
+    wakeup_button.click(
+        wakeup_api,
+        inputs=[],
+        outputs=wakeup_output,
+        api_name="wakeup",
         api_visibility="public",
     )
 

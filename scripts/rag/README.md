@@ -159,11 +159,23 @@ export HUGGY_CLOUDFLARE_SECRET="long-random-shared-secret"
 export HUGGY_SECRET_HEADER="x-huggy-secret"
 ```
 
-In that mode the Space still registers the `chat` and `compact_context` API endpoints, but it does not show the public chat interface. Cloudflare should inject the configured header before forwarding requests to the Hugging Face Space. Browser clients should call your Cloudflare route, not the Space directly, because the shared secret must not be exposed in frontend code.
+In that mode the Space still registers the `wakeup`, `chat`, and `compact_context` API endpoints, but it does not show the public chat interface. Cloudflare should inject the configured header before forwarding requests to the Hugging Face Space. Browser clients should call your Cloudflare route, not the Space directly, because the shared secret must not be exposed in frontend code.
 
 ### Frontend API Contract
 
 The visible Gradio chat works normally in local/dev mode and receives recent session history from Gradio. It does not manage long-term compact memory by itself. The app also exposes two JSON-oriented API actions for the portfolio frontend when you want both bounded recent history and compact long-term context.
+
+`wakeup` accepts no payload. It loads Huggy, the RAG index, and model assets, then returns a preset greeting without calling the LLM:
+
+```json
+{
+  "reply": "Huggy is awake now. Ask away.",
+  "ready": true,
+  "already_awake": false
+}
+```
+
+Call this through Cloudflare when the portfolio loads or before opening the chat. If Huggy is already awake, it returns immediately with another preset greeting.
 
 `chat` accepts:
 
