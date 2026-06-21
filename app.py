@@ -79,15 +79,8 @@ SECRET_HEADER_NAME = os.environ.get("HUGGY_SECRET_HEADER", "x-huggy-secret").low
 SECRET_VALUE = os.environ.get("HUGGY_CLOUDFLARE_SECRET", "")
 PORTFOLIO_URL = os.environ.get("HUGGY_PORTFOLIO_URL", "https://athulyaweerakoon.xyz")
 
-RATE_LIMIT_HEADERS = [
-    "retry-after",
-    "x-ratelimit-limit-requests",
-    "x-ratelimit-limit-tokens",
-    "x-ratelimit-remaining-requests",
-    "x-ratelimit-remaining-tokens",
-    "x-ratelimit-reset-requests",
-    "x-ratelimit-reset-tokens",
-]
+RATE_LIMIT_HEADER_PREFIX = "x-ratelimit-"
+RATE_LIMIT_HEADER_EXACT = {"retry-after"}
 
 
 def get_huggy():
@@ -173,13 +166,32 @@ def _header_value(headers, name: str) -> str:
     return headers.get(name, "") or headers.get(name.lower(), "") or headers.get(name.title(), "")
 
 
+def _iter_header_items(headers):
+    if not headers:
+        return []
+    if hasattr(headers, "items"):
+        return headers.items()
+    return []
+
+
+def _rate_limit_headers(headers) -> dict[str, str]:
+    values: dict[str, str] = {}
+    for name, value in _iter_header_items(headers):
+        header_name = str(name).lower()
+        if header_name in RATE_LIMIT_HEADER_EXACT or header_name.startswith(RATE_LIMIT_HEADER_PREFIX):
+            values[header_name] = str(value)
+
+    for name in RATE_LIMIT_HEADER_EXACT:
+        if name not in values and (value := _header_value(headers, name)):
+            values[name] = value
+
+    return values
+
+
 def _rate_limit_metadata(exc: Exception) -> dict:
     headers = _headers_from_exception(exc)
-    values = {
-        name.replace("-", "_"): value
-        for name in RATE_LIMIT_HEADERS
-        if (value := _header_value(headers, name))
-    }
+    raw_headers = _rate_limit_headers(headers)
+    values = {name.replace("-", "_"): value for name, value in raw_headers.items()}
 
     status_code = getattr(exc, "status_code", None)
     if status_code is None:
@@ -194,6 +206,7 @@ def _rate_limit_metadata(exc: Exception) -> dict:
         "error": "rate_limited",
         "provider": os.environ.get("HUGGY_PROVIDER", "groq").lower(),
         "status_code": status_code,
+        "headers": raw_headers,
         **values,
     }
 

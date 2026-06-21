@@ -192,7 +192,7 @@ Call this through Cloudflare when the portfolio loads or before opening the chat
 
 It returns `reply`, `backend_refused`, `accepted_history`, `forwarded_history`, `ignored_history`, and `metadata`. Normal chat keeps the newest complete user/assistant pairs within the word budget and forwards older overflow back to the frontend for later compaction.
 
-If Groq returns a rate limit error, the response includes a frontend-readable `metadata.rate_limit` object copied from Groq's response headers when available:
+If Groq returns a rate limit error, the response includes a frontend-readable `metadata.rate_limit` object. Huggy forwards every received `retry-after` and `x-ratelimit-*` header under `metadata.rate_limit.headers`, and also includes normalized underscore keys for convenience:
 
 ```json
 {
@@ -203,6 +203,13 @@ If Groq returns a rate limit error, the response includes a frontend-readable `m
       "error": "rate_limited",
       "provider": "groq",
       "status_code": 429,
+      "headers": {
+        "retry-after": "2",
+        "x-ratelimit-remaining-requests": "14370",
+        "x-ratelimit-remaining-tokens": "17997",
+        "x-ratelimit-reset-requests": "2m59.56s",
+        "x-ratelimit-reset-tokens": "7.66s"
+      },
       "retry_after": "2",
       "x_ratelimit_remaining_requests": "14370",
       "x_ratelimit_remaining_tokens": "17997",
