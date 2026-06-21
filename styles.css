@@ -907,13 +907,15 @@ a {
 
 .huggy-widget {
   --huggy-bottom: 0.35rem;
-  --huggy-size: clamp(7.5rem, 13vw, 10.25rem);
+  --huggy-height: clamp(7.5rem, 13vw, 10.25rem);
+  --huggy-width: calc(var(--huggy-height) * 0.96);
+  --huggy-size: var(--huggy-height);
   --huggy-chat-width: min(25rem, calc(100vw - 2rem));
   position: fixed;
   right: max(0.65rem, env(safe-area-inset-right));
   bottom: calc(var(--huggy-bottom) + env(safe-area-inset-bottom));
   z-index: 120;
-  width: var(--huggy-size);
+  width: var(--huggy-width);
   pointer-events: none;
   transform: translateY(120%);
   opacity: 0;
@@ -929,8 +931,8 @@ a {
   position: relative;
   z-index: 2;
   display: block;
-  width: var(--huggy-size);
-  min-height: var(--huggy-size);
+  width: var(--huggy-width);
+  height: var(--huggy-height);
   border: 0;
   background: transparent;
   cursor: pointer;
@@ -954,8 +956,10 @@ a {
 
 .huggy-avatar img {
   display: block;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  margin-left: auto;
   image-rendering: pixelated;
   filter: drop-shadow(0 0.8rem 1.2rem rgba(0, 0, 0, 0.18));
 }
@@ -999,6 +1003,31 @@ a {
   opacity: 1;
   transform: translateY(0) scale(1);
   pointer-events: auto;
+}
+
+.huggy-widget.chat-open .huggy-avatar {
+  pointer-events: none;
+}
+
+.huggy-widget.chat-open .huggy-avatar img,
+.huggy-widget.chat-open .huggy-status {
+  pointer-events: none;
+}
+
+.huggy-widget.avatar-priority .huggy-avatar,
+.huggy-widget.avatar-priority .huggy-avatar img,
+.huggy-widget.avatar-priority .huggy-status {
+  pointer-events: auto;
+}
+
+.huggy-widget.send-priority .huggy-avatar {
+  transform: none;
+  filter: none;
+}
+
+.huggy-widget.send-priority .huggy-avatar img,
+.huggy-widget.send-priority .huggy-status {
+  pointer-events: none;
 }
 
 .huggy-chat-header {
@@ -1100,6 +1129,8 @@ a {
 }
 
 .huggy-form {
+  position: relative;
+  z-index: 3;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.55rem;
@@ -1130,6 +1161,8 @@ a {
 }
 
 .huggy-send {
+  position: relative;
+  z-index: 4;
   min-width: 4.6rem;
   border: 0;
   border-radius: 8px;
@@ -1137,6 +1170,13 @@ a {
   color: var(--btn-primary-fg);
   font-weight: 700;
   cursor: pointer;
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.huggy-send:hover,
+.huggy-send.proxy-hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
 }
 
 .huggy-send:disabled {
@@ -1247,7 +1287,7 @@ a {
 
   .huggy-widget {
     --huggy-bottom: 4.05rem;
-    --huggy-size: clamp(6.1rem, 28vw, 8.1rem);
+    --huggy-height: clamp(6.1rem, 28vw, 8.1rem);
     right: 0.35rem;
   }
 

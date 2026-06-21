@@ -56,6 +56,10 @@
   closeButton.addEventListener("click", closeChat);
   form.addEventListener("submit", handleSubmit);
   input.addEventListener("input", autosizeInput);
+  input.addEventListener("keydown", handleInputKeydown);
+  document.addEventListener("pointermove", handlePointerPriority, { passive: true });
+  document.addEventListener("pointerdown", handlePointerPriority, { capture: true, passive: true });
+  document.addEventListener("click", handlePriorityClick, true);
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && state.open) {
       closeChat();
@@ -135,6 +139,70 @@
     } finally {
       setBusy(false);
       saveState();
+    }
+  }
+
+  function handleInputKeydown(event) {
+    if (event.key !== "Enter" || event.shiftKey || event.isComposing) {
+      return;
+    }
+
+    event.preventDefault();
+    submitForm();
+  }
+
+  function handlePointerPriority(event) {
+    if (!state.open || sendButton.disabled) {
+      setPointerPriority("");
+      return;
+    }
+
+    if (isPointInElement(event.clientX, event.clientY, sendButton)) {
+      setPointerPriority("send");
+      return;
+    }
+
+    if (isPointInElement(event.clientX, event.clientY, avatarImg) || isPointInElement(event.clientX, event.clientY, statusEl)) {
+      setPointerPriority("avatar");
+      return;
+    }
+
+    setPointerPriority("");
+  }
+
+  function handlePriorityClick(event) {
+    if (!state.open || sendButton.disabled) {
+      return;
+    }
+
+    if (!isPointInElement(event.clientX, event.clientY, sendButton)) {
+      return;
+    }
+
+    event.preventDefault();
+    event.stopPropagation();
+    setPointerPriority("send");
+    submitForm();
+  }
+
+  function setPointerPriority(priority) {
+    const sendPriority = priority === "send";
+    const avatarPriority = priority === "avatar";
+    widget.classList.toggle("send-priority", sendPriority);
+    widget.classList.toggle("avatar-priority", avatarPriority);
+    sendButton.classList.toggle("proxy-hover", sendPriority);
+  }
+
+  function isPointInElement(x, y, element) {
+    const rect = element.getBoundingClientRect();
+    return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+  }
+
+  function submitForm() {
+    if (typeof form.requestSubmit === "function") {
+      form.requestSubmit();
+    } else {
+      form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
     }
   }
 
