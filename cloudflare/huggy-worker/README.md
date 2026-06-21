@@ -10,6 +10,8 @@ This Worker proxies the public portfolio frontend to the Huggy Hugging Face Spac
 
 The Worker injects `x-huggy-secret` before forwarding requests to the Space.
 
+It also applies a per-IP daily fair-use budget before the request reaches Hugging Face. If the visitor is over budget, the Worker returns a Huggy-shaped `backend_refused: true` response itself, so the frontend can handle it like any other short-circuit response without spending Groq tokens.
+
 ## Setup
 
 Install Wrangler if needed:
@@ -30,9 +32,41 @@ Edit `wrangler.toml`:
 ```toml
 HUGGY_SPACE_URL = "https://atleebugs-huggy.hf.space"
 ALLOWED_ORIGIN = "https://athulyaweerakoon.xyz"
+HUGGY_CONTEXT_WORDS = "552"
+HUGGY_CONTEXT_TOKENS = "1000"
+HUGGY_SHARED_DAILY_REQUESTS = "500"
+HUGGY_FAIR_USER_COUNT = "20"
+# Optional:
+# HUGGY_DAILY_REQUEST_LIMIT = "25"
+# HUGGY_DAILY_PAYLOAD_WORD_LIMIT = "6000"
 ```
 
 Use the Space app URL, not `https://huggingface.co/spaces/AtleeBugs/Huggy`.
+
+Create a KV namespace for daily per-IP counters:
+
+```bash
+wrangler kv namespace create HUGGY_RATE_LIMIT_KV
+```
+
+Copy the returned namespace id into `wrangler.toml`:
+
+```toml
+[[kv_namespaces]]
+binding = "HUGGY_RATE_LIMIT_KV"
+id = "your-kv-namespace-id"
+```
+
+The default budget has two parts:
+
+```text
+daily requests per IP = shared daily requests / fair user count
+daily payload words per IP = 6000
+```
+
+With the current defaults, that is `500 / 20 = 25` chat or context-compaction requests per IP per UTC day, plus `6000` incoming payload words. The request limit matters because every answered request carries Huggy's base context, even if the visitor only types a tiny message. The payload-word limit prevents oversized chat history and long-term context from eating the shared budget.
+
+The Worker only commits usage after Huggy returns a non-refused answer. Backend-refused responses, upstream errors, and `wakeup` do not count against the daily budget because they do not spend LLM tokens.
 
 Set the same shared secret you configured in the Hugging Face Space:
 
@@ -85,6 +119,34 @@ The Worker also copies those headers onto the HTTP response when available:
 - `retry-after`
 
 It also mirrors them with a `huggy-` prefix, for example `huggy-x-ratelimit-remaining-tokens`, so frontend code can read them even if another layer later uses the original header names.
+
+For chat and context-compaction requests, the Worker also adds its own daily IP budget metadata to `metadata.worker_rate_limit` and exposes these Worker-owned headers:
+
+- `huggy-worker-ratelimit-limit-requests`
+- `huggy-worker-ratelimit-used-requests`
+- `huggy-worker-ratelimit-remaining-requests`
+- `huggy-worker-ratelimit-limit-payload-words`
+- `huggy-worker-ratelimit-used-payload-words`
+- `huggy-worker-ratelimit-requested-payload-words`
+- `huggy-worker-ratelimit-remaining-payload-words`
+- `huggy-worker-ratelimit-used-weighted-words`
+- `huggy-worker-ratelimit-requested-weighted-words`
+- `huggy-worker-ratelimit-reset-seconds`
+
+When the Worker blocks a visitor for the daily IP budget, it returns HTTP `429`, a `retry-after` header, and the same Huggy-style response shape:
+
+```json
+{
+  "reply": "You've been hanging with me for an awfully long time today...",
+  "backend_refused": true,
+  "accepted_history": [],
+  "forwarded_history": [],
+  "ignored_history": [],
+  "metadata": {
+    "error": "worker_daily_rate_limited"
+  }
+}
+```
 
 ## Frontend Payloads
 
