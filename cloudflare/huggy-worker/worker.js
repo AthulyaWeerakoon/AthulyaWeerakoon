@@ -24,6 +24,7 @@ const DAILY_LIMIT_REPLIES = [
 const ROUTES = {
   "/api/huggy/wakeup": {
     endpoint: "wakeup",
+    quotaChecked: true,
     buildArgs: () => [],
   },
   "/api/huggy/chat": {
@@ -84,7 +85,7 @@ export default {
     }
 
     let workerRateLimit = null;
-    if (route.rateLimited) {
+    if (route.rateLimited || route.quotaChecked) {
       workerRateLimit = await checkDailyBudget(request, env, body, route.endpoint);
       if (!workerRateLimit.allowed) {
         const responseHeaders = corsHeaders(allowedOrigin);
@@ -109,7 +110,7 @@ export default {
     responseHeaders.set("content-type", "application/json; charset=utf-8");
     copyRateLimitHeaders(upstreamResult.data, responseHeaders);
     if (workerRateLimit) {
-      if (shouldCountUpstreamPayload(upstreamResult.data)) {
+      if (route.rateLimited && shouldCountUpstreamPayload(upstreamResult.data)) {
         workerRateLimit = await commitDailyBudget(workerRateLimit);
       }
       addWorkerRateLimitHeaders(responseHeaders, workerRateLimit);
