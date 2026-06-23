@@ -57,7 +57,19 @@ def is_private_query(query: str) -> bool:
 def is_writing_query(query: str) -> bool:
     normalized = query.lower()
     tokens = set(re.findall(r"[a-z0-9]+", normalized))
-    if tokens & {"medium", "article", "articles", "blog", "blogs", "writing", "written"}:
+    if tokens & {"medium", "article", "articles", "blog", "blogs", "write", "writes", "wrote", "writing", "written"}:
+        return True
+    if any(
+        phrase in normalized
+        for phrase in {
+            "forever free chatbot",
+            "forever-free chatbot",
+            "portfolio chatbot",
+            "huggy article",
+            "free tier chatbot",
+            "free-tier chatbot",
+        }
+    ):
         return True
     return "what has" in normalized and "written" in normalized
 
@@ -75,7 +87,7 @@ PINNED_SECTION_RULES = [
         "experience",
         ["experience", "work history", "work experience", "professional work", "what work", "his work", "job", "jobs", "career", "internship", "professional", "wso2", "virtual system solutions", "open banking", "nextgenpsd2", "financial services accelerator", "obie", "berlin", "strong customer authentication", "sca", "choreo", "extension model", "extension points", "identity access management", "secure handshake", "backup automation", "ant"],
         "Experience",
-        ["Experience summary:", "Athulya contributed", "Battle tested", "Athulya contributes", "Worked on ANT"],
+        ["Experience summary:", "Athulya contributed", "battle-test", "Athulya contributes", "Worked on ANT"],
     ),
     (
         "tutoring",

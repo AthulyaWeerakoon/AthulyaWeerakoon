@@ -35,7 +35,7 @@ Tutoring summary: During university, Athulya tutored friends and juniors. Some o
 
 ## Experience
 
-Experience summary: Athulya has professional experience as an Intern Software Engineer at WSO2 in Sri Lanka from February 2024 to August 2024, and as a project manager, infrastructure engineer, site-reliability engineer, DevOps engineer, and security engineer at Virtual System Solutions in Sri Lanka since February 2025. At WSO2, he worked in a solutions and vertical-product context around Financial Services Accelerator 4.0, Open Banking compliant extensions, OBIE and NextGenPSD2 toolkits, API-based extension points, consent authorization customization, localization, defects, documentation, JUnit tests, and Groovy integration tests. At Virtual System Solutions, he works around architectural limitations of base products to improve workflows, security, automation, observability, deployment, and solution engineering for ANT and customer product lines whose details are not public.
+Experience summary: Athulya has professional experience as an Intern Software Engineer at WSO2 in Sri Lanka from February 2024 to August 2024, and as a project manager, infrastructure engineer, site-reliability engineer, DevOps engineer, and security engineer at Virtual System Solutions in Sri Lanka since February 2025. At WSO2, he worked in a solutions and vertical-product context around Financial Services Accelerator 4.0, Open Banking compliant extensions, OBIE and NextGenPSD2 toolkits, API-based extension points, consent authorization extension work, localization, defects, documentation, JUnit tests, and Groovy integration tests. At Virtual System Solutions, he works around architectural limitations of base products to improve workflows, security, automation, observability, deployment, and solution engineering for ANT and customer product lines whose details are not public.
 
 ### Intern Software Engineer, WSO2, Sri Lanka
 
@@ -52,13 +52,13 @@ Extension architecture context: the older Open Banking toolkit model used Java c
 Key work:
 
 - Started reworking the consent authorization module as a separate microservice that could be hosted on Choreo, WSO2's developer platform, and used by developers as an add-on. This work was not completed because he was reassigned to toolkit work due to deadlines the Open Banking team had been facing.
-- Battle tested new Accelerator Extensions by rewriting OBIE and NextGenPSD2 Open Banking toolkits.
+- Wrote reference implementations for OBIE and NextGenPSD2 Open Banking toolkits to battle-test the new API-based Accelerator extensions.
 - Reworked the OBIE, formerly UK, Open Banking Framework toolkit to use new API-based extension points instead of Java class based extensions. He did a majority of the OBIE framework work, while still working as part of a team.
 - Worked on the Berlin or NextGenPSD2 Open Banking framework and rewrote it using the new API-based extension points.
 - Identified an explanation gap in multi-step authorization behavior around account selection in consecutive SCAs, meaning Strong Customer Authentications, where the old toolkit implementation appeared to handle missing details incorrectly.
 - Worked on the localization module for the Financial Services Accelerator.
 - Resolved critical and minor defects within the Accelerator platform.
-- Redesigned the consent authorization module of the Financial Services Accelerator for NextGenPSD2 customization.
+- Extended the new API-based consent authorization extensions to support both NextGenPSD2 and OBIE frameworks.
 - Authored technical documentation.
 - Implemented JUnit unit tests and Groovy integration tests.
 
@@ -207,13 +207,13 @@ Research background: Athulya's undergraduate research focused on lightweight rea
 
 ## Project Highlights
 
-Project summary: Athulya's project highlights include OBL UK And NextGenPSD2 Open Banking Toolkits, Consent Authorization Page, Exam Registration Portal, Rustic Log Furnace, Sri Lankan Constitution Chatbot, and Flappy Bird On FPGA. These projects cover Open Banking reference implementations, secure consent authorization, ASP.NET and Blazor exam registration with AWS Docker and GitHub Actions CI/CD, a Rust multi-threaded pipelined log processor, a Sinhala RAG chatbot using LLMs Transformers and QLoRA, and a Verilog VGA Flappy Bird game on the DE2-115 FPGA board.
+Project summary: Athulya's project highlights include OBL UK And NextGenPSD2 Open Banking Toolkits, Extend Consent Authorization Extension, Exam Registration Portal, Rustic Log Furnace, Sri Lankan Constitution Chatbot, and Flappy Bird On FPGA. These projects cover Open Banking reference implementations for battle-testing API-based Accelerator extensions, API-based consent authorization extension support for NextGenPSD2 and OBIE, ASP.NET and Blazor exam registration with AWS Docker and GitHub Actions CI/CD, a Rust multi-threaded pipelined log processor, a Sinhala RAG chatbot using LLMs Transformers and QLoRA, and a Verilog VGA Flappy Bird game on the DE2-115 FPGA board.
 
 ### OBL UK And NextGenPSD2 Open Banking Toolkits
 
 Repository: https://github.com/AthulyaWeerakoon/reference-implementation-nextgenpsd2
 
-Summary: Battle-tested Open Banking reference implementations on WSO2 Financial Services Accelerator extensions.
+Summary: Reference implementations written to battle-test API-based WSO2 Financial Services Accelerator extensions.
 
 Technologies and concepts:
 
@@ -224,13 +224,13 @@ Technologies and concepts:
 - WSO2 Identity Server
 - Open Banking
 
-Useful response angle: emphasize Open Banking, financial services compliance, reference implementation work, and testing or stabilization work around platform extensions.
+Useful response angle: emphasize Open Banking, financial services compliance, reference implementation work, and the fact that the reference implementations were written to battle-test API-based Accelerator extensions.
 
-### Consent Authorization Page
+### Extend Consent Authorization Extension
 
 Link: https://github.com/wso2/financial-services-accelerator/pull/716
 
-Summary: Redesigned consent authorization for greater customization across NextGenPSD2 Open Banking use cases.
+Summary: Extended the new API-based consent authorization extensions to support both NextGenPSD2 and OBIE frameworks.
 
 Technologies and concepts:
 
@@ -307,35 +307,26 @@ Useful response angle: highlight the hardware-software boundary, digital systems
 
 ## Writing
 
-Athulya writes on Medium at https://medium.com/@athulyaweerakoon. Current Medium articles: Why Every Developer Should Learn Rust, about software engineering discipline, explicit contracts, Rust-shaped thinking, ownership, mutability, failure, boundaries, and guarantees; I Tried EfficientNet's Scaling Trick On ShuffleNet, about computer vision, CNN scaling, EfficientNet-style compound scaling, ShuffleNetV2b, implementation, tuning, and results; GitHub For HTTPS Web Hosting CI/CD, about GitHub Actions, Docker, AWS EC2, Cloudflare origin certificates, repository secrets, HTTPS, and repeatable deployment; Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap, about practical web hosting, domains, Namecheap, Cloudflare, AWS EC2, HTTPS, and Cloudflare Workers routing.
+Athulya writes on Medium at https://medium.com/@athulyaweerakoon. Current Medium articles: A Forever-Free Chatbot for Your Portfolio, about building Huggy, a portfolio chatbot designed around free-tier limits, static portfolio sites, controlled RAG, Hugging Face, Groq, Cloudflare, API-key protection, rate limiting, and avoiding surprise cloud bills; Why Every Developer Should Learn Rust, about software engineering discipline, explicit contracts, Rust-shaped thinking, ownership, mutability, failure, boundaries, and guarantees; I Tried EfficientNet's Scaling Trick On ShuffleNet, about computer vision, CNN scaling, EfficientNet-style compound scaling, ShuffleNetV2b, implementation, tuning, and results; GitHub For HTTPS Web Hosting CI/CD, about GitHub Actions, Docker, AWS EC2, Cloudflare origin certificates, repository secrets, HTTPS, and repeatable deployment; Cheap And Reliable Web Hosting With AWS + Cloudflare + Namecheap, about practical web hosting, domains, Namecheap, Cloudflare, AWS EC2, HTTPS, and Cloudflare Workers routing.
 
-## Creative Writing
+### A Forever-Free Chatbot For Your Portfolio
 
-Creative writing summary: Athulya writes fiction on Wattpad under AtleeBugs at https://www.wattpad.com/user/AtleeBugs. His public Wattpad works include Triagon Origins, Hall of Ivory, and A Hundred Years. Triagon Origins is the science-fiction series he loves most and the one he would want to be known for if he succeeds as a writer. Hall of Ivory is a fantasy project he started partly to prove he could keep going with a book-length idea; it became better than expected and is about 80 percent complete. A Hundred Years is a first-person novella from Jasmine's perspective, written for the 2026 Open Novella Contest and being expanded or reworked for the 2026 Wattys.
+URL: https://medium.com/@athulyaweerakoon/a-forever-free-chatbot-for-your-portfolio-00b7a3a50e4d
 
-### Triagon Origins
+Date: 2026-06-23
 
-URL: https://www.wattpad.com/myworks/352689078-triagon-origins
+Category: AI engineering
 
-Genre: Science fiction
+Tags:
 
-Summary: Triagon Origins is set in a shattered omniverse where prophets carry the message of an artifact that can give its chosen owner one chance to alter reality. The story follows many people seeking wishes of their own, including a widowed soldier, a guilt-ridden cyborg, an engineered revolutionary, an orphan born to be a monster, and a young girl lost in the chaos. Athulya is rewriting it to appeal to more casual readers without losing its value.
+- RAG
+- Chatbot
+- Cloudflare
+- Free tier
 
-### Hall Of Ivory
+Summary: A practical walkthrough of building Huggy, a portfolio chatbot designed around free-tier limits. The article explains why static portfolio sites can feel too passive, then shows how a controlled RAG-backed assistant can make a portfolio conversational without exposing API keys or creating surprise cloud bills.
 
-URL: https://www.wattpad.com/myworks/394332711-the-hall-of-ivory
-
-Genre: Fantasy
-
-Summary: Hall of Ivory follows Turren, the lonely adventurer and godslayer of Thales, who joins three old friends on a quest to rescue their once-companion from a world beyond reach. It crosses a world of legends, nightmare cities, old heartbreaks, and a fatal prophecy. It is not finished yet but is roughly 80 percent complete.
-
-### A Hundred Years
-
-URL: https://www.wattpad.com/myworks/408067856-a-hundred-years
-
-Genre: Speculative romance or reincarnation mystery
-
-Summary: A Hundred Years is written in first person from Jasmine's perspective. Jasmine does not believe in soulmates, fate, or love at first sight until she meets Ethan during a summer internship in the Andes and begins remembering things from another life. The story was an entry for the 2026 Open Novella Contest and is being expanded or reworked for the 2026 Wattys.
+Important framing: this article is about practical, budget-aware AI engineering. The main idea is that a useful portfolio chatbot does not need a huge backend or paid always-on infrastructure if the system is intentionally designed around static hosting, hosted model APIs, API-key protection, rate limits, and free-tier constraints.
 
 ### Why Every Developer Should Learn Rust
 
@@ -406,6 +397,34 @@ Tags:
 - Web hosting
 
 Summary: A grounded guide to hosting personal web apps when static hosting is not quite enough. It covers buying a domain, connecting Namecheap and Cloudflare, setting up an AWS instance, keeping HTTPS in the loop, and using Cloudflare Workers for routing.
+
+## Creative Writing
+
+Creative writing summary: Athulya writes fiction on Wattpad under AtleeBugs at https://www.wattpad.com/user/AtleeBugs. His public Wattpad works include Triagon Origins, Hall of Ivory, and A Hundred Years. Triagon Origins is the science-fiction series he loves most and the one he would want to be known for if he succeeds as a writer. Hall of Ivory is a fantasy project he started partly to prove he could keep going with a book-length idea; it became better than expected and is about 80 percent complete. A Hundred Years is a first-person novella from Jasmine's perspective, written for the 2026 Open Novella Contest and being expanded or reworked for the 2026 Wattys.
+
+### Triagon Origins
+
+URL: https://www.wattpad.com/myworks/352689078-triagon-origins
+
+Genre: Science fiction
+
+Summary: Triagon Origins is set in a shattered omniverse where prophets carry the message of an artifact that can give its chosen owner one chance to alter reality. The story follows many people seeking wishes of their own, including a widowed soldier, a guilt-ridden cyborg, an engineered revolutionary, an orphan born to be a monster, and a young girl lost in the chaos. Athulya is rewriting it to appeal to more casual readers without losing its value.
+
+### Hall Of Ivory
+
+URL: https://www.wattpad.com/myworks/394332711-the-hall-of-ivory
+
+Genre: Fantasy
+
+Summary: Hall of Ivory follows Turren, the lonely adventurer and godslayer of Thales, who joins three old friends on a quest to rescue their once-companion from a world beyond reach. It crosses a world of legends, nightmare cities, old heartbreaks, and a fatal prophecy. It is not finished yet but is roughly 80 percent complete.
+
+### A Hundred Years
+
+URL: https://www.wattpad.com/myworks/408067856-a-hundred-years
+
+Genre: Speculative romance or reincarnation mystery
+
+Summary: A Hundred Years is written in first person from Jasmine's perspective. Jasmine does not believe in soulmates, fate, or love at first sight until she meets Ethan during a summer internship in the Andes and begins remembering things from another life. The story was an entry for the 2026 Open Novella Contest and is being expanded or reworked for the 2026 Wattys.
 
 ## Portfolio Page Mechanics
 

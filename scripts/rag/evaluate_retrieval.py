@@ -249,6 +249,8 @@ CASES += cases_for(
         "what blog posts has Athulya written?",
         "what articles are on Athulya's Medium?",
         "does Athulya write about web hosting?",
+        "what is the forever-free chatbot article about?",
+        "what did Athulya write about Huggy?",
     ],
 )
 
@@ -256,6 +258,16 @@ CASES += cases_for(
     ("Creative Writing",),
     [
         "what does Athulya write about?",
+    ],
+)
+
+CASES += cases_for(
+    ("Writing", "A Forever-Free Chatbot for Your Portfolio", "free-tier limits"),
+    [
+        "what article is about a portfolio chatbot?",
+        "what article covers Huggy and free-tier limits?",
+        "which article talks about avoiding surprise cloud bills?",
+        "what writing covers Cloudflare and Groq?",
     ],
 )
 
