@@ -2,9 +2,9 @@
 
 ## Identity Summary
 
-Athulya Weerakoon is a Computer Science and Engineering graduate from the University of Jaffna, Sri Lanka. He graduated with First Class Honours and a GPA of 3.71.
+Athulya Weerakoon is a Computer Science and Engineering graduate from the University of Jaffna, Sri Lanka. He graduated with First Class Honours and a GPA of 3.75.
 
-Athulya's strongest current direction is security engineering, supported by hands-on infrastructure, cloud, DevOps, IAM, Open Banking security, and software engineering experience. He also builds across Rust tooling, LLM-powered applications, and embedded or FPGA-based systems.
+Athulya's strongest current direction is security engineering, supported by hands-on software, hardware, cybersecurity, infrastructure, cloud, DevOps, IAM, Open Banking security, and software engineering experience. He also builds across Rust tooling, LLM-powered applications, and embedded or FPGA-based systems.
 
 His general engineering taste is practical and careful. He likes building things that are useful, understandable, and reliable for real users. He values maintainable solutions and likes understanding how existing systems work before choosing a new approach.
 
@@ -25,7 +25,7 @@ Athulya enjoys security-minded engineering: asking what can break, what can be m
 - Institution: University of Jaffna, Sri Lanka
 - Period: April 2020 to September 2025
 - Result: First Class Honours
-- GPA: 3.71
+- GPA: 3.75
 - Activity: Secretary, Computer Engineering Society in 2025
 - Certification: Google Cybersecurity Professional Certificate
 
@@ -35,11 +35,29 @@ Tutoring summary: During university, Athulya tutored friends and juniors. Some o
 
 ## Experience
 
-Experience summary: Athulya has professional experience as an Intern Software Engineer at WSO2 in Sri Lanka from February 2024 to August 2024, and as a project manager, infrastructure engineer, site-reliability engineer, DevOps engineer, and security engineer at Virtual System Solutions in Sri Lanka since February 2025. At WSO2, he worked in a solutions and vertical-product context around Financial Services Accelerator 4.0, Open Banking compliant extensions, OBIE and NextGenPSD2 toolkits, API-based extension points, consent authorization extension work, localization, defects, documentation, JUnit tests, and Groovy integration tests. At Virtual System Solutions, he works around architectural limitations of base products to improve workflows, security, automation, observability, deployment, and solution engineering for ANT and customer product lines whose details are not public.
+Experience summary: Athulya has professional experience as a DevOps Engineer at Virtual System Solutions in Sri Lanka since February 2026, and as an Intern Software Engineer at WSO2 in Sri Lanka from February 2025 to August 2025. At Virtual System Solutions, he contributes to automation, site reliability, observability, consumer products, cloud-native ERP deployment, IAM, deployment automation, backup management, secure add-on integration, and payment gateway integration. At WSO2, he worked in a solutions and vertical-product context around Financial Services Accelerator 4.0, Open Banking compliant extensions, OBIE and NextGenPSD2 toolkits, API-based extension points, consent authorization customization, defects, documentation, JUnit tests, and Groovy integration tests.
+
+### DevOps Engineer, Virtual System Solutions, Sri Lanka
+
+Period: Since February 2026
+
+Athulya contributes to automation, site reliability, observability, and consumer products offered by Virtual System Solutions.
+
+Key work:
+
+- Worked on ANT, Virtual System Solutions' base financial management product.
+- Worked on product lines for major customers whose names and details are not public.
+- Wrote multi-tenancy middleware for the cloud-native ANT Enterprise Resource Planning system and containerized its deployment for high reliability and scalability.
+- Designed and implemented a centralized User and Access Management solution, meaning Identity and Access Management or IAM, for identity handling across more than 10 major consumer deployments.
+- Adopted and integrated a system for log centralization and system observability for developers with Alloy, Promtail, Loki, Prometheus, and Grafana, covering more than 60 deployments.
+- Automated and refined developer-to-production deployments for more than 20 projects, eliminating the need for manual deployments.
+- Automated backup management and provisioning for concerned customers and built a customer portal that allowed customers to regulate storage, persistence, and retention of backups based on subscription packages.
+- Designed a secure handshake flow for secure over-the-browser Add-on integration with the main product.
+- Designed and implemented a payment gateway with CyberSource IPG for a ticketing system of a government event within a single day that handled more than Rs. 200K in transactions safely and optimally with 0 percent fault rate in the span of its deployment.
 
 ### Intern Software Engineer, WSO2, Sri Lanka
 
-Period: February 2024 to August 2024
+Period: February 2025 to August 2025
 
 Athulya contributed to the WSO2 Financial Services Accelerator 4.0 release, focused on Open Banking compliant extensions and core platform features.
 
@@ -51,35 +69,14 @@ Extension architecture context: the older Open Banking toolkit model used Java c
 
 Key work:
 
-- Started reworking the consent authorization module as a separate microservice that could be hosted on Choreo, WSO2's developer platform, and used by developers as an add-on. This work was not completed because he was reassigned to toolkit work due to deadlines the Open Banking team had been facing.
-- Wrote reference implementations for OBIE and NextGenPSD2 Open Banking toolkits to battle-test the new API-based Accelerator extensions.
+- Battle-tested the new Accelerator Extensions by rewriting the older OBIE and NextGenPSD2 Open Banking toolkits using them.
 - Reworked the OBIE, formerly UK, Open Banking Framework toolkit to use new API-based extension points instead of Java class based extensions. He did a majority of the OBIE framework work, while still working as part of a team.
 - Worked on the Berlin or NextGenPSD2 Open Banking framework and rewrote it using the new API-based extension points.
 - Identified an explanation gap in multi-step authorization behavior around account selection in consecutive SCAs, meaning Strong Customer Authentications, where the old toolkit implementation appeared to handle missing details incorrectly.
-- Worked on the localization module for the Financial Services Accelerator.
 - Resolved critical and minor defects within the Accelerator platform.
-- Extended the new API-based consent authorization extensions to support both NextGenPSD2 and OBIE frameworks.
+- Redesigned the consent authorization module of the Financial Services Accelerator to support deeper customization across Open Banking use cases, especially NextGenPSD2.
 - Authored technical documentation.
 - Implemented JUnit unit tests and Groovy integration tests.
-
-### Project Manager, Infrastructure Engineer, Site-Reliability Engineer, DevOps Engineer, And Security Engineer, Virtual System Solutions, Sri Lanka
-
-Period: Since February 2025
-
-Athulya contributes to project management, infrastructure engineering, site reliability, system security, deployment automation, deployment observability, and solution engineering.
-
-Key work:
-
-- Worked on ANT, Virtual System Solutions' base financial management product.
-- Worked on product lines for major customers whose names and details are not public.
-- Became a core part of company decision making and solution engineering.
-- Worked around architectural limitations in base products to provide better workflows, security, automation, and operational reliability.
-- Wrote multi-tenancy middleware for the cloud-native ANT Enterprise Resource Planning system and containerized its deployment.
-- Designed and implemented a centralized Identity and Access Management solution for identity handling across multiple major products.
-- Adopted and integrated a system for log centralization and system observability for developers.
-- Automated backup management and provisioning for concerned customers.
-- Designed a secure handshake flow for secure over-the-browser Add-on integration with the main product.
-- Designed a reliable self-hosting solution for scalability through product containerization, database cluster management, and decentralized self-hosted S3 bucket solutions.
 
 ## Skills
 
@@ -123,7 +120,10 @@ Cloud and DevOps:
 - Docker Compose
 - CI/CD
 - Grafana
-- Garage
+- Prometheus
+- Loki
+- Promtail
+- Alloy
 - Jenkins
 
 ### Network And API Security
@@ -207,13 +207,13 @@ Research background: Athulya's undergraduate research focused on lightweight rea
 
 ## Project Highlights
 
-Project summary: Athulya's project highlights include OBL UK And NextGenPSD2 Open Banking Toolkits, Extend Consent Authorization Extension, Exam Registration Portal, Rustic Log Furnace, Sri Lankan Constitution Chatbot, and Flappy Bird On FPGA. These projects cover Open Banking reference implementations for battle-testing API-based Accelerator extensions, API-based consent authorization extension support for NextGenPSD2 and OBIE, ASP.NET and Blazor exam registration with AWS Docker and GitHub Actions CI/CD, a Rust multi-threaded pipelined log processor, a Sinhala RAG chatbot using LLMs Transformers and QLoRA, and a Verilog VGA Flappy Bird game on the DE2-115 FPGA board.
+Project summary: Athulya's project highlights include OBL UK And NextGenPSD2 Open Banking Toolkits, Consent Authorization Page, Exam Registration Portal, Rustic Log Furnace, Sri Lankan Constitution Chatbot, and Flappy Bird On FPGA. These projects cover Open Banking toolkit rewrites for battle-testing API-based Accelerator extensions, Financial Services Accelerator consent authorization customization for NextGenPSD2, ASP.NET and Blazor exam registration with AWS Docker and GitHub Actions CI/CD, a Rust multi-threaded pipelined log processor, a Sinhala RAG chatbot using LLMs Transformers and QLoRA, and a Verilog VGA Flappy Bird game on the DE2-115 FPGA board.
 
 ### OBL UK And NextGenPSD2 Open Banking Toolkits
 
 Repository: https://github.com/AthulyaWeerakoon/reference-implementation-nextgenpsd2
 
-Summary: Reference implementations written to battle-test API-based WSO2 Financial Services Accelerator extensions.
+Summary: Older OBIE and NextGenPSD2 Open Banking toolkits rewritten to battle-test the new API-based WSO2 Financial Services Accelerator extensions.
 
 Technologies and concepts:
 
@@ -224,13 +224,13 @@ Technologies and concepts:
 - WSO2 Identity Server
 - Open Banking
 
-Useful response angle: emphasize Open Banking, financial services compliance, reference implementation work, and the fact that the reference implementations were written to battle-test API-based Accelerator extensions.
+Useful response angle: emphasize Open Banking, financial services compliance, toolkit migration work, and the fact that the rewrites were used to battle-test API-based Accelerator extensions.
 
-### Extend Consent Authorization Extension
+### Consent Authorization Page
 
 Link: https://github.com/wso2/financial-services-accelerator/pull/716
 
-Summary: Extended the new API-based consent authorization extensions to support both NextGenPSD2 and OBIE frameworks.
+Summary: Redesigned the WSO2 Financial Services Accelerator consent authorization module to support deeper customization across Open Banking use cases, especially NextGenPSD2.
 
 Technologies and concepts:
 
