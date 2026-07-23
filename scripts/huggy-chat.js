@@ -10,6 +10,7 @@
     sitting: "assets/images/huggy-sitting.png",
     standing: "assets/images/huggy-standing.png",
   };
+  const spriteCache = preloadSprites(SPRITES);
   const LOCAL_QUOTA_REPLIES = [
     "You have been hanging with me for an awfully long time today. Huggy is out of daily budget and trying to look dignified about it.",
     "Tiny backend, finite allowance. Huggy is done answering for today, but he will sit here dramatically for a bit.",
@@ -61,6 +62,7 @@
   };
 
   restoreState();
+  applySprite("asleep");
   renderMessages();
   setMode("asleep", "Waking up...");
   setDisabled(false);
@@ -381,12 +383,31 @@
   }
 
   function setMode(mode, status) {
-    avatarImg.src = SPRITES[mode] || SPRITES.standing;
+    applySprite(mode);
     widget.dataset.huggyState = mode;
     statusEl.dataset.huggyStatus = STATUS_KINDS[status] || "ready";
     statusEl.setAttribute("aria-label", status);
     statusEl.title = status;
     statusEl.textContent = "";
+  }
+
+  function preloadSprites(sprites) {
+    return Object.fromEntries(
+      Object.entries(sprites).map(([mode, src]) => {
+        const image = new Image();
+        image.decoding = "async";
+        image.src = src;
+        return [mode, image];
+      }),
+    );
+  }
+
+  function applySprite(mode) {
+    const image = spriteCache[mode] || spriteCache.standing;
+    if (!image || avatarImg.src.endsWith(image.getAttribute("src"))) {
+      return;
+    }
+    avatarImg.src = image.currentSrc || image.src;
   }
 
   function setBusy(isBusy, status = "Thinking...") {
