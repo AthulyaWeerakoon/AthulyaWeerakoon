@@ -319,6 +319,24 @@ CASES += cases_for(
 )
 
 CASES += cases_for(
+    ("Hall of Ivory", "long-lost group of friends", "imprisoned in a world beyond reach"),
+    [
+        "what is Hall of Ivory really about?",
+        "which story has long lost friends reuniting?",
+        "what story is about rescuing a friend imprisoned in another world?",
+    ],
+)
+
+CASES += cases_for(
+    ("A Hundred Years", "curse", "kills them each time they fall in love"),
+    [
+        "what is the curse in A Hundred Years?",
+        "which story is about lovers cursed to die when they fall in love?",
+        "what cycle are Jasmine and Ethan trying to break?",
+    ],
+)
+
+CASES += cases_for(
     ("Contact And Public Links",),
     [
         "what is Athulya's Medium link?",

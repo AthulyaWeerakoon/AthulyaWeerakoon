@@ -1462,11 +1462,11 @@
       "Creative Writing"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing",
-    "text": "Creative writing summary: Athulya writes fiction on Wattpad under AtleeBugs at https://www.wattpad.com/user/AtleeBugs. His public Wattpad works include Triagon Origins, Hall of Ivory, and A Hundred Years. Triagon Origins is the science-fiction series he loves most and the one he would want to be known for if he succeeds as a writer. Hall of Ivory is a fantasy project he started partly to prove he could keep going with a book-length idea; it became better than expected and is about 80 percent complete. A Hundred Years is a first-person novella from Jasmine's perspective, written for the 2026 Open Novella Contest and being expanded or reworked for the 2026 Wattys.",
+    "text": "Creative writing summary: Athulya writes fiction on Wattpad under AtleeBugs at https://www.wattpad.com/user/AtleeBugs. His public Wattpad works include Triagon Origins, Hall of Ivory, and A Hundred Years. Triagon Origins is the science-fiction series he loves most and the one he would want to be known for if he succeeds as a writer. Hall of Ivory is a fantasy story about a long-lost group of friends reuniting under unfortunate circumstances after one of their companions is imprisoned in another world; it is also about discovering who the friends are to each other and overcoming their own shortcomings. A Hundred Years is about two lovers caught in a curse that kills them each time they fall in love, and this version of their story follows their attempt to break the cycle and free themselves from the curse.",
     "source": "knowledge/athulya-knowledge-corpus.md",
     "start_line": 403,
     "part": 0,
-    "word_count": 108
+    "word_count": 134
   },
   {
     "id": "chunk-0106",
@@ -1546,25 +1546,25 @@
       "Hall Of Ivory"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Hall Of Ivory",
-    "text": "Summary: Hall of Ivory follows Turren, the lonely adventurer and godslayer of Thales, who joins three old friends on a quest to rescue their once-companion from a world beyond reach. It crosses a world of legends, nightmare cities, old heartbreaks, and a fatal prophecy. It is not finished yet but is roughly 80 percent complete.",
+    "text": "Summary: Hall of Ivory follows Turren, the lonely adventurer and godslayer of Thales, who joins three old friends on a quest to rescue their once-companion, imprisoned in a world beyond reach. The larger emotional story is about a long-lost group of friends reuniting under unfortunate circumstances, discovering who they are to each other, and overcoming the shortcomings and heartbreaks that once split them apart. It crosses a wondrous world of legends, nightmare cities, old wounds, and a fatal prophecy. It is not finished yet but is roughly 80 percent complete.",
     "source": "knowledge/athulya-knowledge-corpus.md",
     "start_line": 419,
     "part": 0,
-    "word_count": 55
+    "word_count": 90
   },
   {
     "id": "chunk-0112",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
       "Creative Writing",
-      "A Hundred Years"
+      "Hall Of Ivory"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > A Hundred Years",
-    "text": "URL: https://www.wattpad.com/myworks/408067856-a-hundred-years",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > Hall Of Ivory",
+    "text": "Intro-style description: Turren was known by many names across his journeys: the lonely adventurer, the godslayer of Thales. He wandered a desolate land that once held a lush civilization, taking commissions alone until three old friends, Ellie, Mauk, and Lyla, draw him into a quest to rescue their once-companion from another world. For Turren, it begins as another commission, but for the others it matters dearer than life. The journey forces the group through legends, nightmare cities, old heartbreaks, and the question of whether they can find strength in each other before the past leads them to ruin.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 423,
+    "start_line": 421,
     "part": 0,
-    "word_count": 2
+    "word_count": 98
   },
   {
     "id": "chunk-0113",
@@ -1574,11 +1574,11 @@
       "A Hundred Years"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > A Hundred Years",
-    "text": "Genre: Speculative romance or reincarnation mystery",
+    "text": "URL: https://www.wattpad.com/myworks/408067856-a-hundred-years",
     "source": "knowledge/athulya-knowledge-corpus.md",
     "start_line": 425,
     "part": 0,
-    "word_count": 6
+    "word_count": 2
   },
   {
     "id": "chunk-0114",
@@ -1588,37 +1588,39 @@
       "A Hundred Years"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > A Hundred Years",
-    "text": "Summary: A Hundred Years is written in first person from Jasmine's perspective. Jasmine does not believe in soulmates, fate, or love at first sight until she meets Ethan during a summer internship in the Andes and begins remembering things from another life. The story was an entry for the 2026 Open Novella Contest and is being expanded or reworked for the 2026 Wattys.",
+    "text": "Genre: Speculative romance or reincarnation mystery",
     "source": "knowledge/athulya-knowledge-corpus.md",
     "start_line": 427,
     "part": 0,
-    "word_count": 63
+    "word_count": 6
   },
   {
     "id": "chunk-0115",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "A Hundred Years"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "The portfolio is a static website hosted under the canonical domain https://athulyaweerakoon.xyz. It is also part of the GitHub profile repository.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > A Hundred Years",
+    "text": "Summary: A Hundred Years is written in first person from Jasmine's perspective. It is about two lovers caught in a curse that kills them each time they fall in love. In this story, Jasmine and Ethan begin to uncover the repeating cycle and intend to break it so they can free themselves from the curse. The story was an entry for the 2026 Open Novella Contest and is being expanded or reworked for the 2026 Wattys.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 431,
+    "start_line": 429,
     "part": 0,
-    "word_count": 21
+    "word_count": 76
   },
   {
     "id": "chunk-0116",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Portfolio Page Mechanics"
+      "Creative Writing",
+      "A Hundred Years"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "Main files:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Creative Writing > A Hundred Years",
+    "text": "Intro-style description: Jasmine never believed in love at first sight, soulmates, fate, or the idea that someone could feel familiar before she met them. Then she meets Ethan during a summer internship in the Andes, and what should have been simple fieldwork begins to feel strangely familiar. As memories surface from a life that should not be hers, Jasmine is forced to face a terrifying truth: some connections do not begin, they repeat, and some stories do not end, they unravel.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 433,
+    "start_line": 431,
     "part": 0,
-    "word_count": 2
+    "word_count": 81
   },
   {
     "id": "chunk-0117",
@@ -1627,11 +1629,11 @@
       "Portfolio Page Mechanics"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "- `index.html`: page structure, content, metadata, sections, project cards, article cards, footer, script imports. - `styles.css`: visual design, responsive layout, toolbar, article cards, footer, glass styling, mobile behavior. - `scripts/globals.js`: shared state and particle/theme configuration. - `scripts/util.js`: utility helpers used by the theme and background code. - `scripts/section-scroll.js`: section navigation, active menu highlighting, mobile menu open/close behavior. - `scripts/backdrop-scroll-control.js`: parallax-style background scroll behavior. - `scripts/theme-control.js`: light/dark mode and seasonal/weather theme control. - `scripts/particle-control.js`: rain/snow/particle effects. - `scripts/page-control.js`: intro expansion, article reveal behavior, weather button state.",
+    "text": "The portfolio is a static website hosted under the canonical domain https://athulyaweerakoon.xyz. It is also part of the GitHub profile repository.",
     "source": "knowledge/athulya-knowledge-corpus.md",
     "start_line": 435,
     "part": 0,
-    "word_count": 85
+    "word_count": 21
   },
   {
     "id": "chunk-0118",
@@ -1640,9 +1642,9 @@
       "Portfolio Page Mechanics"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "Page sections:",
+    "text": "Main files:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 445,
+    "start_line": 437,
     "part": 0,
     "word_count": 2
   },
@@ -1653,11 +1655,11 @@
       "Portfolio Page Mechanics"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "- About: hero introduction, expandable intro text, project and Medium links, adventurer/weather card. - Articles: Medium article cards. The current cards are hard-coded in `index.html`. - Projects: project highlight cards linking to GitHub repositories or PRs. - Experience: WSO2 internship and Virtual System Solutions DevOps role. - Skills: grouped skill cards. - Education: degree, activity, and certification cards. - Footer: email, GitHub, and CV link.",
+    "text": "- `index.html`: page structure, content, metadata, sections, project cards, article cards, footer, script imports. - `styles.css`: visual design, responsive layout, toolbar, article cards, footer, glass styling, mobile behavior. - `scripts/globals.js`: shared state and particle/theme configuration. - `scripts/util.js`: utility helpers used by the theme and background code. - `scripts/section-scroll.js`: section navigation, active menu highlighting, mobile menu open/close behavior. - `scripts/backdrop-scroll-control.js`: parallax-style background scroll behavior. - `scripts/theme-control.js`: light/dark mode and seasonal/weather theme control. - `scripts/particle-control.js`: rain/snow/particle effects. - `scripts/page-control.js`: intro expansion, article reveal behavior, weather button state.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 447,
+    "start_line": 439,
     "part": 0,
-    "word_count": 65
+    "word_count": 85
   },
   {
     "id": "chunk-0120",
@@ -1666,9 +1668,9 @@
       "Portfolio Page Mechanics"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "Navigation behavior:",
+    "text": "Page sections:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 455,
+    "start_line": 449,
     "part": 0,
     "word_count": 2
   },
@@ -1679,11 +1681,11 @@
       "Portfolio Page Mechanics"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "- Desktop toolbar is a slim fixed top toolbar. - Mobile toolbar is fixed at the bottom. - On mobile, the menu button is centered, the theme toggle is on the right, and the name is on the left. - Internal section links scroll smoothly to page sections. - External/action links open in a new tab.",
+    "text": "- About: hero introduction, expandable intro text, project and Medium links, adventurer/weather card. - Articles: Medium article cards. The current cards are hard-coded in `index.html`. - Projects: project highlight cards linking to GitHub repositories or PRs. - Experience: WSO2 internship and Virtual System Solutions DevOps role. - Skills: grouped skill cards. - Education: degree, activity, and certification cards. - Footer: email, GitHub, and CV link.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 457,
+    "start_line": 451,
     "part": 0,
-    "word_count": 56
+    "word_count": 65
   },
   {
     "id": "chunk-0122",
@@ -1692,9 +1694,9 @@
       "Portfolio Page Mechanics"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "Visual behavior:",
+    "text": "Navigation behavior:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 463,
+    "start_line": 459,
     "part": 0,
     "word_count": 2
   },
@@ -1705,11 +1707,11 @@
       "Portfolio Page Mechanics"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "- The page uses glass-like cards over layered pixel-art background images. - AOS is used for most section/card entrance animations, but not for the top/bottom toolbar or footer. - The site has light and dark modes. - Weather buttons switch between clear, rain, and snow particle themes. - The adventurer GIF links secretly to Athulya's Wattpad profile. - Most page mechanics are custom-written by Athulya. AOS and a few styles are external imports, but the rest of the behavior is his own JavaScript and CSS. - The background-image color changes use CSS filter techniques as a workaround for CSS not naturally recoloring raster images. The idea is to combine filters such as `sepia()` and `hue-rotate()` to push the existing pixel-art background into different color moods, then pair that with brightness, contrast, saturation, and opacity adjustments where needed. This lets the",
+    "text": "- Desktop toolbar is a slim fixed top toolbar. - Mobile toolbar is fixed at the bottom. - On mobile, the menu button is centered, the theme toggle is on the right, and the name is on the left. - Internal section links scroll smoothly to page sections. - External/action links open in a new tab.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 465,
+    "start_line": 461,
     "part": 0,
-    "word_count": 140
+    "word_count": 56
   },
   {
     "id": "chunk-0124",
@@ -1718,11 +1720,11 @@
       "Portfolio Page Mechanics"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "existing pixel-art background into different color moods, then pair that with brightness, contrast, saturation, and opacity adjustments where needed. This lets the same background art support theme and weather variations without needing a separate recolored image for every state.",
+    "text": "Visual behavior:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 465,
-    "part": 1,
-    "word_count": 39
+    "start_line": 467,
+    "part": 0,
+    "word_count": 2
   },
   {
     "id": "chunk-0125",
@@ -1731,11 +1733,11 @@
       "Portfolio Page Mechanics"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "SEO and crawler files:",
+    "text": "- The page uses glass-like cards over layered pixel-art background images. - AOS is used for most section/card entrance animations, but not for the top/bottom toolbar or footer. - The site has light and dark modes. - Weather buttons switch between clear, rain, and snow particle themes. - The adventurer GIF links secretly to Athulya's Wattpad profile. - Most page mechanics are custom-written by Athulya. AOS and a few styles are external imports, but the rest of the behavior is his own JavaScript and CSS. - The background-image color changes use CSS filter techniques as a workaround for CSS not naturally recoloring raster images. The idea is to combine filters such as `sepia()` and `hue-rotate()` to push the existing pixel-art background into different color moods, then pair that with brightness, contrast, saturation, and opacity adjustments where needed. This lets the",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 473,
+    "start_line": 469,
     "part": 0,
-    "word_count": 4
+    "word_count": 140
   },
   {
     "id": "chunk-0126",
@@ -1744,37 +1746,37 @@
       "Portfolio Page Mechanics"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
-    "text": "- Metadata in `index.html` includes description, keywords, Open Graph tags, Twitter card tags, canonical URL, identity links, and JSON-LD for Person and WebSite. - `robots.txt` allows crawling and points to the sitemap. - `sitemap.xml` lists the canonical homepage. - `CNAME` contains `athulyaweerakoon.xyz`.",
+    "text": "existing pixel-art background into different color moods, then pair that with brightness, contrast, saturation, and opacity adjustments where needed. This lets the same background art support theme and weather variations without needing a separate recolored image for every state.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 475,
-    "part": 0,
-    "word_count": 42
+    "start_line": 469,
+    "part": 1,
+    "word_count": 39
   },
   {
     "id": "chunk-0127",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "The portfolio frontend may support command execution from the chatbot. A command must be sent as the entire chatbot response. If the response contains any other text before or after the command, the frontend should treat it as normal chat text.",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "SEO and crawler files:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 482,
+    "start_line": 477,
     "part": 0,
-    "word_count": 41
+    "word_count": 4
   },
   {
     "id": "chunk-0128",
     "heading_path": [
       "Athulya Weerakoon Knowledge Corpus",
-      "Chatbot Frontend Commands"
+      "Portfolio Page Mechanics"
     ],
-    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Command format:",
+    "heading": "Athulya Weerakoon Knowledge Corpus > Portfolio Page Mechanics",
+    "text": "- Metadata in `index.html` includes description, keywords, Open Graph tags, Twitter card tags, canonical URL, identity links, and JSON-LD for Person and WebSite. - `robots.txt` allows crawling and points to the sitemap. - `sitemap.xml` lists the canonical homepage. - `CNAME` contains `athulyaweerakoon.xyz`.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 484,
+    "start_line": 479,
     "part": 0,
-    "word_count": 2
+    "word_count": 42
   },
   {
     "id": "chunk-0129",
@@ -1783,11 +1785,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /command-name argument ```",
+    "text": "The portfolio frontend may support command execution from the chatbot. A command must be sent as the entire chatbot response. If the response contains any other text before or after the command, the frontend should treat it as normal chat text.",
     "source": "knowledge/athulya-knowledge-corpus.md",
     "start_line": 486,
     "part": 0,
-    "word_count": 4
+    "word_count": 41
   },
   {
     "id": "chunk-0130",
@@ -1796,9 +1798,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Navigation command:",
+    "text": "Command format:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 490,
+    "start_line": 488,
     "part": 0,
     "word_count": 2
   },
@@ -1809,9 +1811,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /navigate section-id ```",
+    "text": "```text /command-name argument ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 492,
+    "start_line": 490,
     "part": 0,
     "word_count": 4
   },
@@ -1822,11 +1824,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Supported section IDs:",
+    "text": "Navigation command:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 496,
+    "start_line": 494,
     "part": 0,
-    "word_count": 3
+    "word_count": 2
   },
   {
     "id": "chunk-0133",
@@ -1835,11 +1837,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "- `about` - `articles` - `projects` - `experience` - `skills` - `education`",
+    "text": "```text /navigate section-id ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 498,
+    "start_line": 496,
     "part": 0,
-    "word_count": 12
+    "word_count": 4
   },
   {
     "id": "chunk-0134",
@@ -1848,11 +1850,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Navigation examples:",
+    "text": "Supported section IDs:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 505,
+    "start_line": 500,
     "part": 0,
-    "word_count": 2
+    "word_count": 3
   },
   {
     "id": "chunk-0135",
@@ -1861,11 +1863,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /navigate projects ```",
+    "text": "- `about` - `articles` - `projects` - `experience` - `skills` - `education`",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 507,
+    "start_line": 502,
     "part": 0,
-    "word_count": 4
+    "word_count": 12
   },
   {
     "id": "chunk-0136",
@@ -1874,11 +1876,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /navigate articles ```",
+    "text": "Navigation examples:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 511,
+    "start_line": 509,
     "part": 0,
-    "word_count": 4
+    "word_count": 2
   },
   {
     "id": "chunk-0137",
@@ -1887,9 +1889,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Natural language navigation aliases:",
+    "text": "```text /navigate projects ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 515,
+    "start_line": 511,
     "part": 0,
     "word_count": 4
   },
@@ -1900,11 +1902,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "- \"show me the about section\" means `/navigate about` - \"go to the about section\" means `/navigate about` - \"show me the articles\" means `/navigate articles` - \"open the articles section\" means `/navigate articles` - \"show me the projects\" means `/navigate projects` - \"open the projects section\" means `/navigate projects` - \"show me his experience\" means `/navigate experience` - \"go to experience\" means `/navigate experience` - \"show me his skills\" means `/navigate skills` - \"open skills\" means `/navigate skills` - \"show me education\" means `/navigate education` - \"go to education\" means `/navigate education`",
+    "text": "```text /navigate articles ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 517,
+    "start_line": 515,
     "part": 0,
-    "word_count": 93
+    "word_count": 4
   },
   {
     "id": "chunk-0139",
@@ -1913,11 +1915,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Open-link command:",
+    "text": "Natural language navigation aliases:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 530,
+    "start_line": 519,
     "part": 0,
-    "word_count": 2
+    "word_count": 4
   },
   {
     "id": "chunk-0140",
@@ -1926,11 +1928,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link url ```",
+    "text": "- \"show me the about section\" means `/navigate about` - \"go to the about section\" means `/navigate about` - \"show me the articles\" means `/navigate articles` - \"open the articles section\" means `/navigate articles` - \"show me the projects\" means `/navigate projects` - \"open the projects section\" means `/navigate projects` - \"show me his experience\" means `/navigate experience` - \"go to experience\" means `/navigate experience` - \"show me his skills\" means `/navigate skills` - \"open skills\" means `/navigate skills` - \"show me education\" means `/navigate education` - \"go to education\" means `/navigate education`",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 532,
+    "start_line": 521,
     "part": 0,
-    "word_count": 4
+    "word_count": 93
   },
   {
     "id": "chunk-0141",
@@ -1939,11 +1941,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "The chatbot may send any URL with `/open-link`. The frontend parser will decide whether the URL is allowed to open.",
+    "text": "Open-link command:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 536,
+    "start_line": 534,
     "part": 0,
-    "word_count": 20
+    "word_count": 2
   },
   {
     "id": "chunk-0142",
@@ -1952,9 +1954,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Natural language link aliases:",
+    "text": "```text /open-link url ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 538,
+    "start_line": 536,
     "part": 0,
     "word_count": 4
   },
@@ -1965,11 +1967,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "- \"open Athulya's portfolio\" means `/open-link https://athulyaweerakoon.xyz` - \"open his GitHub\" means `/open-link https://github.com/AthulyaWeerakoon` - \"open his LinkedIn\" means `/open-link https://linkedin.com/in/athulya-weerakoon` - \"open his Medium\" means `/open-link https://medium.com/@athulyaweerakoon` - \"open his Wattpad\" means `/open-link https://www.wattpad.com/user/AtleeBugs` - \"open AtleeBugs\" means `/open-link https://www.wattpad.com/user/AtleeBugs` - \"email Athulya\" means `/open-link mailto:athulyaweerakoon@gmail.com`",
+    "text": "The chatbot may send any URL with `/open-link`. The frontend parser will decide whether the URL is allowed to open.",
     "source": "knowledge/athulya-knowledge-corpus.md",
     "start_line": 540,
     "part": 0,
-    "word_count": 47
+    "word_count": 20
   },
   {
     "id": "chunk-0144",
@@ -1978,9 +1980,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Important public link commands:",
+    "text": "Natural language link aliases:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 548,
+    "start_line": 542,
     "part": 0,
     "word_count": 4
   },
@@ -1991,11 +1993,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://athulyaweerakoon.xyz ```",
+    "text": "- \"open Athulya's portfolio\" means `/open-link https://athulyaweerakoon.xyz` - \"open his GitHub\" means `/open-link https://github.com/AthulyaWeerakoon` - \"open his LinkedIn\" means `/open-link https://linkedin.com/in/athulya-weerakoon` - \"open his Medium\" means `/open-link https://medium.com/@athulyaweerakoon` - \"open his Wattpad\" means `/open-link https://www.wattpad.com/user/AtleeBugs` - \"open AtleeBugs\" means `/open-link https://www.wattpad.com/user/AtleeBugs` - \"email Athulya\" means `/open-link mailto:athulyaweerakoon@gmail.com`",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 550,
+    "start_line": 544,
     "part": 0,
-    "word_count": 4
+    "word_count": 47
   },
   {
     "id": "chunk-0146",
@@ -2004,9 +2006,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon ```",
+    "text": "Important public link commands:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 554,
+    "start_line": 552,
     "part": 0,
     "word_count": 4
   },
@@ -2017,9 +2019,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://linkedin.com/in/athulya-weerakoon ```",
+    "text": "```text /open-link https://athulyaweerakoon.xyz ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 558,
+    "start_line": 554,
     "part": 0,
     "word_count": 4
   },
@@ -2030,9 +2032,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://medium.com/@athulyaweerakoon ```",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 562,
+    "start_line": 558,
     "part": 0,
     "word_count": 4
   },
@@ -2043,9 +2045,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://www.wattpad.com/user/AtleeBugs ```",
+    "text": "```text /open-link https://linkedin.com/in/athulya-weerakoon ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 566,
+    "start_line": 562,
     "part": 0,
     "word_count": 4
   },
@@ -2056,9 +2058,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link mailto:athulyaweerakoon@gmail.com ```",
+    "text": "```text /open-link https://medium.com/@athulyaweerakoon ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 570,
+    "start_line": 566,
     "part": 0,
     "word_count": 4
   },
@@ -2069,11 +2071,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Project link commands:",
+    "text": "```text /open-link https://www.wattpad.com/user/AtleeBugs ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 574,
+    "start_line": 570,
     "part": 0,
-    "word_count": 3
+    "word_count": 4
   },
   {
     "id": "chunk-0152",
@@ -2082,9 +2084,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon/reference-implementation-nextgenpsd2 ```",
+    "text": "```text /open-link mailto:athulyaweerakoon@gmail.com ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 576,
+    "start_line": 574,
     "part": 0,
     "word_count": 4
   },
@@ -2095,11 +2097,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/wso2/financial-services-accelerator/pull/716 ```",
+    "text": "Project link commands:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 580,
+    "start_line": 578,
     "part": 0,
-    "word_count": 4
+    "word_count": 3
   },
   {
     "id": "chunk-0154",
@@ -2108,9 +2110,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon/ExamRegistrationUoJ ```",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon/reference-implementation-nextgenpsd2 ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 584,
+    "start_line": 580,
     "part": 0,
     "word_count": 4
   },
@@ -2121,9 +2123,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon/rustic-log-furnace ```",
+    "text": "```text /open-link https://github.com/wso2/financial-services-accelerator/pull/716 ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 588,
+    "start_line": 584,
     "part": 0,
     "word_count": 4
   },
@@ -2134,9 +2136,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon/SinhalaConstitutionRAG ```",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon/ExamRegistrationUoJ ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 592,
+    "start_line": 588,
     "part": 0,
     "word_count": 4
   },
@@ -2147,9 +2149,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://github.com/AthulyaWeerakoon/FlappyBirdVerilog ```",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon/rustic-log-furnace ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 596,
+    "start_line": 592,
     "part": 0,
     "word_count": 4
   },
@@ -2160,11 +2162,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "Article link commands:",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon/SinhalaConstitutionRAG ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 600,
+    "start_line": 596,
     "part": 0,
-    "word_count": 3
+    "word_count": 4
   },
   {
     "id": "chunk-0159",
@@ -2173,9 +2175,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://medium.com/@athulyaweerakoon/every-developer-should-learn-rust-at-least-once-281aecf9135d ```",
+    "text": "```text /open-link https://github.com/AthulyaWeerakoon/FlappyBirdVerilog ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 602,
+    "start_line": 600,
     "part": 0,
     "word_count": 4
   },
@@ -2186,11 +2188,11 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://medium.com/@athulyaweerakoon/i-tried-efficientnets-scaling-trick-on-shufflenet-3cf0d14e1107 ```",
+    "text": "Article link commands:",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 606,
+    "start_line": 604,
     "part": 0,
-    "word_count": 4
+    "word_count": 3
   },
   {
     "id": "chunk-0161",
@@ -2199,9 +2201,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://medium.com/@athulyaweerakoon/github-for-https-web-hosting-ci-cd-ec3fcb49eec5 ```",
+    "text": "```text /open-link https://medium.com/@athulyaweerakoon/every-developer-should-learn-rust-at-least-once-281aecf9135d ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 610,
+    "start_line": 606,
     "part": 0,
     "word_count": 4
   },
@@ -2212,9 +2214,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "```text /open-link https://medium.com/@athulyaweerakoon/cheap-and-reliable-web-hosting-with-aws-cloudflare-namecheap-5727c22ec30c ```",
+    "text": "```text /open-link https://medium.com/@athulyaweerakoon/i-tried-efficientnets-scaling-trick-on-shufflenet-3cf0d14e1107 ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 614,
+    "start_line": 610,
     "part": 0,
     "word_count": 4
   },
@@ -2225,9 +2227,9 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
-    "text": "When to use commands:",
+    "text": "```text /open-link https://medium.com/@athulyaweerakoon/github-for-https-web-hosting-ci-cd-ec3fcb49eec5 ```",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 618,
+    "start_line": 614,
     "part": 0,
     "word_count": 4
   },
@@ -2238,9 +2240,35 @@
       "Chatbot Frontend Commands"
     ],
     "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "```text /open-link https://medium.com/@athulyaweerakoon/cheap-and-reliable-web-hosting-with-aws-cloudflare-namecheap-5727c22ec30c ```",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 618,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0165",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
+    "text": "When to use commands:",
+    "source": "knowledge/athulya-knowledge-corpus.md",
+    "start_line": 622,
+    "part": 0,
+    "word_count": 4
+  },
+  {
+    "id": "chunk-0166",
+    "heading_path": [
+      "Athulya Weerakoon Knowledge Corpus",
+      "Chatbot Frontend Commands"
+    ],
+    "heading": "Athulya Weerakoon Knowledge Corpus > Chatbot Frontend Commands",
     "text": "- If the user asks to see a page section, send only the matching `/navigate` command. - If the user asks to open a public profile, project, article, CV, or external page, send only the matching `/open-link` command. - If the user asks a normal question, answer normally and do not send a command. - If the user asks for both an explanation and navigation, answer the explanation normally first. Do not send a command unless the frontend supports command-plus-message behavior.",
     "source": "knowledge/athulya-knowledge-corpus.md",
-    "start_line": 620,
+    "start_line": 624,
     "part": 0,
     "word_count": 81
   }

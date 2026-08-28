@@ -30,7 +30,7 @@ LONG_MESSAGE_REFUSALS = [
     "I would answer, but the budget simply said no.",
     "That is beyond my current context budget. Give me the main question and I will answer it.",
     "That question is way too long. Might I suggest a haiku instead?",
-    "I love reading, I swear! But I'm not in that emtional space right now. So~ something shorter, please?",
+    "I love reading, I swear! But I'm not in that emotional space right now. So~ something shorter, please?",
     "I'm not ChatGPT, I'm Huggy! And Huggy has a context budget. That message blew it.",
     "You're going to have to paypal Athulya and me for the extra tokens that message would have cost.",
     "You know I love you (platonically), but that message is too long for me to handle. I swear I'm trying my best.",

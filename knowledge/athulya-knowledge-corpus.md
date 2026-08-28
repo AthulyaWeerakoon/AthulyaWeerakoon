@@ -400,7 +400,7 @@ Summary: A grounded guide to hosting personal web apps when static hosting is no
 
 ## Creative Writing
 
-Creative writing summary: Athulya writes fiction on Wattpad under AtleeBugs at https://www.wattpad.com/user/AtleeBugs. His public Wattpad works include Triagon Origins, Hall of Ivory, and A Hundred Years. Triagon Origins is the science-fiction series he loves most and the one he would want to be known for if he succeeds as a writer. Hall of Ivory is a fantasy project he started partly to prove he could keep going with a book-length idea; it became better than expected and is about 80 percent complete. A Hundred Years is a first-person novella from Jasmine's perspective, written for the 2026 Open Novella Contest and being expanded or reworked for the 2026 Wattys.
+Creative writing summary: Athulya writes fiction on Wattpad under AtleeBugs at https://www.wattpad.com/user/AtleeBugs. His public Wattpad works include Triagon Origins, Hall of Ivory, and A Hundred Years. Triagon Origins is the science-fiction series he loves most and the one he would want to be known for if he succeeds as a writer. Hall of Ivory is a fantasy story about a long-lost group of friends reuniting under unfortunate circumstances after one of their companions is imprisoned in another world; it is also about discovering who the friends are to each other and overcoming their own shortcomings. A Hundred Years is about two lovers caught in a curse that kills them each time they fall in love, and this version of their story follows their attempt to break the cycle and free themselves from the curse.
 
 ### Triagon Origins
 
@@ -416,7 +416,9 @@ URL: https://www.wattpad.com/myworks/394332711-the-hall-of-ivory
 
 Genre: Fantasy
 
-Summary: Hall of Ivory follows Turren, the lonely adventurer and godslayer of Thales, who joins three old friends on a quest to rescue their once-companion from a world beyond reach. It crosses a world of legends, nightmare cities, old heartbreaks, and a fatal prophecy. It is not finished yet but is roughly 80 percent complete.
+Summary: Hall of Ivory follows Turren, the lonely adventurer and godslayer of Thales, who joins three old friends on a quest to rescue their once-companion, imprisoned in a world beyond reach. The larger emotional story is about a long-lost group of friends reuniting under unfortunate circumstances, discovering who they are to each other, and overcoming the shortcomings and heartbreaks that once split them apart. It crosses a wondrous world of legends, nightmare cities, old wounds, and a fatal prophecy. It is not finished yet but is roughly 80 percent complete.
+
+Intro-style description: Turren was known by many names across his journeys: the lonely adventurer, the godslayer of Thales. He wandered a desolate land that once held a lush civilization, taking commissions alone until three old friends, Ellie, Mauk, and Lyla, draw him into a quest to rescue their once-companion from another world. For Turren, it begins as another commission, but for the others it matters dearer than life. The journey forces the group through legends, nightmare cities, old heartbreaks, and the question of whether they can find strength in each other before the past leads them to ruin.
 
 ### A Hundred Years
 
@@ -424,7 +426,9 @@ URL: https://www.wattpad.com/myworks/408067856-a-hundred-years
 
 Genre: Speculative romance or reincarnation mystery
 
-Summary: A Hundred Years is written in first person from Jasmine's perspective. Jasmine does not believe in soulmates, fate, or love at first sight until she meets Ethan during a summer internship in the Andes and begins remembering things from another life. The story was an entry for the 2026 Open Novella Contest and is being expanded or reworked for the 2026 Wattys.
+Summary: A Hundred Years is written in first person from Jasmine's perspective. It is about two lovers caught in a curse that kills them each time they fall in love. In this story, Jasmine and Ethan begin to uncover the repeating cycle and intend to break it so they can free themselves from the curse. The story was an entry for the 2026 Open Novella Contest and is being expanded or reworked for the 2026 Wattys.
+
+Intro-style description: Jasmine never believed in love at first sight, soulmates, fate, or the idea that someone could feel familiar before she met them. Then she meets Ethan during a summer internship in the Andes, and what should have been simple fieldwork begins to feel strangely familiar. As memories surface from a life that should not be hers, Jasmine is forced to face a terrifying truth: some connections do not begin, they repeat, and some stories do not end, they unravel.
 
 ## Portfolio Page Mechanics
 
