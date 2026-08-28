@@ -12,6 +12,15 @@ The Worker injects `x-huggy-secret` before forwarding requests to the Space.
 
 It also applies a per-IP daily fair-use budget before the request reaches Hugging Face. If the visitor is over budget, the Worker returns a Huggy-shaped `backend_refused: true` response itself, so the frontend can handle it like any other short-circuit response without spending Groq tokens.
 
+The Worker also handles cheap request-validation short circuits before touching Hugging Face or KV:
+
+- empty chat messages
+- overlong chat messages
+- overlong long-term context
+- no-op context compaction requests with no history and no previous context
+
+These responses keep Huggy's normal API shape but do not spend model tokens and do not count against the daily IP budget.
+
 ## Setup
 
 Install Wrangler if needed:
@@ -38,6 +47,12 @@ HUGGY_SHARED_DAILY_REQUESTS = "1000"
 HUGGY_SHARED_DAILY_TOKENS = "200000"
 HUGGY_FAIR_USER_COUNT = "20"
 HUGGY_AVERAGE_OUTPUT_TOKENS = "160"
+# Optional conversation limits. Keep these aligned with the Hugging Face Space.
+# HUGGY_MAX_MESSAGE_WORDS = "160"
+# HUGGY_MAX_HISTORY_WORDS = "700"
+# HUGGY_MAX_LONG_TERM_WORDS = "360"
+# HUGGY_COMPACT_HISTORY_WORDS = "900"
+# HUGGY_COMPACT_TARGET_WORDS = "220"
 # Optional:
 # HUGGY_DAILY_REQUEST_LIMIT = "8"
 # HUGGY_DAILY_PAYLOAD_WORD_LIMIT = "400"

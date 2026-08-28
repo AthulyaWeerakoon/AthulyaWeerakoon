@@ -7,8 +7,31 @@ const DEFAULT_SHARED_DAILY_TOKENS = 200000;
 const DEFAULT_FAIR_USER_COUNT = 20;
 const DEFAULT_AVERAGE_OUTPUT_TOKENS = 160;
 const DEFAULT_DAILY_PAYLOAD_WORD_LIMIT = 400;
+const DEFAULT_MAX_MESSAGE_WORDS = 160;
+const DEFAULT_MAX_HISTORY_WORDS = 700;
+const DEFAULT_MAX_LONG_TERM_WORDS = 360;
+const DEFAULT_COMPACT_HISTORY_WORDS = 900;
+const DEFAULT_COMPACT_TARGET_WORDS = 220;
 
 const memoryRateLimitStore = new Map();
+
+const LONG_MESSAGE_REFUSALS = [
+  "That message is too chunky for my tiny free-tier backpack. Ask me the short version.",
+  "I respect the essay energy, but the backend has refused this one on budget grounds. Trim it and try again.",
+  "That question is larger than my hosting plan's emotional support allowance. Smaller, please.",
+  "I am but a modest free-tier bot. That message is too long for me to answer responsibly.",
+  "Nope, that prompt tried to move in and sign a lease. Give me the compact version.",
+  "Backend says no. I agree with backend. This message needs fewer words and fewer dramatic entrances.",
+  "That is too long for this little portfolio bot. Condense it before the server starts judging both of us.",
+  "I cannot process that much text on this setup. Free-tier dignity has boundaries.",
+  "That message exceeded my tiny-token patience meter. Ask it in one clean question.",
+  "I am hosted on a budget, not in a data center throne room. Shorten that and I will behave.",
+  "The backend refused this because it is too long. Honestly, fair.",
+  "That prompt is trying to become a novel. I support literature, but not inside this chat box.",
+  "Too long. My free-tier knees buckled. Send a tighter version.",
+  "I would answer, but the budget simply said no.",
+  "That is beyond my current context budget. Give me the main question and I will answer it.",
+];
 
 const DAILY_LIMIT_REPLIES = [
   "You've been hanging with me for an awfully long time today. Huggy's free-tier wallet is tapping the sign. Come back tomorrow.",
@@ -83,6 +106,13 @@ export default {
       body = await readJson(request);
       if (body instanceof Response) {
         return withCors(body, allowedOrigin);
+      }
+    }
+
+    if (route.endpoint !== "wakeup") {
+      const shortCircuit = shortCircuitPayload(route.endpoint, body, env);
+      if (shortCircuit) {
+        return jsonResponse(shortCircuit, 200, allowedOrigin);
       }
     }
 
@@ -258,6 +288,113 @@ function copyRateLimitHeaders(payload, headers) {
       headers.set(`huggy-${headerName}`, String(value));
     }
   }
+}
+
+function shortCircuitPayload(endpoint, body, env) {
+  const limits = conversationLimits(env);
+
+  if (endpoint === "chat") {
+    const message = String(body.message || "").trim();
+    if (!message) {
+      return errorResponse("Ask me something about Athulya first. I promise this works better with input.", limits);
+    }
+
+    if (countWords(message) > limits.maxMessageWords) {
+      return errorResponse(refusalForLongMessage(message), limits);
+    }
+
+    const longTermWords = countWords(normalizeLongTermContext(body.long_term_context));
+    if (longTermWords > limits.maxLongTermWords) {
+      return errorResponse(
+        `Long-term context is too large. Limit it to ${limits.maxLongTermWords} words before sending it back.`,
+        limits,
+      );
+    }
+  }
+
+  if (endpoint === "compact_context") {
+    const previousLongTermContext = body.previous_long_term_context || body.long_term_context || {};
+    const longTermWords = countWords(normalizeLongTermContext(previousLongTermContext));
+    if (longTermWords > limits.maxLongTermWords) {
+      return {
+        long_term_context: { summary: "" },
+        backend_refused: true,
+        error: `Long-term context is too large. Limit it to ${limits.maxLongTermWords} words before sending it back.`,
+        accepted_history: [],
+        ignored_end_history: [],
+        ignored_history: [],
+        metadata: { max_long_term_words: limits.maxLongTermWords },
+      };
+    }
+
+    const compactHistoryWords = countWords(body.chat_history || []);
+    if (!compactHistoryWords && !longTermWords) {
+      return {
+        long_term_context: { summary: "" },
+        backend_refused: false,
+        accepted_history: [],
+        ignored_end_history: [],
+        ignored_history: [],
+        metadata: {
+          accepted_history_words: 0,
+          ignored_end_history_words: 0,
+          compact_history_word_limit: limits.compactHistoryWords,
+          target_words: limits.compactTargetWords,
+        },
+      };
+    }
+  }
+
+  return null;
+}
+
+function conversationLimits(env) {
+  return {
+    maxMessageWords: positiveInt(env.HUGGY_MAX_MESSAGE_WORDS, DEFAULT_MAX_MESSAGE_WORDS),
+    maxHistoryWords: positiveInt(env.HUGGY_MAX_HISTORY_WORDS, DEFAULT_MAX_HISTORY_WORDS),
+    maxLongTermWords: positiveInt(env.HUGGY_MAX_LONG_TERM_WORDS, DEFAULT_MAX_LONG_TERM_WORDS),
+    compactHistoryWords: positiveInt(env.HUGGY_COMPACT_HISTORY_WORDS, DEFAULT_COMPACT_HISTORY_WORDS),
+    compactTargetWords: positiveInt(env.HUGGY_COMPACT_TARGET_WORDS, DEFAULT_COMPACT_TARGET_WORDS),
+  };
+}
+
+function errorResponse(message, limits) {
+  return {
+    reply: message,
+    backend_refused: true,
+    accepted_history: [],
+    forwarded_history: [],
+    ignored_history: [],
+    metadata: {
+      accepted_history_words: 0,
+      forwarded_history_words: 0,
+      max_message_words: limits.maxMessageWords,
+      max_history_words: limits.maxHistoryWords,
+      max_long_term_words: limits.maxLongTermWords,
+    },
+  };
+}
+
+function refusalForLongMessage(message) {
+  return LONG_MESSAGE_REFUSALS[countWords(message) % LONG_MESSAGE_REFUSALS.length];
+}
+
+function normalizeLongTermContext(rawContext) {
+  if (rawContext === null || rawContext === undefined) {
+    return "";
+  }
+  if (typeof rawContext === "string") {
+    return rawContext.trim();
+  }
+  if (typeof rawContext === "object" && !Array.isArray(rawContext)) {
+    for (const key of ["summary", "context", "long_term_context", "memory"]) {
+      if (typeof rawContext[key] === "string") {
+        return rawContext[key].trim();
+      }
+    }
+    return "";
+  }
+  return String(rawContext).trim();
 }
 
 async function checkDailyBudget(request, env, body, endpoint) {
@@ -566,7 +703,9 @@ function attachWorkerRateLimitMetadata(payload, rateLimit) {
 }
 
 function addWorkerRateLimitHeaders(headers, rateLimit) {
-  headers.set("retry-after", String(rateLimit.resetSeconds));
+  if (!rateLimit.allowed) {
+    headers.set("retry-after", String(rateLimit.resetSeconds));
+  }
   headers.set("huggy-worker-ratelimit-limit-requests", String(rateLimit.requestLimit));
   headers.set("huggy-worker-ratelimit-used-requests", String(rateLimit.requestCount));
   headers.set("huggy-worker-ratelimit-remaining-requests", String(rateLimit.remainingRequests));
