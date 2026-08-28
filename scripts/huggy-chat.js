@@ -469,7 +469,8 @@
     return payload?.http_status === 429 && (
       error === "worker_daily_rate_limited" ||
       error === "daily_ip_request_limit_reached" ||
-      error === "daily_ip_payload_word_limit_reached"
+      error === "daily_ip_payload_word_limit_reached" ||
+      error === "daily_ip_weighted_word_limit_reached"
     );
   }
 

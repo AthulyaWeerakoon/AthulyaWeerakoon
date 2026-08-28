@@ -2,9 +2,11 @@ const DEFAULT_ALLOWED_ORIGIN = "https://athulyaweerakoon.xyz";
 const DEFAULT_SECRET_HEADER = "x-huggy-secret";
 const DEFAULT_CONTEXT_WORDS = 552;
 const DEFAULT_CONTEXT_TOKENS = 1000;
-const DEFAULT_SHARED_DAILY_REQUESTS = 500;
+const DEFAULT_SHARED_DAILY_REQUESTS = 1000;
+const DEFAULT_SHARED_DAILY_TOKENS = 200000;
 const DEFAULT_FAIR_USER_COUNT = 20;
-const DEFAULT_DAILY_PAYLOAD_WORD_LIMIT = 6000;
+const DEFAULT_AVERAGE_OUTPUT_TOKENS = 160;
+const DEFAULT_DAILY_PAYLOAD_WORD_LIMIT = 400;
 
 const memoryRateLimitStore = new Map();
 
@@ -276,11 +278,14 @@ async function checkDailyBudget(request, env, body, endpoint) {
   const nextRequests = currentRequests + 1;
   const allowed =
     nextRequests <= policy.dailyRequestLimit &&
-    nextPayloadWords <= policy.dailyPayloadWordLimit;
+    nextPayloadWords <= policy.dailyPayloadWordLimit &&
+    nextWeightedWords <= policy.dailyWeightedWordLimit;
   const reason =
     nextRequests > policy.dailyRequestLimit
       ? "daily_ip_request_limit_reached"
-      : "daily_ip_payload_word_limit_reached";
+      : nextPayloadWords > policy.dailyPayloadWordLimit
+        ? "daily_ip_payload_word_limit_reached"
+        : "daily_ip_weighted_word_limit_reached";
 
   const result = {
     allowed,
@@ -298,10 +303,15 @@ async function checkDailyBudget(request, env, body, endpoint) {
     remainingPayloadWords: Math.max(0, policy.dailyPayloadWordLimit - currentPayloadWords),
     weightedWords: currentWeightedWords,
     requestedWeightedWords,
+    weightedWordLimit: policy.dailyWeightedWordLimit,
+    remainingWeightedWords: Math.max(0, policy.dailyWeightedWordLimit - currentWeightedWords),
     resetSeconds,
     resetAt: new Date(now.getTime() + resetSeconds * 1000).toISOString(),
     contextWords: policy.contextWords,
     contextTokens: policy.contextTokens,
+    sharedDailyTokens: policy.sharedDailyTokens,
+    averageOutputTokens: policy.averageOutputTokens,
+    perUserDailyTokenBudget: policy.perUserDailyTokenBudget,
     estimatedTokensPerWord: policy.estimatedTokensPerWord,
     sharedDailyRequests: policy.sharedDailyRequests,
     fairUserCount: policy.fairUserCount,
@@ -328,6 +338,10 @@ async function commitDailyBudget(rateLimit) {
     rateLimit.payloadWordLimit - rateLimit.nextPayloadWords,
   );
   committed.weightedWords = rateLimit.nextWeightedWords;
+  committed.remainingWeightedWords = Math.max(
+    0,
+    rateLimit.weightedWordLimit - rateLimit.nextWeightedWords,
+  );
   await writeDailyUsage(
     rateLimit.store,
     rateLimit.key,
@@ -361,11 +375,33 @@ function dailyBudgetPolicy(env) {
     env.HUGGY_SHARED_DAILY_REQUESTS,
     DEFAULT_SHARED_DAILY_REQUESTS,
   );
+  const sharedDailyTokens = positiveInt(env.HUGGY_SHARED_DAILY_TOKENS, DEFAULT_SHARED_DAILY_TOKENS);
   const fairUserCount = positiveInt(env.HUGGY_FAIR_USER_COUNT, DEFAULT_FAIR_USER_COUNT);
+  const averageOutputTokens = positiveInt(
+    env.HUGGY_AVERAGE_OUTPUT_TOKENS,
+    DEFAULT_AVERAGE_OUTPUT_TOKENS,
+  );
   const estimatedTokensPerWord = contextTokens / contextWords;
-  const computedDailyRequestLimit = Math.max(1, Math.floor(sharedDailyRequests / fairUserCount));
+  const perUserDailyTokenBudget = Math.max(1, Math.floor(sharedDailyTokens / fairUserCount));
+  const computedDailyRequestLimitFromRequests = Math.max(
+    1,
+    Math.floor(sharedDailyRequests / fairUserCount),
+  );
+  const computedDailyRequestLimitFromTokens = Math.max(
+    1,
+    Math.floor(perUserDailyTokenBudget / (contextTokens + averageOutputTokens)),
+  );
+  const computedDailyRequestLimit = Math.min(
+    computedDailyRequestLimitFromRequests,
+    computedDailyRequestLimitFromTokens,
+  );
+  const outputReserveTokens = computedDailyRequestLimit * averageOutputTokens;
+  const computedDailyWeightedWordLimit = Math.max(
+    contextWords,
+    Math.floor((perUserDailyTokenBudget - outputReserveTokens) / estimatedTokensPerWord),
+  );
   const computedPayloadWordLimit = Math.floor(
-    computedDailyRequestLimit * (contextWords / 2),
+    Math.max(0, computedDailyWeightedWordLimit - computedDailyRequestLimit * contextWords),
   );
   const defaultPayloadWordLimit = Math.min(
     DEFAULT_DAILY_PAYLOAD_WORD_LIMIT,
@@ -375,10 +411,17 @@ function dailyBudgetPolicy(env) {
   return {
     contextWords,
     contextTokens,
+    sharedDailyTokens,
+    averageOutputTokens,
+    perUserDailyTokenBudget,
     estimatedTokensPerWord,
     sharedDailyRequests,
     fairUserCount,
     dailyRequestLimit: positiveInt(env.HUGGY_DAILY_REQUEST_LIMIT, computedDailyRequestLimit),
+    dailyWeightedWordLimit: positiveInt(
+      env.HUGGY_DAILY_WEIGHTED_WORD_LIMIT,
+      computedDailyWeightedWordLimit,
+    ),
     dailyPayloadWordLimit: positiveInt(
       env.HUGGY_DAILY_PAYLOAD_WORD_LIMIT,
       positiveInt(env.HUGGY_DAILY_WORD_LIMIT, defaultPayloadWordLimit),
@@ -471,12 +514,17 @@ function workerRateLimitPayload(rateLimit) {
         payload_words: rateLimit.payloadWords,
         requested_payload_words: rateLimit.requestedPayloadWords,
         remaining_payload_words: rateLimit.remainingPayloadWords,
+        weighted_word_limit: rateLimit.weightedWordLimit,
         weighted_words: rateLimit.weightedWords,
         requested_weighted_words: rateLimit.requestedWeightedWords,
+        remaining_weighted_words: rateLimit.remainingWeightedWords,
         reset_seconds: rateLimit.resetSeconds,
         reset_at: rateLimit.resetAt,
         context_words: rateLimit.contextWords,
         context_tokens: rateLimit.contextTokens,
+        shared_daily_tokens: rateLimit.sharedDailyTokens,
+        average_output_tokens: rateLimit.averageOutputTokens,
+        per_user_daily_token_budget: rateLimit.perUserDailyTokenBudget,
         estimated_tokens_per_word: rateLimit.estimatedTokensPerWord,
         fair_user_count: rateLimit.fairUserCount,
       },
@@ -501,12 +549,17 @@ function attachWorkerRateLimitMetadata(payload, rateLimit) {
     payload_words: rateLimit.payloadWords,
     requested_payload_words: rateLimit.requestedPayloadWords,
     remaining_payload_words: rateLimit.remainingPayloadWords,
+    weighted_word_limit: rateLimit.weightedWordLimit,
     weighted_words: rateLimit.weightedWords,
     requested_weighted_words: rateLimit.requestedWeightedWords,
+    remaining_weighted_words: rateLimit.remainingWeightedWords,
     reset_seconds: rateLimit.resetSeconds,
     reset_at: rateLimit.resetAt,
     context_words: rateLimit.contextWords,
     context_tokens: rateLimit.contextTokens,
+    shared_daily_tokens: rateLimit.sharedDailyTokens,
+    average_output_tokens: rateLimit.averageOutputTokens,
+    per_user_daily_token_budget: rateLimit.perUserDailyTokenBudget,
     estimated_tokens_per_word: rateLimit.estimatedTokensPerWord,
     fair_user_count: rateLimit.fairUserCount,
   };
@@ -527,10 +580,15 @@ function addWorkerRateLimitHeaders(headers, rateLimit) {
     "huggy-worker-ratelimit-remaining-payload-words",
     String(rateLimit.remainingPayloadWords),
   );
+  headers.set("huggy-worker-ratelimit-limit-weighted-words", String(rateLimit.weightedWordLimit));
   headers.set("huggy-worker-ratelimit-used-weighted-words", String(rateLimit.weightedWords));
   headers.set(
     "huggy-worker-ratelimit-requested-weighted-words",
     String(rateLimit.requestedWeightedWords),
+  );
+  headers.set(
+    "huggy-worker-ratelimit-remaining-weighted-words",
+    String(rateLimit.remainingWeightedWords),
   );
   headers.set("huggy-worker-ratelimit-reset-seconds", String(rateLimit.resetSeconds));
 }
@@ -586,8 +644,10 @@ function corsHeaders(allowedOrigin) {
       "huggy-worker-ratelimit-used-payload-words",
       "huggy-worker-ratelimit-requested-payload-words",
       "huggy-worker-ratelimit-remaining-payload-words",
+      "huggy-worker-ratelimit-limit-weighted-words",
       "huggy-worker-ratelimit-used-weighted-words",
       "huggy-worker-ratelimit-requested-weighted-words",
+      "huggy-worker-ratelimit-remaining-weighted-words",
       "huggy-worker-ratelimit-reset-seconds",
     ].join(", "),
     vary: "Origin",

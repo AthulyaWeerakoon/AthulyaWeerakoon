@@ -11,9 +11,9 @@ from groq import Groq
 
 
 DEFAULT_MODELS = [
-    "llama-3.1-8b-instant",
     "openai/gpt-oss-20b",
-    "qwen/qwen3-32b",
+    "openai/gpt-oss-120b",
+    "qwen/qwen3.6-27b",
 ]
 DEFAULT_PROMPT = "Reply with exactly: ok"
 DEFAULT_TIMEOUT_SECONDS = 20.0

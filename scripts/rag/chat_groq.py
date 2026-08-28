@@ -15,12 +15,12 @@ from conversation import render_history, render_retrieval_query
 from rate_limits import rate_limit_payload
 
 
-DEFAULT_MODEL = "llama-3.1-8b-instant"
+DEFAULT_MODEL = "openai/gpt-oss-20b"
 DEFAULT_CHATBOT_CONTEXT = Path("knowledge/huggy-chatbot-context.md")
 DEFAULT_ARTIFACT_DIR = Path("rag_artifacts")
 DEFAULT_MAX_CHUNKS = 6
 DEFAULT_SCORE_THRESHOLD = 0.34
-DEFAULT_MAX_OUTPUT_TOKENS = 320
+DEFAULT_MAX_OUTPUT_TOKENS = 240
 DEFAULT_TIMEOUT_SECONDS = 20.0
 
 
@@ -197,6 +197,8 @@ class HuggyGroq:
             max_completion_tokens=self.max_output_tokens,
             temperature=0.4,
             top_p=0.95,
+            reasoning_effort="low",
+            include_reasoning=False,
             stream=True,
         ) as response:
             self.last_rate_limit = rate_limit_payload(

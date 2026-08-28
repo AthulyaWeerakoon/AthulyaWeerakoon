@@ -128,7 +128,7 @@ Run Huggy with Groq:
 python scripts/rag/chat_groq.py "What did Athulya do at WSO2?" --verbose
 ```
 
-The default Groq model is `llama-3.1-8b-instant`. Override it with:
+The default Groq model is `openai/gpt-oss-20b`, the recommended replacement for the deprecated `llama-3.1-8b-instant`. Override it with:
 
 ```bash
 export GROQ_MODEL="your-model-name"

@@ -9,16 +9,23 @@ HUGGY_SPACE_URL = "https://atleebugs-huggy.hf.space"
 HUGGY_SECRET_HEADER = "x-huggy-secret"
 ALLOWED_ORIGIN = "https://athulyaweerakoon.xyz"
 
-# Daily fair-use budget. Defaults below assume every LLM request includes
-# Huggy's always-included context, which costs about 1000 tokens / 552 words.
+# Daily fair-use budget for Groq openai/gpt-oss-20b free-plan limits.
+# Groq currently documents 1K RPD, 8K TPM, and 200K TPD for this model.
+# Defaults below assume every LLM request includes Huggy's always-included
+# context, which costs about 1000 tokens / 552 words, plus a small output
+# reserve for visible answers and low-effort reasoning.
 HUGGY_CONTEXT_WORDS = "552"
 HUGGY_CONTEXT_TOKENS = "1000"
-HUGGY_SHARED_DAILY_REQUESTS = "500"
+HUGGY_SHARED_DAILY_REQUESTS = "1000"
+HUGGY_SHARED_DAILY_TOKENS = "200000"
 HUGGY_FAIR_USER_COUNT = "20"
-# Optional overrides. If omitted, the Worker allows 500 / 20 = 25
-# requests per IP per UTC day and 6000 incoming payload words per IP per day.
-# HUGGY_DAILY_REQUEST_LIMIT = "25"
-# HUGGY_DAILY_PAYLOAD_WORD_LIMIT = "6000"
+HUGGY_AVERAGE_OUTPUT_TOKENS = "160"
+# Optional overrides. If omitted, the Worker allows about 8 answered
+# requests per IP per UTC day, about 400 incoming payload words per IP per day,
+# and about 4800 weighted words per IP per day.
+# HUGGY_DAILY_REQUEST_LIMIT = "8"
+# HUGGY_DAILY_PAYLOAD_WORD_LIMIT = "400"
+# HUGGY_DAILY_WEIGHTED_WORD_LIMIT = "4800"
 
 [[kv_namespaces]]
 binding = "HUGGY_RATE_LIMIT_KV"

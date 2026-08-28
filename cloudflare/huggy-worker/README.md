@@ -34,11 +34,14 @@ HUGGY_SPACE_URL = "https://atleebugs-huggy.hf.space"
 ALLOWED_ORIGIN = "https://athulyaweerakoon.xyz"
 HUGGY_CONTEXT_WORDS = "552"
 HUGGY_CONTEXT_TOKENS = "1000"
-HUGGY_SHARED_DAILY_REQUESTS = "500"
+HUGGY_SHARED_DAILY_REQUESTS = "1000"
+HUGGY_SHARED_DAILY_TOKENS = "200000"
 HUGGY_FAIR_USER_COUNT = "20"
+HUGGY_AVERAGE_OUTPUT_TOKENS = "160"
 # Optional:
-# HUGGY_DAILY_REQUEST_LIMIT = "25"
-# HUGGY_DAILY_PAYLOAD_WORD_LIMIT = "6000"
+# HUGGY_DAILY_REQUEST_LIMIT = "8"
+# HUGGY_DAILY_PAYLOAD_WORD_LIMIT = "400"
+# HUGGY_DAILY_WEIGHTED_WORD_LIMIT = "4800"
 ```
 
 Use the Space app URL, not `https://huggingface.co/spaces/AtleeBugs/Huggy`.
@@ -57,14 +60,20 @@ binding = "HUGGY_RATE_LIMIT_KV"
 id = "your-kv-namespace-id"
 ```
 
-The default budget has two parts:
+The default budget has three parts:
+The default budget is tuned for Groq `openai/gpt-oss-20b` free-plan limits:
 
 ```text
-daily requests per IP = shared daily requests / fair user count
-daily payload words per IP = 6000
+shared daily request pool = 1000 requests per day
+shared daily token pool = 200000 tokens per day
+fair user count = 20
+reserved average output = 160 tokens per answered request
+daily requests per IP = about 8
+daily payload words per IP = about 400
+daily weighted words per IP = about 4800
 ```
 
-With the current defaults, that is `500 / 20 = 25` chat or context-compaction requests per IP per UTC day, plus `6000` incoming payload words. The request limit matters because every answered request carries Huggy's base context, even if the visitor only types a tiny message. The payload-word limit prevents oversized chat history and long-term context from eating the shared budget.
+The request limit matters because every answered request carries Huggy's base context, even if the visitor only types a tiny message. Weighted words count that always-included context plus the incoming payload. The payload-word limit separately prevents oversized chat history and long-term context from eating the shared budget.
 
 The Worker only commits usage after Huggy returns a non-refused answer. Backend-refused responses, upstream errors, and `wakeup` do not count against the daily budget because they do not spend LLM tokens.
 
@@ -129,8 +138,10 @@ For chat and context-compaction requests, the Worker also adds its own daily IP 
 - `huggy-worker-ratelimit-used-payload-words`
 - `huggy-worker-ratelimit-requested-payload-words`
 - `huggy-worker-ratelimit-remaining-payload-words`
+- `huggy-worker-ratelimit-limit-weighted-words`
 - `huggy-worker-ratelimit-used-weighted-words`
 - `huggy-worker-ratelimit-requested-weighted-words`
+- `huggy-worker-ratelimit-remaining-weighted-words`
 - `huggy-worker-ratelimit-reset-seconds`
 
 When the Worker blocks a visitor for the daily IP budget, it returns HTTP `429`, a `retry-after` header, and the same Huggy-style response shape:
