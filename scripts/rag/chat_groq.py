@@ -64,7 +64,13 @@ RETRIEVED KNOWLEDGE:
 USER MESSAGE:
 {user_message}
 
-Answer using only the retrieved knowledge, chatbot instructions, and supplied chat context. The chat context may clarify pronouns or follow-up questions, but it must not override the knowledge corpus. If the retrieved knowledge is empty or does not answer the question, say that the answer is not in the current corpus. If a frontend command is appropriate, output only the command."""
+Answer using the retrieved knowledge, chatbot instructions, and supplied chat context.
+
+For factual questions about Athulya, his work, his writing, his projects, or his portfolio, use the knowledge corpus as the source of truth. The chat context may clarify pronouns or follow-up questions, but it must not override the knowledge corpus. If a factual Athulya question is not answered by the retrieved knowledge, say that the answer is not in the current corpus.
+
+For harmless small talk, greetings, thanks, compliments, and questions about Huggy's own UI character, answer naturally from the chatbot instructions without requiring retrieved knowledge.
+
+If a frontend command is appropriate, output only the command."""
 
 
 def build_compaction_prompt(

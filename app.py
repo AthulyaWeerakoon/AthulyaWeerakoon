@@ -18,7 +18,11 @@ if not RAG_DIR.exists():
 sys.path.insert(0, str(RAG_DIR))
 
 from chat_gemini import DEFAULT_MODEL as DEFAULT_GEMINI_MODEL, HuggyGemini  # noqa: E402
-from chat_groq import DEFAULT_MODEL as DEFAULT_GROQ_MODEL, HuggyGroq  # noqa: E402
+from chat_groq import (  # noqa: E402
+    DEFAULT_MAX_OUTPUT_TOKENS as DEFAULT_GROQ_MAX_OUTPUT_TOKENS,
+    DEFAULT_MODEL as DEFAULT_GROQ_MODEL,
+    HuggyGroq,
+)
 from commands import match_frontend_command  # noqa: E402
 from conversation import (  # noqa: E402
     ContextBudgetError,
@@ -91,7 +95,7 @@ def get_huggy():
             "local_files_only": env_truthy("RAG_LOCAL_FILES_ONLY"),
             "max_chunks": int(os.environ.get("HUGGY_MAX_CHUNKS", "6")),
             "score_threshold": float(os.environ.get("HUGGY_SCORE_THRESHOLD", "0.34")),
-            "max_output_tokens": int(os.environ.get("HUGGY_MAX_OUTPUT_TOKENS", "320")),
+            "max_output_tokens": int(os.environ.get("HUGGY_MAX_OUTPUT_TOKENS", str(DEFAULT_GROQ_MAX_OUTPUT_TOKENS))),
         }
         if provider == "groq":
             _huggy = HuggyGroq(

@@ -526,7 +526,7 @@
   }
 
   function formatAssistantMessage(text) {
-    const lines = String(text).split(/\r?\n/);
+    const lines = normalizeAssistantText(text).split(/\r?\n/);
     const parts = [];
     let listItems = [];
 
@@ -534,7 +534,7 @@
       if (!listItems.length) {
         return;
       }
-      parts.push(`<ul>${listItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`);
+      parts.push(`<ul>${listItems.map((item) => `<li>${formatInlineMarkdown(item)}</li>`).join("")}</ul>`);
       listItems = [];
     }
 
@@ -547,12 +547,23 @@
 
       flushList();
       if (line.trim()) {
-        parts.push(`<p>${escapeHtml(line.trim())}</p>`);
+        parts.push(`<p>${formatInlineMarkdown(line.trim())}</p>`);
       }
     }
 
     flushList();
     return parts.join("");
+  }
+
+  function normalizeAssistantText(value) {
+    return String(value)
+      .replace(/\\([*_`])/g, "$1")
+      .replace(/&#x20;|&nbsp;/gi, " ")
+      .replace(/[\u00a0\u202f]/g, " ");
+  }
+
+  function formatInlineMarkdown(value) {
+    return escapeHtml(value).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
   }
 
   function escapeHtml(value) {
