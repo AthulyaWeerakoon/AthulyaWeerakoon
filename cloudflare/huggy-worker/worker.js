@@ -6,7 +6,6 @@ const DEFAULT_SHARED_DAILY_REQUESTS = 1000;
 const DEFAULT_SHARED_DAILY_TOKENS = 200000;
 const DEFAULT_FAIR_USER_COUNT = 20;
 const DEFAULT_AVERAGE_OUTPUT_TOKENS = 160;
-const DEFAULT_DAILY_PAYLOAD_WORD_LIMIT = 400;
 const DEFAULT_MAX_MESSAGE_WORDS = 160;
 const DEFAULT_MAX_HISTORY_WORDS = 700;
 const DEFAULT_MAX_LONG_TERM_WORDS = 360;
@@ -415,14 +414,11 @@ async function checkDailyBudget(request, env, body, endpoint) {
   const nextRequests = currentRequests + 1;
   const allowed =
     nextRequests <= policy.dailyRequestLimit &&
-    nextPayloadWords <= policy.dailyPayloadWordLimit &&
     nextWeightedWords <= policy.dailyWeightedWordLimit;
   const reason =
     nextRequests > policy.dailyRequestLimit
       ? "daily_ip_request_limit_reached"
-      : nextPayloadWords > policy.dailyPayloadWordLimit
-        ? "daily_ip_payload_word_limit_reached"
-        : "daily_ip_weighted_word_limit_reached";
+      : "daily_ip_weighted_word_limit_reached";
 
   const result = {
     allowed,
@@ -434,10 +430,10 @@ async function checkDailyBudget(request, env, body, endpoint) {
     requestCount: currentRequests,
     requestedRequests: 1,
     remainingRequests: Math.max(0, policy.dailyRequestLimit - currentRequests),
-    payloadWordLimit: policy.dailyPayloadWordLimit,
+    payloadWordLimit: null,
     payloadWords: currentPayloadWords,
     requestedPayloadWords,
-    remainingPayloadWords: Math.max(0, policy.dailyPayloadWordLimit - currentPayloadWords),
+    remainingPayloadWords: null,
     weightedWords: currentWeightedWords,
     requestedWeightedWords,
     weightedWordLimit: policy.dailyWeightedWordLimit,
@@ -470,10 +466,7 @@ async function commitDailyBudget(rateLimit) {
   committed.requestCount = rateLimit.nextRequests;
   committed.remainingRequests = Math.max(0, rateLimit.requestLimit - rateLimit.nextRequests);
   committed.payloadWords = rateLimit.nextPayloadWords;
-  committed.remainingPayloadWords = Math.max(
-    0,
-    rateLimit.payloadWordLimit - rateLimit.nextPayloadWords,
-  );
+  committed.remainingPayloadWords = null;
   committed.weightedWords = rateLimit.nextWeightedWords;
   committed.remainingWeightedWords = Math.max(
     0,
@@ -537,14 +530,6 @@ function dailyBudgetPolicy(env) {
     contextWords,
     Math.floor((perUserDailyTokenBudget - outputReserveTokens) / estimatedTokensPerWord),
   );
-  const computedPayloadWordLimit = Math.floor(
-    Math.max(0, computedDailyWeightedWordLimit - computedDailyRequestLimit * contextWords),
-  );
-  const defaultPayloadWordLimit = Math.min(
-    DEFAULT_DAILY_PAYLOAD_WORD_LIMIT,
-    computedPayloadWordLimit,
-  );
-
   return {
     contextWords,
     contextTokens,
@@ -558,10 +543,6 @@ function dailyBudgetPolicy(env) {
     dailyWeightedWordLimit: positiveInt(
       env.HUGGY_DAILY_WEIGHTED_WORD_LIMIT,
       computedDailyWeightedWordLimit,
-    ),
-    dailyPayloadWordLimit: positiveInt(
-      env.HUGGY_DAILY_PAYLOAD_WORD_LIMIT,
-      positiveInt(env.HUGGY_DAILY_WORD_LIMIT, defaultPayloadWordLimit),
     ),
   };
 }
@@ -647,10 +628,8 @@ function workerRateLimitPayload(rateLimit) {
         request_limit: rateLimit.requestLimit,
         request_count: rateLimit.requestCount,
         remaining_requests: rateLimit.remainingRequests,
-        payload_word_limit: rateLimit.payloadWordLimit,
         payload_words: rateLimit.payloadWords,
         requested_payload_words: rateLimit.requestedPayloadWords,
-        remaining_payload_words: rateLimit.remainingPayloadWords,
         weighted_word_limit: rateLimit.weightedWordLimit,
         weighted_words: rateLimit.weightedWords,
         requested_weighted_words: rateLimit.requestedWeightedWords,
@@ -682,10 +661,8 @@ function attachWorkerRateLimitMetadata(payload, rateLimit) {
     request_limit: rateLimit.requestLimit,
     request_count: rateLimit.requestCount,
     remaining_requests: rateLimit.remainingRequests,
-    payload_word_limit: rateLimit.payloadWordLimit,
     payload_words: rateLimit.payloadWords,
     requested_payload_words: rateLimit.requestedPayloadWords,
-    remaining_payload_words: rateLimit.remainingPayloadWords,
     weighted_word_limit: rateLimit.weightedWordLimit,
     weighted_words: rateLimit.weightedWords,
     requested_weighted_words: rateLimit.requestedWeightedWords,
@@ -709,15 +686,10 @@ function addWorkerRateLimitHeaders(headers, rateLimit) {
   headers.set("huggy-worker-ratelimit-limit-requests", String(rateLimit.requestLimit));
   headers.set("huggy-worker-ratelimit-used-requests", String(rateLimit.requestCount));
   headers.set("huggy-worker-ratelimit-remaining-requests", String(rateLimit.remainingRequests));
-  headers.set("huggy-worker-ratelimit-limit-payload-words", String(rateLimit.payloadWordLimit));
   headers.set("huggy-worker-ratelimit-used-payload-words", String(rateLimit.payloadWords));
   headers.set(
     "huggy-worker-ratelimit-requested-payload-words",
     String(rateLimit.requestedPayloadWords),
-  );
-  headers.set(
-    "huggy-worker-ratelimit-remaining-payload-words",
-    String(rateLimit.remainingPayloadWords),
   );
   headers.set("huggy-worker-ratelimit-limit-weighted-words", String(rateLimit.weightedWordLimit));
   headers.set("huggy-worker-ratelimit-used-weighted-words", String(rateLimit.weightedWords));
@@ -779,10 +751,8 @@ function corsHeaders(allowedOrigin) {
       "huggy-worker-ratelimit-limit-requests",
       "huggy-worker-ratelimit-used-requests",
       "huggy-worker-ratelimit-remaining-requests",
-      "huggy-worker-ratelimit-limit-payload-words",
       "huggy-worker-ratelimit-used-payload-words",
       "huggy-worker-ratelimit-requested-payload-words",
-      "huggy-worker-ratelimit-remaining-payload-words",
       "huggy-worker-ratelimit-limit-weighted-words",
       "huggy-worker-ratelimit-used-weighted-words",
       "huggy-worker-ratelimit-requested-weighted-words",
