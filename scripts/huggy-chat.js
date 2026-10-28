@@ -86,7 +86,6 @@
   wakeup();
 
   async function wakeup() {
-    showWidget();
     setMode("asleep", "Waking up...");
     setDisabled(true);
     const startedAt = Date.now();
@@ -97,6 +96,7 @@
         const payload = await postJson("wakeup", {});
 
         if (isDailyQuotaPayload(payload)) {
+          showWidget();
           enterSleepingQuota(payload.reply || quotaReply());
           return;
         }
@@ -127,6 +127,7 @@
         );
         setDisabled(false);
         saveState();
+        showWidget();
         return;
       } catch (error) {
         if (error?.terminal) {
@@ -142,10 +143,9 @@
       }
     }
 
-    ensureAssistantGreeting("Huggy could not start after several minutes. His Hugging Face Space may need a manual check.");
-    setMode("sitting", "Offline-ish");
+    // Stay hidden when startup fails. Huggy should only appear once ready or
+    // when the Worker explicitly reports that this visitor's daily quota is spent.
     setDisabled(true);
-    saveState();
   }
 
   function isWakeupPendingPayload(payload) {
@@ -161,6 +161,7 @@
     const transientStatuses = [408, 425, 429, 502, 503, 504];
     return (
       (upstreamStatus >= 400 && !transientStatuses.includes(upstreamStatus)) ||
+      (payload?.backend_refused === true && !isWakeupPendingPayload(payload)) ||
       payload?.metadata?.error === "missing_or_invalid_cloudflare_secret_header"
     );
   }
