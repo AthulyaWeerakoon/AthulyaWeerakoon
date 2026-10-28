@@ -45,8 +45,10 @@ HUGGY_CONTEXT_WORDS = "552"
 HUGGY_CONTEXT_TOKENS = "1000"
 HUGGY_SHARED_DAILY_REQUESTS = "1000"
 HUGGY_SHARED_DAILY_TOKENS = "200000"
-HUGGY_FAIR_USER_COUNT = "20"
+HUGGY_FAIR_USER_COUNT = "10"
 HUGGY_AVERAGE_OUTPUT_TOKENS = "160"
+HUGGY_UPSTREAM_START_TIMEOUT_MS = "15000"
+HUGGY_WAKE_RETRY_AFTER_SECONDS = "3"
 # Optional conversation limits. Keep these aligned with the Hugging Face Space.
 # HUGGY_MAX_MESSAGE_WORDS = "160"
 # HUGGY_MAX_HISTORY_WORDS = "700"
@@ -55,7 +57,6 @@ HUGGY_AVERAGE_OUTPUT_TOKENS = "160"
 # HUGGY_COMPACT_TARGET_WORDS = "220"
 # Optional:
 # HUGGY_DAILY_REQUEST_LIMIT = "8"
-# HUGGY_DAILY_PAYLOAD_WORD_LIMIT = "400"
 # HUGGY_DAILY_WEIGHTED_WORD_LIMIT = "4800"
 ```
 
@@ -75,20 +76,25 @@ binding = "HUGGY_RATE_LIMIT_KV"
 id = "your-kv-namespace-id"
 ```
 
-The default budget has three parts:
 The default budget is tuned for Groq `openai/gpt-oss-20b` free-plan limits:
 
 ```text
 shared daily request pool = 1000 requests per day
 shared daily token pool = 200000 tokens per day
-fair user count = 20
+fair user count = 10
 reserved average output = 160 tokens per answered request
-daily requests per IP = about 8
-daily payload words per IP = about 400
-daily weighted words per IP = about 4800
+daily requests per IP = about 17
+daily weighted words per IP = about 9538
 ```
 
-The request limit matters because every answered request carries Huggy's base context, even if the visitor only types a tiny message. Weighted words count that always-included context plus the incoming payload. The payload-word limit separately prevents oversized chat history and long-term context from eating the shared budget.
+The request limit matters because every answered request carries Huggy's base context, even if the visitor only types a tiny message. Weighted words count that always-included context plus the incoming payload. Payload words are retained as telemetry, while the weighted budget is the enforced token-cost estimate.
+
+Wake-up is deliberately asynchronous across the Worker and browser. A sleeping
+Hugging Face Space commonly answers the first request with `503`; the Worker
+translates transient startup responses and start-request timeouts into `202`
+with `retry-after`, and the portfolio retries with increasing delays capped at
+one minute. This avoids holding a single Cloudflare request open throughout a
+potentially long Space cold start.
 
 The Worker only commits usage after Huggy returns a non-refused answer. Backend-refused responses, upstream errors, and `wakeup` do not count against the daily budget because they do not spend LLM tokens.
 

@@ -4,13 +4,15 @@ const DEFAULT_CONTEXT_WORDS = 552;
 const DEFAULT_CONTEXT_TOKENS = 1000;
 const DEFAULT_SHARED_DAILY_REQUESTS = 1000;
 const DEFAULT_SHARED_DAILY_TOKENS = 200000;
-const DEFAULT_FAIR_USER_COUNT = 20;
+const DEFAULT_FAIR_USER_COUNT = 10;
 const DEFAULT_AVERAGE_OUTPUT_TOKENS = 160;
 const DEFAULT_MAX_MESSAGE_WORDS = 160;
 const DEFAULT_MAX_HISTORY_WORDS = 700;
 const DEFAULT_MAX_LONG_TERM_WORDS = 360;
 const DEFAULT_COMPACT_HISTORY_WORDS = 900;
 const DEFAULT_COMPACT_TARGET_WORDS = 220;
+const DEFAULT_UPSTREAM_START_TIMEOUT_MS = 15000;
+const DEFAULT_WAKE_RETRY_AFTER_SECONDS = 3;
 
 const memoryRateLimitStore = new Map();
 
@@ -135,6 +137,14 @@ export default {
       args: route.buildArgs(body),
       secretHeader,
       sharedSecret,
+      startTimeoutMs: positiveInt(
+        env.HUGGY_UPSTREAM_START_TIMEOUT_MS,
+        DEFAULT_UPSTREAM_START_TIMEOUT_MS,
+      ),
+      wakeRetryAfterSeconds: positiveInt(
+        env.HUGGY_WAKE_RETRY_AFTER_SECONDS,
+        DEFAULT_WAKE_RETRY_AFTER_SECONDS,
+      ),
     });
 
     const responseHeaders = corsHeaders(allowedOrigin);
@@ -147,6 +157,7 @@ export default {
       addWorkerRateLimitHeaders(responseHeaders, workerRateLimit);
       attachWorkerRateLimitMetadata(upstreamResult.data, workerRateLimit);
     }
+    addWakeupHeaders(responseHeaders, upstreamResult.data);
 
     const status = statusFromPayload(upstreamResult.data);
     return new Response(JSON.stringify(upstreamResult.data), {
@@ -156,7 +167,15 @@ export default {
   },
 };
 
-async function callGradioEndpoint({ upstreamBase, endpoint, args, secretHeader, sharedSecret }) {
+async function callGradioEndpoint({
+  upstreamBase,
+  endpoint,
+  args,
+  secretHeader,
+  sharedSecret,
+  startTimeoutMs,
+  wakeRetryAfterSeconds,
+}) {
   const base = upstreamBase.replace(/\/+$/, "");
   const headers = {
     "content-type": "application/json",
@@ -164,14 +183,47 @@ async function callGradioEndpoint({ upstreamBase, endpoint, args, secretHeader, 
   };
 
   const startUrl = `${base}/gradio_api/call/${endpoint}`;
-  const startResponse = await fetch(startUrl, {
-    method: "POST",
-    headers,
-    body: JSON.stringify({ data: args }),
-  });
+  let startResponse;
+  try {
+    startResponse = await fetchWithTimeout(
+      startUrl,
+      {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ data: args }),
+      },
+      startTimeoutMs,
+    );
+  } catch (error) {
+    if (endpoint === "wakeup" && isTransientFetchError(error)) {
+      return {
+        data: wakeupPendingPayload({
+          upstreamStatus: 0,
+          retryAfterSeconds: wakeRetryAfterSeconds,
+          reason: isTimeoutError(error) ? "upstream_start_timeout" : "upstream_unreachable",
+        }),
+      };
+    }
+    return {
+      data: {
+        error: "upstream_start_request_failed",
+        status: 502,
+        body: "The Hugging Face Space could not be reached.",
+      },
+    };
+  }
 
   const startText = await startResponse.text();
   if (!startResponse.ok) {
+    if (endpoint === "wakeup" && isTransientWakeStatus(startResponse.status)) {
+      return {
+        data: wakeupPendingPayload({
+          upstreamStatus: startResponse.status,
+          retryAfterSeconds: retryAfterSeconds(startResponse, wakeRetryAfterSeconds),
+          reason: "huggingface_space_starting",
+        }),
+      };
+    }
     return {
       data: {
         error: "upstream_start_failed",
@@ -207,6 +259,55 @@ async function callGradioEndpoint({ upstreamBase, endpoint, args, secretHeader, 
   }
 
   return { data: parseGradioEventStream(resultText) };
+}
+
+async function fetchWithTimeout(url, options, timeoutMs) {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
+function isTransientFetchError(error) {
+  return isTimeoutError(error) || error instanceof TypeError;
+}
+
+function isTimeoutError(error) {
+  return error?.name === "AbortError" || error?.name === "TimeoutError";
+}
+
+function isTransientWakeStatus(status) {
+  return (
+    status === 408 ||
+    status === 425 ||
+    status === 429 ||
+    status === 502 ||
+    status === 503 ||
+    status === 504
+  );
+}
+
+function retryAfterSeconds(response, fallback) {
+  const parsed = Number.parseInt(response.headers.get("retry-after"), 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : fallback;
+}
+
+function wakeupPendingPayload({ upstreamStatus, retryAfterSeconds: retryAfter, reason }) {
+  return {
+    reply: "Huggy is still waking up. Tiny cloud bedrooms have stubborn doors.",
+    backend_refused: true,
+    ready: false,
+    waking: true,
+    metadata: {
+      error: "upstream_waking",
+      reason,
+      upstream_status: upstreamStatus,
+      retry_after_seconds: retryAfter,
+    },
+  };
 }
 
 function parseGradioEventStream(text) {
@@ -257,6 +358,9 @@ function safeJsonOrText(text) {
 }
 
 function statusFromPayload(payload) {
+  if (payload?.waking || payload?.metadata?.error === "upstream_waking") {
+    return 202;
+  }
   if (payload && payload.metadata && payload.metadata.error === "missing_or_invalid_cloudflare_secret_header") {
     return 502;
   }
@@ -272,6 +376,18 @@ function statusFromPayload(payload) {
     return 502;
   }
   return 200;
+}
+
+function addWakeupHeaders(headers, payload) {
+  if (!payload?.waking && payload?.metadata?.error !== "upstream_waking") {
+    return;
+  }
+  const retryAfter = positiveInt(
+    payload?.metadata?.retry_after_seconds,
+    DEFAULT_WAKE_RETRY_AFTER_SECONDS,
+  );
+  headers.set("retry-after", String(retryAfter));
+  headers.set("x-huggy-wakeup-state", "waking");
 }
 
 function copyRateLimitHeaders(payload, headers) {
@@ -758,6 +874,7 @@ function corsHeaders(allowedOrigin) {
       "huggy-worker-ratelimit-requested-weighted-words",
       "huggy-worker-ratelimit-remaining-weighted-words",
       "huggy-worker-ratelimit-reset-seconds",
+      "x-huggy-wakeup-state",
     ].join(", "),
     vary: "Origin",
   });

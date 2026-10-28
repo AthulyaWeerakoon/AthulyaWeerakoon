@@ -18,8 +18,12 @@ HUGGY_CONTEXT_WORDS = "552"
 HUGGY_CONTEXT_TOKENS = "1000"
 HUGGY_SHARED_DAILY_REQUESTS = "1000"
 HUGGY_SHARED_DAILY_TOKENS = "200000"
-HUGGY_FAIR_USER_COUNT = "20"
+HUGGY_FAIR_USER_COUNT = "10"
 HUGGY_AVERAGE_OUTPUT_TOKENS = "160"
+# A sleeping Space can return 503 while Hugging Face starts it. Keep each
+# Worker attempt short; the portfolio polls with backoff up to once per minute.
+HUGGY_UPSTREAM_START_TIMEOUT_MS = "15000"
+HUGGY_WAKE_RETRY_AFTER_SECONDS = "3"
 # Optional overrides. If omitted, the Worker derives the answered request
 # count and weighted word budget per IP per UTC day from the shared token budget.
 # Payload words are tracked for observability, but not used as a separate cap.

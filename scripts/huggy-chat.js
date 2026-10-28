@@ -2,6 +2,8 @@
   const API_BASE = (window.HUGGY_API_BASE || "https://huggy-worker.athulyaweerakoon.workers.dev/api/huggy").replace(/\/+$/, "");
   const STORAGE_KEY = "huggy.chat.v1";
   const DAILY_GRACE_MS = 60 * 1000;
+  const WAKE_BACKOFF_MS = [2000, 4000, 8000, 15000, 30000, 60000];
+  const MAX_WAKEUP_WAIT_MS = 12 * 60 * 1000;
   const MAX_VISIBLE_PAIRS = 40;
   const SPRITES = {
     asleep: "assets/images/huggy-asleep.png",
@@ -84,30 +86,87 @@
   wakeup();
 
   async function wakeup() {
-    try {
-      const payload = await postJson("wakeup", {});
-      showWidget();
+    showWidget();
+    setMode("asleep", "Waking up...");
+    setDisabled(true);
+    const startedAt = Date.now();
+    let attempt = 0;
 
-      if (isDailyQuotaPayload(payload)) {
-        enterSleepingQuota(payload.reply || quotaReply());
+    while (Date.now() - startedAt < MAX_WAKEUP_WAIT_MS) {
+      try {
+        const payload = await postJson("wakeup", {});
+
+        if (isDailyQuotaPayload(payload)) {
+          enterSleepingQuota(payload.reply || quotaReply());
+          return;
+        }
+
+        if (isWakeupPendingPayload(payload)) {
+          const backoff = WAKE_BACKOFF_MS[Math.min(attempt, WAKE_BACKOFF_MS.length - 1)];
+          const serverDelay = Number(payload.retry_after_seconds || payload?.metadata?.retry_after_seconds || 0) * 1000;
+          const delay = Math.min(60000, Math.max(backoff, serverDelay));
+          attempt += 1;
+          await wait(delay);
+          continue;
+        }
+
+        if (!payload.ready) {
+          const error = new Error(payload.error || payload?.metadata?.error || "wakeup_failed");
+          error.terminal = isTerminalWakeupFailure(payload);
+          throw error;
+        }
+
+        const greeting = payload.reply || "Huggy is awake and ready to answer.";
+        state.dailyQuota = false;
+        state.dailyGraceUntil = 0;
+        state.lastQuotaReply = "";
+        ensureAssistantGreeting(greeting);
+        setMode(
+          state.hasAskedQuestion ? "standing" : "waving",
+          state.hasAskedQuestion ? "Ready" : "Hi there",
+        );
+        setDisabled(false);
+        saveState();
         return;
+      } catch (error) {
+        if (error?.terminal) {
+          break;
+        }
+        const backoff = WAKE_BACKOFF_MS[Math.min(attempt, WAKE_BACKOFF_MS.length - 1)];
+        attempt += 1;
+        if (Date.now() - startedAt + backoff < MAX_WAKEUP_WAIT_MS) {
+          await wait(backoff);
+          continue;
+        }
+        break;
       }
-
-      const greeting = payload.reply || "Huggy is awake and ready to answer.";
-      state.dailyQuota = false;
-      state.dailyGraceUntil = 0;
-      state.lastQuotaReply = "";
-      ensureAssistantGreeting(greeting);
-      setMode(state.hasAskedQuestion ? "standing" : "waving", state.hasAskedQuestion ? "Ready" : "Hi there");
-      setDisabled(false);
-      saveState();
-    } catch (error) {
-      showWidget();
-      ensureAssistantGreeting("Huggy is having trouble waking up right now. Very free-tier of him.");
-      setMode("sitting", "Offline-ish");
-      setDisabled(true);
-      saveState();
     }
+
+    ensureAssistantGreeting("Huggy could not start after several minutes. His Hugging Face Space may need a manual check.");
+    setMode("sitting", "Offline-ish");
+    setDisabled(true);
+    saveState();
+  }
+
+  function isWakeupPendingPayload(payload) {
+    return (
+      payload?.http_status === 202 ||
+      payload?.waking === true ||
+      payload?.metadata?.error === "upstream_waking"
+    );
+  }
+
+  function isTerminalWakeupFailure(payload) {
+    const upstreamStatus = Number(payload?.status || payload?.metadata?.upstream_status || 0);
+    const transientStatuses = [408, 425, 429, 502, 503, 504];
+    return (
+      (upstreamStatus >= 400 && !transientStatuses.includes(upstreamStatus)) ||
+      payload?.metadata?.error === "missing_or_invalid_cloudflare_secret_header"
+    );
+  }
+
+  function wait(delayMs) {
+    return new Promise((resolve) => window.setTimeout(resolve, delayMs));
   }
 
   async function handleSubmit(event) {
@@ -315,8 +374,19 @@
       body: JSON.stringify(body),
     });
     const text = await response.text();
-    const payload = text ? JSON.parse(text) : {};
+    let payload = {};
+    if (text) {
+      try {
+        payload = JSON.parse(text);
+      } catch {
+        payload = { error: "invalid_backend_response", body: text };
+      }
+    }
     payload.http_status = response.status;
+    const retryAfter = Number.parseInt(response.headers.get("retry-after"), 10);
+    if (Number.isFinite(retryAfter) && retryAfter > 0) {
+      payload.retry_after_seconds = retryAfter;
+    }
     return payload;
   }
 
